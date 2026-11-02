@@ -135,7 +135,6 @@ A script does what is better done by code: a calculation, a file conversion, a c
 skills/weather-forecast/
 ├── SKILL.md
 ├── icon.svg
-├── requirements.txt  requests==2.32.3
 └── scripts/
     └── forecast.py
 ```
@@ -149,7 +148,7 @@ compatibility: Python 3 with requests, and internet access to the weather servic
 metadata:
   icon: icon.svg
   author: your-github-handle
-  openclaw:
+  traceflow:
     requires:
       bins: [python3]
       env: [WEATHER_API_URL, WEATHER_API_KEY]
@@ -172,9 +171,9 @@ It prints one line per day as JSON: the date, the lowest and highest temperature
 How the script is used:
 
 - **Running it.** Commands start in the workspace's root, so the body names the script by its path from there: `.skills/<name>/scripts/…`. The `skill` argument of `execute` runs the command in the skill computer, beside the skill's files. Files the script writes for the person go in the workspace (`reports/forecast.json`), not in the skill's folder.
-- **Its Python packages.** At install, traceflow reads the imports in the skill's scripts and lists any the environment lacks; the admin adds them to the environment, which is built once at install. Nothing is installed while the agent runs. Ship a `requirements.txt` with the versions you tested, so the admin can copy the lines. Use the standard library where you can.
-- **Its programs.** List the programs the scripts run in `metadata.openclaw.requires.bins`, as [OpenClaw](https://github.com/openclaw/openclaw) skills do. The install check shows the ones the environment lacks.
-- **Its settings.** List the environment variables the scripts read in `metadata.openclaw.requires.env` (and `primaryEnv`). Each becomes a setting the admin fills in, and the scripts read it from their environment. A setting whose name has a word like `KEY`, `TOKEN`, `SECRET` or `PASSWORD` is kept secret and masked. A setting's name can't be `PATH`, `HOME` or another the computer sets itself, or start with `LD_` or `PYTHON`.
+- **Its Python packages.** You don't list them: at install, traceflow reads the imports in the skill's scripts and installs each package into the skill computer when its image is built, once, never while the agent runs. One pip can't install is left out, so use the standard library where you can and import packages by their usual names (`requests`, `yaml`, `PIL`).
+- **Its programs.** List the programs the scripts run in `metadata.traceflow.requires.bins` (`python3`, `pdftotext`, `ffmpeg`, …). traceflow installs the ones it knows when the image is built; the install check names any it can't provide.
+- **Its settings.** List the environment variables the scripts read in `metadata.traceflow.requires.env`, and the main one, if any, as `primaryEnv`. Each becomes a setting the admin fills in, and the scripts read it from their environment. A setting whose name has a word like `KEY`, `TOKEN`, `SECRET` or `PASSWORD` is kept secret and masked. A setting's name can't be `PATH`, `HOME` or another the computer sets itself, or start with `LD_` or `PYTHON`.
 - **Its network.** An environment has no network unless the admin gives it one. Say in `compatibility` when the skill needs the internet.
 
 `scripts/forecast.py` reads its settings and prints, nothing more:
