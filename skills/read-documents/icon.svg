@@ -1,15 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Read documents">
-  <defs>
-    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F7B23B"/>
-      <stop offset="1" stop-color="#B25F0A"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="18" fill="url(#tile)"/>
-  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="17.25" fill="none" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="1.5"/>
-  <rect x="24" y="9" width="28" height="36" rx="5" fill="#FFFFFF" fill-opacity="0.28"/>
-  <path d="M17 15h17l10 10v24a6 6 0 0 1-6 6H17a6 6 0 0 1-6-6V21a6 6 0 0 1 6-6z" fill="#FFFFFF"/>
-  <path d="M34 15v6a4 4 0 0 0 4 4h6" fill="none" stroke="#C46E0E" stroke-width="2" stroke-linejoin="round"/>
-  <rect x="17" y="32" width="21" height="15" rx="2" fill="none" stroke="#C46E0E" stroke-width="2.5"/>
-  <path d="M17 39.5h21M27.5 32v15" stroke="#C46E0E" stroke-width="2.5"/>
+  <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#F5A524"/>
+  <path d="M19 8h17l14 14v26a8 8 0 0 1-8 8H19a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8z" fill="#FFFFFF"/>
+  <path d="M36 8v9a5 5 0 0 0 5 5h9z" fill="#F5A524" fill-opacity="0.4"/>
+  <ellipse cx="24.0" cy="31" rx="3.6" ry="3.87" fill="#F5A524"/>
+  <ellipse cx="37.0" cy="31" rx="3.6" ry="3.87" fill="#F5A524"/>
+  <path d="M25.0 39q5.5 4.7 11.0 0" fill="none" stroke="#F5A524" stroke-width="3" stroke-linecap="round"/>
 </svg>

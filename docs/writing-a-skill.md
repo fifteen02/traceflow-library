@@ -342,16 +342,11 @@ Draw it in the style of the set (see [Icons](../README.md#icons)). The smallest 
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Reply drafts">
-  <defs>
-    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1FB58F"/>
-      <stop offset="1" stop-color="#075E4A"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="18" fill="url(#tile)"/>
-  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="17.25" fill="none" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="1.5"/>
-  <circle cx="38" cy="26" r="14" fill="#FFFFFF" fill-opacity="0.28"/>
-  <path d="M14 22a8 8 0 0 1 8-8h20a8 8 0 0 1 8 8v12a8 8 0 0 1-8 8H28l-8 7v-7.5A8 8 0 0 1 14 34z" fill="#FFFFFF"/>
+  <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#12A594"/>
+  <path d="M17 13h30a8 8 0 0 1 8 8v13a8 8 0 0 1-8 8H30l-10 8v-8h-3a8 8 0 0 1-8-8V21a8 8 0 0 1 8-8z" fill="#FFFFFF"/>
+  <ellipse cx="25.5" cy="24.5" rx="3.6" ry="3.87" fill="#12A594"/>
+  <ellipse cx="38.5" cy="24.5" rx="3.6" ry="3.87" fill="#12A594"/>
+  <path d="M26.5 32q5.5 4.7 11 0" fill="none" stroke="#12A594" stroke-width="3" stroke-linecap="round"/>
 </svg>
 ```
 

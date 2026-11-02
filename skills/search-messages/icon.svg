@@ -1,20 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Search messages">
-  <defs>
-    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#1FB58F"/>
-      <stop offset="1" stop-color="#075E4A"/>
-    </linearGradient>
-    <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.08"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="18" fill="url(#tile)"/>
-  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="17.25" fill="none" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="1.5"/>
-  <path d="M27 13h17a7 7 0 0 1 7 7v9a7 7 0 0 1-7 7h-1v5l-6-5H27a7 7 0 0 1-7-7v-9a7 7 0 0 1 7-7z" fill="#FFFFFF" fill-opacity="0.28"/>
-  <path d="M17 21h18a7 7 0 0 1 7 7v8a7 7 0 0 1-7 7H24l-7 6v-6.4A7 7 0 0 1 10 36v-8a7 7 0 0 1 7-7z" fill="#FFFFFF"/>
-  <path d="M17 29h16M17 35h9" stroke="#0B7A60" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="42" cy="42" r="8.5" fill="url(#lens)" stroke="#FFFFFF" stroke-width="3.5"/>
-  <path d="M38.5 39.5a4.5 4.5 0 0 1 4-2.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none"/>
-  <path d="M48.3 48.3l6.2 6.2" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#12A594"/>
+  <path d="M17 11h24a8 8 0 0 1 8 8v11a8 8 0 0 1-8 8H28l-10 8v-8h-1a8 8 0 0 1-8-8V19a8 8 0 0 1 8-8z" fill="#FFFFFF"/>
+  <ellipse cx="22.5" cy="21.5" rx="3.4" ry="3.65" fill="#12A594"/>
+  <ellipse cx="35.5" cy="21.5" rx="3.4" ry="3.65" fill="#12A594"/>
+  <path d="M24 28q5 4.2 10 0" fill="none" stroke="#12A594" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="45" cy="44" r="10.5" fill="#12A594"/>
+  <circle cx="45" cy="44" r="6.5" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+  <path d="M50 49l5 5" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
 </svg>

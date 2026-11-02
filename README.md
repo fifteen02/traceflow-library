@@ -40,9 +40,9 @@ skills/<name>/
 
 Every icon is one of a set, so a skill is known at a glance:
 
-- a 64×64 tile, corner radius 18, a diagonal gradient (lighter top-left, darker bottom-right) and a thin white inner edge at 18% opacity;
-- one white glyph for what the skill is about, with one translucent white shape behind it for depth;
-- the tile's colour says the skill's area: teal for messages and people, blue for calendar and time, amber for files and documents, violet for the web, coral for money;
+- traceflow's own tile: the squircle of its logo (`M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z`) in one flat colour, with no gradient or edge;
+- one white glyph for what the skill is about, wearing traceflow's happy face: the logo's two oval eyes and a smile, cut out in the tile's colour;
+- the tile's colour says the skill's area, from traceflow's named colours: teal `#12A594` for messages and people, blue `#0090FF` for calendar and time, amber `#F5A524` for files and documents, violet `#8E4EC6` for the web and skills, red `#E5484D` for money;
 - it reads at 36px on a card, on light and dark pages alike.
 
 ## Installing in traceflow
