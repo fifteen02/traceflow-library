@@ -1,10 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Search messages">
   <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#12A594"/>
-  <path d="M17 11h24a8 8 0 0 1 8 8v11a8 8 0 0 1-8 8H28l-10 8v-8h-1a8 8 0 0 1-8-8V19a8 8 0 0 1 8-8z" fill="#FFFFFF"/>
-  <ellipse cx="22.5" cy="21.5" rx="3.4" ry="3.65" fill="#12A594"/>
-  <ellipse cx="35.5" cy="21.5" rx="3.4" ry="3.65" fill="#12A594"/>
-  <path d="M24 28q5 4.2 10 0" fill="none" stroke="#12A594" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="45" cy="44" r="10.5" fill="#12A594"/>
-  <circle cx="45" cy="44" r="6.5" fill="none" stroke="#FFFFFF" stroke-width="4"/>
-  <path d="M50 49l5 5" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M18 11h28a9 9 0 0 1 9 9v15a9 9 0 0 1-9 9H30l-11 9v-9h-1a9 9 0 0 1-9-9V20a9 9 0 0 1 9-9z" fill="#FFFFFF"/>
+  <ellipse cx="25" cy="24" rx="4.2" ry="4.51" fill="#12A594"/>
+  <ellipse cx="39" cy="24" rx="4.2" ry="4.51" fill="#12A594"/>
+  <path d="M25 31q7 7 14 0" fill="none" stroke="#12A594" stroke-width="3.5" stroke-linecap="round"/>
 </svg>

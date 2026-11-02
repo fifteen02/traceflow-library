@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Skill review">
   <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#8E4EC6"/>
-  <path d="M32 8l20 7.5v13.5c0 13-8.6 22.6-20 27.5-11.4-4.9-20-14.5-20-27.5V15.5z" fill="#FFFFFF"/>
-  <ellipse cx="25" cy="27.5" rx="3.8" ry="4.08" fill="#8E4EC6"/>
-  <ellipse cx="39" cy="27.5" rx="3.8" ry="4.08" fill="#8E4EC6"/>
-  <path d="M26 36q6 5.1 12 0" fill="none" stroke="#8E4EC6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 7l21 8v14c0 13.5-9 23.3-21 28.5C20 52.3 11 42.5 11 29V15z" fill="#FFFFFF"/>
+  <ellipse cx="25" cy="28" rx="4.2" ry="4.51" fill="#8E4EC6"/>
+  <ellipse cx="39" cy="28" rx="4.2" ry="4.51" fill="#8E4EC6"/>
+  <path d="M25 35q7 7 14 0" fill="none" stroke="#8E4EC6" stroke-width="3.5" stroke-linecap="round"/>
 </svg>

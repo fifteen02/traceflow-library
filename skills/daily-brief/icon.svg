@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Daily brief">
   <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#0090FF"/>
-  <path d="M13 43a19 19 0 0 1 38 0z" fill="#FFFFFF"/>
-  <path d="M9 47h46M20 55h24" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
-  <path d="M32 7v6M13 15l4 4M51 15l-4 4" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
-  <ellipse cx="26" cy="31.5" rx="3.2" ry="3.44" fill="#0090FF"/>
-  <ellipse cx="38" cy="31.5" rx="3.2" ry="3.44" fill="#0090FF"/>
-  <path d="M27.5 37q4.5 3.8 9.0 0" fill="none" stroke="#0090FF" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="15" fill="#FFFFFF"/><path d="M32 6v5M32 53v5M6 32h5M53 32h5M13.6 13.6l3.5 3.5M46.9 46.9l3.5 3.5M13.6 50.4l3.5-3.5M46.9 17.1l3.5-3.5" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+  <ellipse cx="25" cy="29" rx="4.2" ry="4.51" fill="#0090FF"/>
+  <ellipse cx="39" cy="29" rx="4.2" ry="4.51" fill="#0090FF"/>
+  <path d="M25 36q7 7 14 0" fill="none" stroke="#0090FF" stroke-width="3.5" stroke-linecap="round"/>
 </svg>
