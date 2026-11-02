@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="assets/logo.svg" width="96" height="96" alt="traceflow">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/wordmark-dark.svg">
+    <img src="assets/wordmark-light.svg" height="56" alt="traceflow">
+  </picture>
 </p>
 
 <h1 align="center">traceflow skills</h1>
