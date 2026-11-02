@@ -1,6 +1,6 @@
 # traceflow skills
 
-Skills for [traceflow](https://github.com/fifteen02/traceflow) agents: playbooks that tell an agent how to use traceflow's tools well. Each skill follows the [Agent Skills](https://agentskills.io) format, so any tool that reads `SKILL.md` folders can use it.
+Skills for [traceflow](https://github.com/fifteen02/traceflow) agents: playbooks that tell an agent how to use traceflow's tools well. Each skill is a folder: a `SKILL.md` with a short header and the instructions, and any files, scripts and icon it uses.
 
 ## Skills
 
@@ -95,7 +95,7 @@ The header:
 | `metadata.always` | Optional. `true` suggests the whole skill is read on every turn. Keep it for skills that most turns need; the admin decides in the end. |
 | `metadata.author` | Optional. Your GitHub handle or your project's name. |
 
-Write any other key under `metadata`. A top-level key the [Agent Skills](https://agentskills.io) format doesn't name is ignored, with a warning.
+Write any other key under `metadata`. A top-level key not in the table is ignored, with a warning.
 
 **The `description`** is all the agent knows about a skill until it loads it, so it decides whether the skill is ever used. Say what the skill is for and, above all, **when** to use it, in the words a person would use: "Use it when they ask you to answer, reply to, write back to…". Say when not to use it if another skill is close. Leave out how it works; that is the body's job. Avoid `: ` (a colon and a space) in a header value, or put the whole value in quotes.
 
@@ -171,7 +171,7 @@ It prints one line per day as JSON: the date, the lowest and highest temperature
 How the script is used:
 
 - **Running it.** Commands start in the workspace's root, so the body names the script by its path from there: `.skills/<name>/scripts/…`. The `skill` argument of `execute` runs the command in the skill computer, beside the skill's files. Files the script writes for the person go in the workspace (`reports/forecast.json`), not in the skill's folder.
-- **Its Python packages.** You don't list them: at install, traceflow reads the imports in the skill's scripts and installs each package into the skill computer when its image is built, once, never while the agent runs. One pip can't install is left out, so use the standard library where you can and import packages by their usual names (`requests`, `yaml`, `PIL`).
+- **Its Python packages.** You don't list them: at install, traceflow reads the imports in the skill's scripts and installs each package into the skill computer when its image is built, once, never while the agent runs. A package that can't be installed is left out, so use the standard library where you can and import packages by their usual names (`requests`, `yaml`, `PIL`).
 - **Its programs.** List the programs the scripts run in `metadata.traceflow.requires.bins` (`python3`, `pdftotext`, `ffmpeg`, …). traceflow installs the ones it knows when the image is built; the install check names any it can't provide.
 - **Its settings.** List the environment variables the scripts read in `metadata.traceflow.requires.env`, and the main one, if any, as `primaryEnv`. Each becomes a setting the admin fills in, and the scripts read it from their environment. A setting whose name has a word like `KEY`, `TOKEN`, `SECRET` or `PASSWORD` is kept secret and masked. A setting's name can't be `PATH`, `HOME` or another the computer sets itself, or start with `LD_` or `PYTHON`.
 - **Its network.** An environment has no network unless the admin gives it one. Say in `compatibility` when the skill needs the internet.
