@@ -13,7 +13,7 @@ metadata:
 
 You have two tools:
 
-- `search_messages` finds messages. Every filter is optional and they combine: `query` (words, matched by meaning), `channel` (WHATSAPP, GMAIL, …), `conversation` (a chat or group by its name), `since` / `until` (times with an offset) and `zone`, and `limit`.
+- `search_messages` finds messages. Every filter is optional and they combine: `query` (words, matched by meaning), `person` (messages from or with one person, by name, number or email, across every chat and channel), `channel` (WHATSAPP, GMAIL, …), `conversation` (a chat or group by its name, or part of it), `since` / `until` (times with an offset) and `zone`, and `limit`.
 - `search_messages_thread` reads a found message where it sits: its `conversation` and its `sentAt` as `at`, with the messages just before and after.
 
 A single message rarely says enough. Before you say what a found message means, read it in its thread.
@@ -22,10 +22,10 @@ A single message rarely says enough. Before you say what a found message means, 
 
 ### About one person ("what did Ana say", "when do I see Ana")
 
-1. Search with the person's name as the `query`, no other filter. Look at the `chat` and `from` of what comes back: a person usually has a private chat (`chat` is their name) and may write in groups too.
-2. If you find more than one person with that name (different numbers, different chats), ask which one before going on.
-3. Then search each of their chats you found by `conversation`, newest first, and read the newest relevant message with `search_messages_thread`.
-4. Check both their private chat and the groups they write in: what they post in a group (a schedule, an update) often matters more than the private chat.
+1. Search with `person` set to their name, no `query`: it lists what they sent and the chats they are in, newest first, across WhatsApp and email. The result says who it kept to.
+2. If it says more than one person is called that, ask which one (it lists each with their number or address), then search again with their full name or number.
+3. Read the newest relevant message with `search_messages_thread`.
+4. Look at both their private chat and the groups they write in: what they post in a group (a schedule, an update) often matters more than the private chat. Add `conversation` to keep to one of them.
 
 ### The latest version of something (a schedule, a price, a plan, an address)
 
@@ -47,7 +47,7 @@ A single message rarely says enough. Before you say what a found message means, 
 ### A chat or group by name
 
 1. Pass the name as `conversation`, not as the `query`.
-2. Names must match how the chat is written. If nothing comes back, try the name without punctuation, a shorter part of it, or drop `conversation` and search the name as a `query` to see the chat's exact name in the results.
+2. Case, quotes and punctuation don't matter, and a few of its words are enough ("Julie's clients"). If nothing comes back, drop `conversation` and search the name as a `query` to see the chat's exact name in the results.
 
 ### Something in a photo or a file
 
@@ -57,7 +57,7 @@ A single message rarely says enough. Before you say what a found message means, 
 
 ## When a search finds nothing
 
-Loosen one thing at a time, in this order: the chat name, then the words, then the dates (wider), then the channel. Stop after three tries and say what you looked for and where. When a result says the search was incomplete, say older messages may not have been looked through.
+Loosen one thing at a time, in this order: the chat name (or use `person` instead), then the words, then the dates (wider), then the channel. Stop after three tries and say what you looked for and where. When a result says the search was incomplete, say older messages may not have been looked through.
 
 ## Always
 
