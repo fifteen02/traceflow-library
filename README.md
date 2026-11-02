@@ -1,4 +1,8 @@
-# traceflow skills
+<p align="center">
+  <img src="assets/logo.svg" width="96" height="96" alt="traceflow">
+</p>
+
+<h1 align="center">traceflow skills</h1>
 
 Skills for [traceflow](https://github.com/fifteen02/traceflow) agents: playbooks that tell an agent how to use traceflow's tools well. Each skill is a folder: a `SKILL.md` with a short header and the instructions, and any files, scripts and icon it uses.
 
@@ -12,9 +16,10 @@ Skills for [traceflow](https://github.com/fifteen02/traceflow) agents: playbooks
 
 ```
 skills/<name>/
-├── SKILL.md      the header (name, description, license, metadata) and the instructions
-├── icon.svg      the skill's icon, named by metadata.icon in the header
-└── …             any other files the instructions use (references, examples, scripts)
+├── SKILL.md          the header (name, description, license, metadata) and the instructions
+├── icon.svg          the skill's icon, named by metadata.icon in the header
+├── requirements.txt  the Python packages its scripts import, when it has scripts
+└── …                 any other files the instructions use (references, examples, scripts)
 ```
 
 - `name` is the folder's name: lowercase letters, digits and hyphens.
@@ -43,7 +48,15 @@ An admin adds this repository as a skill source (Git, `github.com/fifteen02/trac
 
 A skill is a folder with a `SKILL.md` in it. On every turn the agent sees each skill's `name` and `description`; when a task needs one, it calls `load_skill` and reads the body. The body can point to other files in the folder, and a skill with an environment can run its scripts.
 
-Three examples follow, from the simplest up. All the names in them are made up.
+A skill comes in one of three variants, from the simplest up:
+
+| Variant | Its folder | What it declares | How the agent uses it |
+|---|---|---|---|
+| [Only instructions](#1-only-instructions) | `SKILL.md`, `icon.svg` | Its header | Reads the body |
+| [With files](#2-with-files) | and `reference.md`, examples, templates | Its header | Reads the files the body links to, with `read_file` |
+| [With a script](#3-with-a-script) | and `scripts/`, `requirements.txt` | Its header, with the programs and settings it needs; its Python packages in `requirements.txt` | Runs the scripts with `execute` in its skill computer |
+
+traceflow never guesses what a skill needs: it installs only what the skill declares, and says at install what the skill uses but doesn't declare. All the names in the examples are made up.
 
 ### 1. Only instructions
 
@@ -135,6 +148,7 @@ A script does what is better done by code: a calculation, a file conversion, a c
 skills/weather-forecast/
 ├── SKILL.md
 ├── icon.svg
+├── requirements.txt
 └── scripts/
     └── forecast.py
 ```
@@ -171,9 +185,10 @@ It prints one line per day as JSON: the date, the lowest and highest temperature
 How the script is used:
 
 - **Running it.** Commands start in the workspace's root, so the body names the script by its path from there: `.skills/<name>/scripts/…`. The `skill` argument of `execute` runs the command in the skill computer, beside the skill's files. Files the script writes for the person go in the workspace (`reports/forecast.json`), not in the skill's folder.
-- **Its Python packages.** You don't list them: at install, traceflow reads the imports in the skill's scripts and installs each package into the skill computer when its image is built, once, never while the agent runs. A package that can't be installed is left out, so use the standard library where you can and import packages by their usual names (`requests`, `yaml`, `PIL`).
-- **Its programs.** List the programs the scripts run in `metadata.traceflow.requires.bins` (`python3`, `pdftotext`, `ffmpeg`, …). traceflow installs the ones it knows when the image is built; the install check names any it can't provide.
+- **Its Python packages.** List every package the scripts import in a `requirements.txt` at the folder's root, one per line with the version you tested (`requests==2.32.3`). Only package lines are accepted: a name, its extras, versions and markers, and `#` notes. Options (`-e`, `-r`, `--index-url`), URLs, `git+` and paths are refused. Every line must install, or the install fails and says why. An import the file doesn't cover is reported at install and isn't installed. Use the standard library where you can.
+- **Its programs.** List the programs the scripts run in `metadata.traceflow.requires.bins` (`python3`, `pdftotext`, `ffmpeg`, …). Only these are installed. The install check names a program a script runs that the list leaves out, and any it can't provide.
 - **Its settings.** List the environment variables the scripts read in `metadata.traceflow.requires.env`, and the main one, if any, as `primaryEnv`. Each becomes a setting the admin fills in, and the scripts read it from their environment. A setting whose name has a word like `KEY`, `TOKEN`, `SECRET` or `PASSWORD` is kept secret and masked. A setting's name can't be `PATH`, `HOME` or another the computer sets itself, or start with `LD_` or `PYTHON`.
+- **When it is built.** The skill computer's image is built once, at install, with the environment's packages and the skill's. Nothing is installed while the agent runs.
 - **Its network.** An environment has no network unless the admin gives it one. Say in `compatibility` when the skill needs the internet.
 
 `scripts/forecast.py` reads its settings and prints, nothing more:
