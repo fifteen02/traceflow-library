@@ -21,6 +21,7 @@ A skill doesn't give an agent tools: the admin does, per agent. A skill says whi
 | Group | Tools | What they do |
 |---|---|---|
 | Skills | `load_skill` | Reads a skill's instructions. Every agent with a skill has it; don't list it. |
+| | `fetch_skill` | Downloads a skill into the workspace (`skills-to-review/<name>/`) to review it before installing, with what the install check finds. Admins only. |
 | Workspace | `ls`, `glob`, `grep`, `read_file`, `write_file`, `edit_file` | Lists, finds, reads and writes files in the agent's workspace, a skill's files included (`.skills/<name>/`). |
 | | `execute` | Runs a command. With `skill` set to a skill's name, it runs in that skill's computer (see [below](#2-what-the-skill-computer-already-has)). |
 | Everyday | `current_time`, `working_days`, `calculate`, `convert_units` | The date and time in a time zone, working days between two dates, exact arithmetic, converting kitchen amounts. |

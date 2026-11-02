@@ -14,6 +14,11 @@ Skills for [traceflow](https://github.com/fifteen02/traceflow) agents: playbooks
 | Skill | What it is for |
 |---|---|
 | [search-messages](skills/search-messages/SKILL.md) | Searching a person's own messages and emails: one person across chats, the latest version of a schedule, what is new, a chat by name, what to do when a search finds nothing. |
+| [remember-what-matters](skills/remember-what-matters/SKILL.md) | When to save, check and forget what the person prefers, and when not to: guesses, one-offs, anything sensitive without asking. |
+| [daily-brief](skills/daily-brief/SKILL.md) | The person's day in a dozen lines, most pressing first: today's calendar, what is new in their messages, and what waits for their reply. |
+| [calendar-assistant](skills/calendar-assistant/SKILL.md) | Finding a free time, checking for clashes, and saying exactly what will change before adding, moving or cancelling an event. |
+| [read-documents](skills/read-documents/SKILL.md) | Any PDF, Word, Excel or PowerPoint file as text, tables included, scanned pages read by OCR. Scripts on the skill computer as it comes. |
+| [skill-review](skills/skill-review/SKILL.md) | Checking a community skill before an admin installs it: what it runs, where it reaches, the secrets it asks for, what it installs, and what doesn't match its description. |
 
 ## A skill's folder
 

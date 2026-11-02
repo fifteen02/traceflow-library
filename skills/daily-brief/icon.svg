@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Daily brief">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3D8BFF"/>
+      <stop offset="1" stop-color="#1546A8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#tile)"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="17.25" fill="none" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="1.5"/>
+  <circle cx="44" cy="20" r="10" fill="#FFFFFF" fill-opacity="0.28"/>
+  <path d="M44 4.5v4M55 9l-2.8 2.8M59.5 20h-4M33 9l2.8 2.8" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="11" y="19" width="34" height="34" rx="7" fill="#FFFFFF"/>
+  <path d="M18 29h20M18 36h20M18 43h12" stroke="#1E5BC6" stroke-width="3" stroke-linecap="round"/>
+</svg>
