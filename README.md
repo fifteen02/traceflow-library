@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/wordmark-dark.svg">
-    <img src="assets/wordmark-light.svg" height="56" alt="traceflow">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
+    <img src="assets/logo-light.svg" height="64" alt="traceflow">
   </picture>
 </p>
 
@@ -273,4 +273,4 @@ Skills here are Apache-2.0, like the repository: by contributing, you license yo
 
 ## License
 
-Apache-2.0. See [LICENSE](LICENSE).
+Apache-2.0. See [LICENSE](LICENSE). The robot in the logo is drawn from [agent-robot-avatar](https://www.npmjs.com/package/agent-robot-avatar), MIT; see [its licence](assets/LICENSE-agent-robot-avatar).
