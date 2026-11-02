@@ -5,6 +5,7 @@ license: Apache-2.0
 compatibility: traceflow agents that have the search_messages and search_messages_thread tools.
 metadata:
   icon: icon.svg
+  always: true
   author: traceflow
 ---
 

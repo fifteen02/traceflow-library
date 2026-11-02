@@ -28,6 +28,7 @@ Every icon is one of a set, so a skill is known at a glance:
 - one white glyph for what the skill is about, with one translucent white shape behind it for depth;
 - the tile's colour says the skill's area: teal for messages and people, blue for calendar and time, amber for files and documents, violet for the web, coral for money;
 - it reads at 36px on a card, on light and dark pages alike.
+- `metadata.always: true` suggests the skill is read on every turn (its instructions in front of the agent, not only its name). It is where an install starts: an admin switches it on or off per installed skill.
 - A skill made only of instructions needs nothing else.
 
 ## Installing in traceflow
