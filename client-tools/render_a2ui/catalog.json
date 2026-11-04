@@ -3,7 +3,7 @@
   "protocolVersion": "1.0",
   "catalogId": "github.com/fifteen02/traceflow:chat/v1",
   "title": "traceflow chat",
-  "description": "What an agent may lay out a reply with in traceflow's chat app: A2UI's basic layout and text pieces (Text, Row, Column, Card, Divider, Button, as the basic catalog has them), A2UI's VegaChart, and the cards traceflow's fixed tools draw (Places, Schedule, Table, Sources). Values are literal: no data bindings, functions or templates.",
+  "description": "What an agent may lay out a reply with in traceflow's chat app: A2UI's basic layout and text pieces (Text, Row, Column, Card, Divider, Button, as the basic catalog has them), A2UI's VegaChart, an Image of a real photo from the web, and the cards traceflow's fixed tools draw (Places, Schedule, Table, Sources). Values are literal: no data bindings, functions or templates.",
   "instructions": "Lay a reply out only when it helps the person act or compare: a pick between places, a day with a clash, numbers worth seeing. Say the point in your words first; the surface carries what words can't. One root, ids unique, every child an id of the surface. A Button sends its action.event.userMessage as the person's next message, so write it as they would say it.",
   "components": {
     "Text": {
@@ -59,6 +59,18 @@
         "axis": { "type": "string", "enum": ["horizontal", "vertical"], "default": "horizontal" }
       },
       "required": ["component"]
+    },
+    "Image": {
+      "type": "object",
+      "description": "A real photo from the web of what the reply is about (from a place's own site, a product's page), at its https address: the app fetches it and credits its site. Never a made-up picture standing in for a real place or thing.",
+      "properties": {
+        "component": { "const": "Image" },
+        "url": { "type": "string", "maxLength": 2000 },
+        "alt": { "type": "string", "maxLength": 200 },
+        "caption": { "type": "string", "maxLength": 200 },
+        "weight": { "$ref": "#/$defs/Weight" }
+      },
+      "required": ["component", "url", "alt"]
     },
     "Button": {
       "type": "object",

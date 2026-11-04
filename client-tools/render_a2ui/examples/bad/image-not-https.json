@@ -1,0 +1,16 @@
+{
+  "why": "A photo is one from the web, at its https address: not a file, a data: picture or a plain http link.",
+  "expect": "the photo's https address on the web",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          { "id": "root", "component": "Image", "url": "file:///workspace/tatel.png", "alt": "A restaurant" }
+        ]
+      }
+    }
+  ]
+}

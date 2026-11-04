@@ -1,0 +1,54 @@
+{
+  "layout": "real-photo",
+  "when": "A real place or thing shown as itself: its own photo from the web, credited, a note, and the next step.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "tatel",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "photo",
+              "note",
+              "book"
+            ]
+          },
+          {
+            "id": "photo",
+            "component": "Image",
+            "url": "https://tatelrestaurants.com/wp-content/uploads/2026/06/Tatel-restaurant-malta-photo-11.jpg",
+            "alt": "TATEL Malta's terrace on the seafront at dusk",
+            "caption": "TATEL Malta, St George's Bay"
+          },
+          {
+            "id": "note",
+            "component": "Text",
+            "variant": "caption",
+            "text": "Rated about 4.3 on Tripadvisor."
+          },
+          {
+            "id": "book",
+            "component": "Button",
+            "child": "book-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Book a table at TATEL for tonight"
+              }
+            }
+          },
+          {
+            "id": "book-label",
+            "component": "Text",
+            "text": "Book a table"
+          }
+        ]
+      }
+    }
+  ]
+}

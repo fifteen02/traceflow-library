@@ -48,6 +48,7 @@ What the chat app can draw: each piece, what it is for, and its properties (requ
 - `Column`: Children one under another: most surfaces' root. **children** (ids, 1–12); justify (start | center | end | spaceBetween | spaceAround | spaceEvenly | stretch); align (start | center | end | stretch); weight (a number, its share of a Row).
 - `Card`: A panel around one child (a Column for several). **child** (an id); weight (a number, its share of a Row).
 - `Divider`: A line between parts. axis (horizontal | vertical).
+- `Image`: A real photo from the web of what the reply is about (from a place's own site, a product's page), at its https address: the app fetches it and credits its site. Never a made-up picture standing in for a real place or thing. **url** (string ≤2000); **alt** (string ≤200); caption (string ≤200); weight (a number, its share of a Row).
 - `Button`: Sends action.event.userMessage as the person's next message when pressed. Its child is a Text: its label. primary for the one thing you recommend, default for the rest. **child** (an id); variant (default | primary | borderless); **action** ({event: {**name**, **userMessage** ≤300}}); weight (a number, its share of a Row).
 - `VegaChart`: A Vega-Lite chart, drawn live: the spec as render_vega takes it, its data inline. **spec** (object); height (number 120–600).
 - `Places`: Places to pick from as cards, best first, as show_places draws them. title (string); **places** (list of {**name**, photo, rating, reviews, price, kind, distance, openNow, hours, address, mapsUrl, phone}, 1–8); from ({**latitude**, **longitude**}).
@@ -60,7 +61,7 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
 ## Layouts
 
-Six shapes cover most replies. Each is a whole, valid surface in `layouts/`; copy the one that fits and change its words. In the skeletons, `>` reads "has as children".
+Seven shapes cover most replies. Each is a whole, valid surface in `layouts/`; copy the one that fits and change its words. In the skeletons, `>` reads "has as children".
 
 **Answer and actions** ([answer-and-actions](layouts/answer-and-actions.json)): an answer in a line or two, then what to do next.
 
@@ -84,6 +85,10 @@ Six shapes cover most replies. Each is a whole, valid surface in `layouts/`; cop
     root Row > a Card (weight 1), b Card (weight 1)
     a Card > a-body Column > a-what Text ("**Lisbon** · €212"), a-pick Button
 
+**Real photo** ([real-photo](layouts/real-photo.json)): a real place or thing as itself, its own photo from the web, then the next step.
+
+    root Column > photo Image, note Text (caption), book Button (primary)
+
 **Answer with sources** ([answer-with-sources](layouts/answer-with-sources.json)): the answer, then where it comes from; no buttons when there is nothing to do.
 
     root Column > answer Text, sources Sources
@@ -94,6 +99,7 @@ Worked examples, each with the question asked and the line said before it, are i
 
 - **Say the point in your words first**, in the reply's text; the surface carries what words can't. Never only a surface.
 - **A surface only when it helps the person act or compare.** A plain answer stays text.
+- **A real place, person or thing is shown as itself, never made up.** Its photo is an `Image` at the https address where you found it (the place's own site, a product's page; the app fetches it and credits the site), or `Places` cards, whose photos the app fetches from Google. Never `make_picture` for something real, and never present a made-up picture as it; with no real photo, say so and give the link.
 - **One primary button at most**, for the one thing you recommend; the rest `default`.
 - **Button labels short** (a few words, "Move the bank to 14:00"); the `userMessage` is what the person would say, whole and on its own ("Move the call with the bank to 14:00 on Friday"), since it arrives as their next message.
 - **At most 4 buttons, 40 pieces and 5 levels** (root is the first). Show less rather than more.
@@ -122,6 +128,7 @@ Bad, and why (each in the tool's [examples/bad](https://github.com/fifteen02/tra
 - [button-without-message](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/button-without-message.json): a Button with no `userMessage`.
 - [too-many-buttons](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/too-many-buttons.json): five buttons, a menu not a reply.
 - [chart-from-url](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/chart-from-url.json): a chart's rows from an address.
+- [image-not-https](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/image-not-https.json): a photo that isn't at an https address on the web (a file, a `data:` picture).
 - [unknown-piece](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/unknown-piece.json), [wrong-version](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/wrong-version.json), [two-messages](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/two-messages.json): a piece, a version or a message shape the app doesn't have.
 
 ## Checking it first (optional)

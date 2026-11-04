@@ -236,6 +236,8 @@ def check(messages, catalog):
         if kind == "VegaChart" and isinstance(component.get("spec"), dict):
             found.extend(path + " (" + cid + ")." + problem for problem in vega_rules.problems(component["spec"]))
             charts[cid] = component["spec"]
+        if kind == "Image" and isinstance(component.get("url"), str) and not component["url"].startswith("https://"):
+            found.append(path + " (" + cid + ").url: the photo's https address on the web, where you found it")
     _tree(by_id, found)
     return found, charts
 

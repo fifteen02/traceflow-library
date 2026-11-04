@@ -8,7 +8,7 @@ None: it only shows.
 
 ## In traceflow's apps
 
-Each piece drawn by the chat app's own component: Text, Row, Column, Card, Divider, Button (primary in ink, the rest secondary), VegaChart (as `render_vega`), Places (as `show_places`), Schedule (as `show_schedule`), Table (as `show_table`), Sources (as `show_sources`).
+Each piece drawn by the chat app's own component: Text, Row, Column, Card, Divider, Button (primary in ink, the rest secondary), VegaChart (as `render_vega`), Image (a real photo from the web, fetched by the chat where it runs so the browser never asks its site, credited to that site; one it couldn't fetch is a link), Places (as `show_places`), Schedule (as `show_schedule`), Table (as `show_table`), Sources (as `show_sources`).
 
 ## On a channel without UI
 
