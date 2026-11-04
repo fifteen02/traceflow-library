@@ -1,0 +1,71 @@
+{
+  "asked": "When does my passport run out?",
+  "said": "On 12 March next year; renewing takes about three weeks.",
+  "why": "An answer and the next steps: the one you recommend primary, the other as the person would ask it.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "answer",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "answer",
+              "actions"
+            ]
+          },
+          {
+            "id": "answer",
+            "component": "Text",
+            "text": "Your passport expires on **12 March**; the renewal takes about three weeks."
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "remind",
+              "how"
+            ]
+          },
+          {
+            "id": "remind",
+            "component": "Button",
+            "child": "remind-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Remind me to renew my passport on 1 February"
+              }
+            }
+          },
+          {
+            "id": "remind-label",
+            "component": "Text",
+            "text": "Remind me in February"
+          },
+          {
+            "id": "how",
+            "component": "Button",
+            "child": "how-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "How do I renew my passport?"
+              }
+            }
+          },
+          {
+            "id": "how-label",
+            "component": "Text",
+            "text": "How do I renew it?"
+          }
+        ]
+      }
+    }
+  ]
+}

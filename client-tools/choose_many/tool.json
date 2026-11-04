@@ -1,0 +1,56 @@
+{
+  "id": "traceflow/choose_many@1",
+  "name": "choose_many",
+  "version": 1,
+  "description": "Ask the person to pick several of the options. Show the question and each option as a choice to toggle, and a button to confirm the picks; the person picks at least min and at most max of them, when given. Reply with the options picked, as given.",
+  "parameters": {
+    "properties": {
+      "max": {
+        "description": "The most options to pick",
+        "type": "integer"
+      },
+      "min": {
+        "description": "The fewest options to pick",
+        "type": "integer"
+      },
+      "options": {
+        "description": "The options; each answer must be one of them",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "question": {
+        "description": "The question to ask",
+        "type": "string"
+      }
+    },
+    "required": [
+      "question",
+      "options"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "choices": {
+        "description": "The options the person picked, each as given",
+        "items": {
+          "type": "string"
+        },
+        "type": "array",
+        "x-pick-from": "options",
+        "x-pick-max": "max",
+        "x-pick-min": "min",
+        "x-pick-only": true
+      }
+    },
+    "required": [
+      "choices"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

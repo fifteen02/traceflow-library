@@ -1,0 +1,40 @@
+{
+  "asked": "When did Einstein win the Nobel prize?",
+  "said": "In 1921, for the photoelectric effect, not for relativity.",
+  "why": "Words first, then where they come from: no buttons when there is nothing to do.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "nobel",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "answer",
+              "sources"
+            ]
+          },
+          {
+            "id": "answer",
+            "component": "Text",
+            "text": "Awarded in 1922 for 1921, \"for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect\"."
+          },
+          {
+            "id": "sources",
+            "component": "Sources",
+            "sources": [
+              {
+                "title": "Nobel Prize in Physics 1921",
+                "url": "https://www.nobelprize.org/prizes/physics/1921/summary/",
+                "site": "nobelprize.org"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

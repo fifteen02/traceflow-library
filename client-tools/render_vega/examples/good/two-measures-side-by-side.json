@@ -1,0 +1,74 @@
+{
+  "asked": "Did more visitors mean more sales?",
+  "why": "Two measures with different units: two charts side by side, each with its own y axis, never one chart with two.",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "month": "Jul",
+          "visitors": 1200,
+          "sales": 84
+        },
+        {
+          "month": "Aug",
+          "visitors": 1650,
+          "sales": 97
+        },
+        {
+          "month": "Sep",
+          "visitors": 1400,
+          "sales": 90
+        },
+        {
+          "month": "Oct",
+          "visitors": 1900,
+          "sales": 121
+        }
+      ]
+    },
+    "hconcat": [
+      {
+        "width": 220,
+        "height": 160,
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "month",
+            "type": "ordinal",
+            "sort": null,
+            "title": null,
+            "axis": {
+              "labelAngle": 0
+            }
+          },
+          "y": {
+            "field": "visitors",
+            "type": "quantitative",
+            "title": "Visitors"
+          }
+        }
+      },
+      {
+        "width": 220,
+        "height": 160,
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "month",
+            "type": "ordinal",
+            "sort": null,
+            "title": null,
+            "axis": {
+              "labelAngle": 0
+            }
+          },
+          "y": {
+            "field": "sales",
+            "type": "quantitative",
+            "title": "Sales (€)"
+          }
+        }
+      }
+    ]
+  }
+}

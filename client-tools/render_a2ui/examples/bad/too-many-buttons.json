@@ -1,0 +1,111 @@
+{
+  "why": "A reply offers the few things that matter, not a menu.",
+  "expect": "more than 4",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Row",
+            "children": [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e"
+            ]
+          },
+          {
+            "id": "a",
+            "component": "Button",
+            "child": "a-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "One"
+              }
+            }
+          },
+          {
+            "id": "a-label",
+            "component": "Text",
+            "text": "One"
+          },
+          {
+            "id": "b",
+            "component": "Button",
+            "child": "b-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Two"
+              }
+            }
+          },
+          {
+            "id": "b-label",
+            "component": "Text",
+            "text": "Two"
+          },
+          {
+            "id": "c",
+            "component": "Button",
+            "child": "c-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Three"
+              }
+            }
+          },
+          {
+            "id": "c-label",
+            "component": "Text",
+            "text": "Three"
+          },
+          {
+            "id": "d",
+            "component": "Button",
+            "child": "d-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Four"
+              }
+            }
+          },
+          {
+            "id": "d-label",
+            "component": "Text",
+            "text": "Four"
+          },
+          {
+            "id": "e",
+            "component": "Button",
+            "child": "e-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Five"
+              }
+            }
+          },
+          {
+            "id": "e-label",
+            "component": "Text",
+            "text": "Five"
+          }
+        ]
+      }
+    }
+  ]
+}

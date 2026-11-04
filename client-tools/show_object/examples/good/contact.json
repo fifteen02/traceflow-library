@@ -1,0 +1,25 @@
+{
+  "label": "Ana's contact",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "title": "Name"
+      },
+      "phone": {
+        "type": "string",
+        "title": "Phone"
+      },
+      "email": {
+        "type": "string",
+        "title": "Email"
+      }
+    }
+  },
+  "value": {
+    "name": "Ana Borg",
+    "phone": "+356 7900 0002",
+    "email": "ana@example.com"
+  }
+}

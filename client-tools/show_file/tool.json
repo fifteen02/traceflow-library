@@ -1,0 +1,25 @@
+{
+  "id": "traceflow/show_file@1",
+  "name": "show_file",
+  "version": 1,
+  "description": "Show a file of the thread's workspace to the person: in the web app a card with its name, size, a preview (a web page live, an image, audio to play, the start of a text) and a download button; on a chat channel (WhatsApp) the file itself after your reply, an image as a picture, audio as a voice note, anything else as a document. Use it to send what a tool made. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "path": {
+        "description": "The file, relative to the workspace, e.g. site/index.html",
+        "type": "string"
+      },
+      "title": {
+        "description": "What the card is titled; the file's name when left out",
+        "type": "string"
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

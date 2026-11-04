@@ -1,0 +1,34 @@
+{
+  "id": "traceflow/show_code@1",
+  "name": "show_code",
+  "version": 1,
+  "description": "Show the person a code to enter on another device or site, large and easy to copy, and the url where it goes as a link. Reply once the person says they entered it.",
+  "parameters": {
+    "properties": {
+      "code": {
+        "description": "The code to enter",
+        "type": "string"
+      },
+      "url": {
+        "description": "Where to enter it",
+        "type": "string"
+      }
+    },
+    "required": [
+      "code"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "done": {
+        "description": "Whether the person says they did it; true unless they said otherwise",
+        "type": "boolean"
+      }
+    },
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

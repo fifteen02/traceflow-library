@@ -1,0 +1,32 @@
+{
+  "why": "The whole plan again whenever a step changes; the latest is pinned above the chat.",
+  "title": "Quarterly report",
+  "items": [
+    {
+      "id": "1",
+      "label": "Read the three source decks",
+      "status": "done"
+    },
+    {
+      "id": "2",
+      "label": "Pull the revenue table",
+      "status": "done",
+      "note": "From the finance sheet"
+    },
+    {
+      "id": "3",
+      "label": "Draft the summary",
+      "status": "done"
+    },
+    {
+      "id": "4",
+      "label": "Make the slides",
+      "status": "active"
+    },
+    {
+      "id": "5",
+      "label": "Upload to Drive",
+      "status": "pending"
+    }
+  ]
+}

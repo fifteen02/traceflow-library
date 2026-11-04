@@ -1,0 +1,29 @@
+{
+  "id": "traceflow/show_object@1",
+  "name": "show_object",
+  "version": 1,
+  "description": "Show a value under its label, laid out by its schema when given (fields with their titles), else as JSON. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "label": {
+        "description": "What the object is",
+        "type": "string"
+      },
+      "schema": {
+        "description": "JSON schema of the value, to lay it out",
+        "type": "object"
+      },
+      "value": {
+        "description": "The value to show"
+      }
+    },
+    "required": [
+      "label",
+      "value"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

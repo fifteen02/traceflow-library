@@ -1,0 +1,110 @@
+{
+  "asked": "Should I take the Lisbon or the Porto flight?",
+  "said": "The Porto flight is cheaper; the Lisbon one lands two hours earlier.",
+  "why": "Two options in two cards side by side, each with its own button.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "flights",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Row",
+            "children": [
+              "lisbon",
+              "porto"
+            ]
+          },
+          {
+            "id": "lisbon",
+            "component": "Card",
+            "child": "lisbon-body",
+            "weight": 1
+          },
+          {
+            "id": "lisbon-body",
+            "component": "Column",
+            "children": [
+              "lisbon-what",
+              "lisbon-when",
+              "lisbon-pick"
+            ]
+          },
+          {
+            "id": "lisbon-what",
+            "component": "Text",
+            "text": "**Lisbon** · €212"
+          },
+          {
+            "id": "lisbon-when",
+            "component": "Text",
+            "variant": "caption",
+            "text": "Fri 07:05 → 10:20, direct"
+          },
+          {
+            "id": "lisbon-pick",
+            "component": "Button",
+            "child": "lisbon-pick-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Book the Lisbon flight on Friday"
+              }
+            }
+          },
+          {
+            "id": "lisbon-pick-label",
+            "component": "Text",
+            "text": "Take Lisbon"
+          },
+          {
+            "id": "porto",
+            "component": "Card",
+            "child": "porto-body",
+            "weight": 1
+          },
+          {
+            "id": "porto-body",
+            "component": "Column",
+            "children": [
+              "porto-what",
+              "porto-when",
+              "porto-pick"
+            ]
+          },
+          {
+            "id": "porto-what",
+            "component": "Text",
+            "text": "**Porto** · €164"
+          },
+          {
+            "id": "porto-when",
+            "component": "Text",
+            "variant": "caption",
+            "text": "Fri 09:40 → 14:55, one stop"
+          },
+          {
+            "id": "porto-pick",
+            "component": "Button",
+            "child": "porto-pick-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Book the Porto flight on Friday"
+              }
+            }
+          },
+          {
+            "id": "porto-pick-label",
+            "component": "Text",
+            "text": "Take Porto"
+          }
+        ]
+      }
+    }
+  ]
+}

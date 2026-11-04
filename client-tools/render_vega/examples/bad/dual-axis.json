@@ -1,0 +1,48 @@
+{
+  "why": "Two y axes in one chart mislead: two charts side by side.",
+  "expect": "two y axes",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "m": "Jan",
+          "a": 1,
+          "b": 100
+        }
+      ]
+    },
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "m",
+            "type": "ordinal"
+          },
+          "y": {
+            "field": "a",
+            "type": "quantitative"
+          }
+        }
+      },
+      {
+        "mark": "line",
+        "encoding": {
+          "x": {
+            "field": "m",
+            "type": "ordinal"
+          },
+          "y": {
+            "field": "b",
+            "type": "quantitative"
+          }
+        }
+      }
+    ],
+    "resolve": {
+      "scale": {
+        "y": "independent"
+      }
+    }
+  }
+}

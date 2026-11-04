@@ -1,0 +1,13 @@
+{
+  "why": "A chart needs its rows.",
+  "expect": "no data",
+  "spec": {
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "a",
+        "type": "nominal"
+      }
+    }
+  }
+}

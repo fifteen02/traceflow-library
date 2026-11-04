@@ -1,0 +1,39 @@
+{
+  "id": "traceflow/show_command@1",
+  "name": "show_command",
+  "version": 1,
+  "description": "Show the person a command to run elsewhere (a terminal on another machine), as it is typed and easy to copy, under the label. Reply once the person says they ran it.",
+  "parameters": {
+    "properties": {
+      "command": {
+        "description": "The command, exactly as it is typed",
+        "type": "string"
+      },
+      "label": {
+        "description": "What running it does, e.g. Install the runner",
+        "type": "string"
+      },
+      "submit": {
+        "description": "What the button saying it's done says, e.g. I've added it; I've run it when none",
+        "type": "string"
+      }
+    },
+    "required": [
+      "label",
+      "command"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "done": {
+        "description": "Whether the person says they did it; true unless they said otherwise",
+        "type": "boolean"
+      }
+    },
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "traceflow/show_schedule@1",
+  "name": "show_schedule",
+  "version": 1,
+  "description": "Show a day of the person's calendar as a timeline: the day, a line saying what matters about it (how busy, when they are free), and each event in order with its time, what it is and where. Use it whenever you tell the person what a day holds, from their calendar, rather than listing the events in words; one day per call. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "day": {
+        "description": "The day, as the person reads it, e.g. Thursday 5 November",
+        "type": "string"
+      },
+      "items": {
+        "description": "The day's events, earliest first",
+        "items": {
+          "properties": {
+            "end": {
+              "description": "When it ends, 24-hour, e.g. 10:00",
+              "type": "string"
+            },
+            "place": {
+              "description": "Where: a place, or how it is joined, e.g. Valletta office, Meet",
+              "type": "string"
+            },
+            "start": {
+              "description": "When it starts, 24-hour, e.g. 09:30; All day for an all-day event",
+              "type": "string"
+            },
+            "title": {
+              "description": "What it is, e.g. Contract review with Roberta",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start",
+            "title"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "summary": {
+        "description": "What matters about the day in a few words, e.g. Busy until 15:00, then free",
+        "type": "string"
+      }
+    },
+    "required": [
+      "day",
+      "items"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

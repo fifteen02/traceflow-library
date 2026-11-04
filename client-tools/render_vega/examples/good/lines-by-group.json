@@ -1,0 +1,147 @@
+{
+  "asked": "Compare visits to the three sites",
+  "why": "A few series over time: a line each, coloured by series, the legend on top.",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "week": 1,
+          "site": "Harbour",
+          "visits": 132
+        },
+        {
+          "week": 2,
+          "site": "Harbour",
+          "visits": 144
+        },
+        {
+          "week": 3,
+          "site": "Harbour",
+          "visits": 156
+        },
+        {
+          "week": 4,
+          "site": "Harbour",
+          "visits": 168
+        },
+        {
+          "week": 5,
+          "site": "Harbour",
+          "visits": 180
+        },
+        {
+          "week": 6,
+          "site": "Harbour",
+          "visits": 192
+        },
+        {
+          "week": 7,
+          "site": "Harbour",
+          "visits": 204
+        },
+        {
+          "week": 8,
+          "site": "Harbour",
+          "visits": 216
+        },
+        {
+          "week": 1,
+          "site": "Olive",
+          "visits": 188
+        },
+        {
+          "week": 2,
+          "site": "Olive",
+          "visits": 196
+        },
+        {
+          "week": 3,
+          "site": "Olive",
+          "visits": 204
+        },
+        {
+          "week": 4,
+          "site": "Olive",
+          "visits": 212
+        },
+        {
+          "week": 5,
+          "site": "Olive",
+          "visits": 220
+        },
+        {
+          "week": 6,
+          "site": "Olive",
+          "visits": 228
+        },
+        {
+          "week": 7,
+          "site": "Olive",
+          "visits": 236
+        },
+        {
+          "week": 8,
+          "site": "Olive",
+          "visits": 244
+        },
+        {
+          "week": 1,
+          "site": "Dune",
+          "visits": 244
+        },
+        {
+          "week": 2,
+          "site": "Dune",
+          "visits": 248
+        },
+        {
+          "week": 3,
+          "site": "Dune",
+          "visits": 252
+        },
+        {
+          "week": 4,
+          "site": "Dune",
+          "visits": 256
+        },
+        {
+          "week": 5,
+          "site": "Dune",
+          "visits": 260
+        },
+        {
+          "week": 6,
+          "site": "Dune",
+          "visits": 264
+        },
+        {
+          "week": 7,
+          "site": "Dune",
+          "visits": 268
+        },
+        {
+          "week": 8,
+          "site": "Dune",
+          "visits": 272
+        }
+      ]
+    },
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "week",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "visits",
+        "type": "quantitative",
+        "title": "Visits"
+      },
+      "color": {
+        "field": "site",
+        "type": "nominal",
+        "title": null
+      }
+    }
+  }
+}

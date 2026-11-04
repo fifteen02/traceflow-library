@@ -1,0 +1,7 @@
+{
+  "asked": "Tell Ana I can't make Thursday.",
+  "why": "Approve before an email goes out, the buttons naming the action.",
+  "summary": "Send Ana: \"Sorry, I can't make Thursday. Could we do Friday at 10:00?\"",
+  "approve": "Send",
+  "decline": "Don't send"
+}

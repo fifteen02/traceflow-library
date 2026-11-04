@@ -1,0 +1,206 @@
+{
+  "asked": "How long do my commutes usually take?",
+  "why": "A distribution: a histogram, bins along x, a count up y, one colour.",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "minutes": 30
+        },
+        {
+          "minutes": 37
+        },
+        {
+          "minutes": 30
+        },
+        {
+          "minutes": 29
+        },
+        {
+          "minutes": 24
+        },
+        {
+          "minutes": 30
+        },
+        {
+          "minutes": 42
+        },
+        {
+          "minutes": 36
+        },
+        {
+          "minutes": 41
+        },
+        {
+          "minutes": 34
+        },
+        {
+          "minutes": 36
+        },
+        {
+          "minutes": 34
+        },
+        {
+          "minutes": 17
+        },
+        {
+          "minutes": 40
+        },
+        {
+          "minutes": 37
+        },
+        {
+          "minutes": 36
+        },
+        {
+          "minutes": 17
+        },
+        {
+          "minutes": 16
+        },
+        {
+          "minutes": 24
+        },
+        {
+          "minutes": 28
+        },
+        {
+          "minutes": 35
+        },
+        {
+          "minutes": 32
+        },
+        {
+          "minutes": 37
+        },
+        {
+          "minutes": 26
+        },
+        {
+          "minutes": 35
+        },
+        {
+          "minutes": 36
+        },
+        {
+          "minutes": 26
+        },
+        {
+          "minutes": 47
+        },
+        {
+          "minutes": 37
+        },
+        {
+          "minutes": 43
+        },
+        {
+          "minutes": 26
+        },
+        {
+          "minutes": 25
+        },
+        {
+          "minutes": 29
+        },
+        {
+          "minutes": 31
+        },
+        {
+          "minutes": 38
+        },
+        {
+          "minutes": 34
+        },
+        {
+          "minutes": 28
+        },
+        {
+          "minutes": 23
+        },
+        {
+          "minutes": 27
+        },
+        {
+          "minutes": 43
+        },
+        {
+          "minutes": 25
+        },
+        {
+          "minutes": 34
+        },
+        {
+          "minutes": 36
+        },
+        {
+          "minutes": 19
+        },
+        {
+          "minutes": 32
+        },
+        {
+          "minutes": 44
+        },
+        {
+          "minutes": 14
+        },
+        {
+          "minutes": 29
+        },
+        {
+          "minutes": 31
+        },
+        {
+          "minutes": 25
+        },
+        {
+          "minutes": 36
+        },
+        {
+          "minutes": 31
+        },
+        {
+          "minutes": 19
+        },
+        {
+          "minutes": 39
+        },
+        {
+          "minutes": 38
+        },
+        {
+          "minutes": 41
+        },
+        {
+          "minutes": 45
+        },
+        {
+          "minutes": 35
+        },
+        {
+          "minutes": 33
+        },
+        {
+          "minutes": 20
+        }
+      ]
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "minutes",
+        "type": "quantitative",
+        "bin": {
+          "step": 5
+        },
+        "title": "Minutes door to door"
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Trips"
+      }
+    }
+  }
+}

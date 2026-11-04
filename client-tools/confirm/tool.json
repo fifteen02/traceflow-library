@@ -1,0 +1,45 @@
+{
+  "id": "traceflow/confirm@1",
+  "name": "confirm",
+  "version": 1,
+  "description": "Ask the person to approve something before it happens. Show the summary with a yes and a no (or the labels given), and room to say something else. Reply confirmed=true only on an explicit yes; put anything else they said in note.",
+  "parameters": {
+    "properties": {
+      "approve": {
+        "description": "The yes button's label, naming the action (e.g. Send); Yes when left out",
+        "type": "string"
+      },
+      "decline": {
+        "description": "The no button's label (e.g. Don't Send); No when left out",
+        "type": "string"
+      },
+      "summary": {
+        "description": "What is about to happen, for the person to approve",
+        "type": "string"
+      }
+    },
+    "required": [
+      "summary"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "confirmed": {
+        "description": "Whether the person approved",
+        "type": "boolean"
+      },
+      "note": {
+        "description": "Anything the person said instead, e.g. a different amount",
+        "type": "string"
+      }
+    },
+    "required": [
+      "confirmed"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

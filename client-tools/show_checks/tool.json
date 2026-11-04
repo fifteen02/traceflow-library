@@ -1,0 +1,59 @@
+{
+  "id": "traceflow/show_checks@1",
+  "name": "show_checks",
+  "version": 1,
+  "description": "Show checks as they run: each its label, its status (pending, running, passed, failed) and what it found; a failed one how to fix it and a link to act on it. Call it again as the checks move on; it updates in place. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "checks": {
+        "description": "The checks, in order",
+        "items": {
+          "properties": {
+            "actionLabel": {
+              "description": "For a failed check: what its link says, e.g. Open Docker settings",
+              "type": "string"
+            },
+            "actionUrl": {
+              "description": "For a failed check: where its link goes, https",
+              "type": "string"
+            },
+            "detail": {
+              "description": "What the check found",
+              "type": "string"
+            },
+            "fix": {
+              "description": "For a failed check: how to put it right, markdown",
+              "type": "string"
+            },
+            "label": {
+              "description": "What is checked, e.g. Docker answers",
+              "type": "string"
+            },
+            "status": {
+              "description": "pending, running, passed or failed",
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "status"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "title": {
+        "description": "What the checks are of",
+        "type": "string"
+      }
+    },
+    "required": [
+      "title",
+      "checks"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "traceflow/choose@1",
+  "name": "choose",
+  "version": 1,
+  "description": "Ask the person to pick one of the options. Show the question and each option as a choice; the person picks exactly one. Reply with the option picked, as given.",
+  "parameters": {
+    "properties": {
+      "actions": {
+        "description": "Options that are actions beside the choices, not choices, e.g. Set up a new line",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "back": {
+        "description": "The option that is the way back, drawn apart from the others",
+        "type": "string"
+      },
+      "options": {
+        "description": "The options; the answer must be one of them",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "primary": {
+        "description": "The option that is the primary action: the options are then the step's actions, this one first; none: the options are choices, sent with the submit button",
+        "type": "string"
+      },
+      "question": {
+        "description": "The question to ask",
+        "type": "string"
+      },
+      "submit": {
+        "description": "What the button sending the choice says, e.g. Next",
+        "type": "string"
+      }
+    },
+    "required": [
+      "question",
+      "options"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "choice": {
+        "description": "The option the person picked",
+        "type": "string",
+        "x-pick-from": "options",
+        "x-pick-only": true
+      }
+    },
+    "required": [
+      "choice"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

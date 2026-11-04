@@ -1,0 +1,21 @@
+{
+  "id": "traceflow/react@1",
+  "name": "react",
+  "version": 1,
+  "description": "React to the person's message with one emoji, the way a friend would: instead of a reply when their message needs none (thanks, ok, a photo shared to show you), or beside a short reply. One reaction per message. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "emoji": {
+        "description": "One emoji, e.g. 👍 ❤️ 😂 🎉 🙏 👀",
+        "type": "string"
+      }
+    },
+    "required": [
+      "emoji"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

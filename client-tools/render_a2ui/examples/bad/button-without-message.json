@@ -1,0 +1,30 @@
+{
+  "why": "A button sends what the person would say: action.event.userMessage.",
+  "expect": "needs userMessage",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Button",
+            "child": "l",
+            "action": {
+              "event": {
+                "name": "book"
+              }
+            }
+          },
+          {
+            "id": "l",
+            "component": "Text",
+            "text": "Book"
+          }
+        ]
+      }
+    }
+  ]
+}

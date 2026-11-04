@@ -70,6 +70,7 @@ metadata:
 | `metadata.always` | Optional. `true` suggests the whole skill is read on every turn. Keep it for skills most turns need; the admin decides in the end. |
 | `metadata.author` | Optional. Your GitHub handle or your project's name. |
 | `metadata.traceflow.tools` | The tools the instructions use, by the names in [section 1](#1-the-tools-an-agent-can-have). |
+| `metadata.traceflow.requires.tools` | The tools the skill can't do without: it isn't offered to an agent that lacks one. A client tool is named by its id (`traceflow/render_vega@1`), so only that definition at that major matches; see [Writing a client tool](writing-a-client-tool.md#7-a-skill-that-needs-it). List them in `tools` too, by name. |
 | `metadata.traceflow.requires.bins` | The programs the scripts run that the skill computer lacks. |
 | `metadata.traceflow.requires.env` | The settings the scripts read (see [Settings](#5-settings)). |
 

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Show object">
+  <defs><linearGradient id="tf-icon-show-object" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2C94C"/><stop offset=".5" stop-color="#6FB1E8"/><stop offset="1" stop-color="#B08CF0"/></linearGradient></defs>
+  <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#17161A"/>
+  <path transform="matrix(0.03571 0 0 0.03571 13.714 13.714)" fill="url(#tf-icon-show-object)" d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656zM492 400h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zm0 144h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zm0 144h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zM340 368a40 40 0 1080 0 40 40 0 10-80 0zm0 144a40 40 0 1080 0 40 40 0 10-80 0zm0 144a40 40 0 1080 0 40 40 0 10-80 0z"/>
+</svg>

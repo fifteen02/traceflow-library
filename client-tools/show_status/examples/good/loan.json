@@ -1,0 +1,16 @@
+{
+  "segments": [
+    {
+      "label": "Loan",
+      "tone": "neutral"
+    },
+    {
+      "label": "Review",
+      "tone": "info"
+    },
+    {
+      "label": "Waiting on your payslip",
+      "tone": "warning"
+    }
+  ]
+}

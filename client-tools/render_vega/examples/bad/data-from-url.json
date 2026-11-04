@@ -1,0 +1,16 @@
+{
+  "why": "The app and the channels fetch nothing: the rows go inline.",
+  "expect": "reads nothing from an address",
+  "spec": {
+    "data": {
+      "url": "https://example.com/data.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "a",
+        "type": "nominal"
+      }
+    }
+  }
+}

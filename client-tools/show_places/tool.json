@@ -1,0 +1,99 @@
+{
+  "id": "traceflow/show_places@1",
+  "name": "show_places",
+  "version": 1,
+  "description": "Show places (restaurants, cafés, shops, sights) as cards the person can compare and pick from: each its photo, name, rating and reviews, price, kind, distance, whether it is open and its hours, with a link to its map and its phone when given. Use it whenever you offer the person a few places to choose between, in the order you recommend them. Only shows them; there is no reply: the person picks one by saying so, as a message.",
+  "parameters": {
+    "properties": {
+      "from": {
+        "description": "Where the person is, when they shared it (ask_location): the map shows them beside the places",
+        "properties": {
+          "latitude": {
+            "description": "Latitude, in degrees",
+            "type": "number"
+          },
+          "longitude": {
+            "description": "Longitude, in degrees",
+            "type": "number"
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "type": "object"
+      },
+      "places": {
+        "description": "The places, best first",
+        "items": {
+          "properties": {
+            "address": {
+              "description": "Its full address, with its town and country, e.g. 53a Old Theatre Street, Valletta, Malta",
+              "type": "string"
+            },
+            "distance": {
+              "description": "How far it is from where the person is or asked about, e.g. 0.4 km",
+              "type": "string"
+            },
+            "hours": {
+              "description": "Its hours in a few words, e.g. till 22:30, or opens 19:00",
+              "type": "string"
+            },
+            "kind": {
+              "description": "What kind of place it is, e.g. Maltese, Italian, Café",
+              "type": "string"
+            },
+            "mapsUrl": {
+              "description": "Its page on a map: an https link, e.g. Google Maps",
+              "type": "string"
+            },
+            "name": {
+              "description": "Its name, e.g. Rubino",
+              "type": "string"
+            },
+            "openNow": {
+              "description": "Whether it is open now",
+              "type": "boolean"
+            },
+            "phone": {
+              "description": "Its phone number, to call",
+              "type": "string"
+            },
+            "photo": {
+              "description": "A photo of it: an https link to an image",
+              "type": "string"
+            },
+            "price": {
+              "description": "Its price level as € signs, e.g. €€",
+              "type": "string"
+            },
+            "rating": {
+              "description": "Its rating out of 5, e.g. 4.6",
+              "type": "number"
+            },
+            "reviews": {
+              "description": "How many reviews the rating is from",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "title": {
+        "description": "What the places are, e.g. Restaurants near Valletta",
+        "type": "string"
+      }
+    },
+    "required": [
+      "places"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

@@ -1,0 +1,5 @@
+{
+  "label": "Bot token",
+  "help": "Open **@BotFather** in Telegram, send `/newbot`, and paste the token it gives you.",
+  "submit": "Next"
+}

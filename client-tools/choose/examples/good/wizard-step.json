@@ -1,0 +1,14 @@
+{
+  "why": "A step of a wizard: the options are actions, the primary first, the way back apart.",
+  "question": "Which WhatsApp line should the assistant use?",
+  "options": [
+    "+356 7900 0001",
+    "Set up a new line",
+    "Back"
+  ],
+  "primary": "+356 7900 0001",
+  "back": "Back",
+  "actions": [
+    "Set up a new line"
+  ]
+}

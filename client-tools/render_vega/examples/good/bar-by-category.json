@@ -1,0 +1,55 @@
+{
+  "asked": "Where did my money go this month?",
+  "why": "Amounts by category: horizontal bars, sorted, one colour.",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "category": "Groceries",
+          "euros": 412
+        },
+        {
+          "category": "Eating out",
+          "euros": 286
+        },
+        {
+          "category": "Home",
+          "euros": 190
+        },
+        {
+          "category": "Transport",
+          "euros": 148
+        },
+        {
+          "category": "Subscriptions",
+          "euros": 64
+        }
+      ]
+    },
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "category",
+        "type": "nominal",
+        "sort": "-x",
+        "title": null
+      },
+      "x": {
+        "field": "euros",
+        "type": "quantitative",
+        "title": "€"
+      },
+      "tooltip": [
+        {
+          "field": "category",
+          "type": "nominal"
+        },
+        {
+          "field": "euros",
+          "type": "quantitative",
+          "format": ",.0f"
+        }
+      ]
+    }
+  }
+}

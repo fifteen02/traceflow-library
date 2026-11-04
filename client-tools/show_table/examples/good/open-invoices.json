@@ -1,0 +1,39 @@
+{
+  "title": "Open invoices",
+  "columns": [
+    {
+      "key": "client",
+      "label": "Client"
+    },
+    {
+      "key": "amount",
+      "label": "Amount"
+    },
+    {
+      "key": "due",
+      "label": "Due"
+    }
+  ],
+  "rows": [
+    {
+      "client": "Harbour & Co",
+      "amount": "€1,200",
+      "due": "3 Nov"
+    },
+    {
+      "client": "Olive Studio",
+      "amount": "€1,540",
+      "due": "4 Nov"
+    },
+    {
+      "client": "Dune Labs",
+      "amount": "€1,880",
+      "due": "5 Nov"
+    },
+    {
+      "client": "Clay Works",
+      "amount": "€2,220",
+      "due": "6 Nov"
+    }
+  ]
+}

@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Remember what matters">
-  <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#12A594"/>
-  <path d="M32 55C20 46 8 37.5 8 25.5 8 17.5 14 11 21.5 11c4.6 0 8.2 2.4 10.5 6 2.3-3.6 5.9-6 10.5-6C50 11 56 17.5 56 25.5 56 37.5 44 46 32 55z" fill="#FFFFFF"/>
-  <ellipse cx="25" cy="27" rx="4.2" ry="4.51" fill="#12A594"/>
-  <ellipse cx="39" cy="27" rx="4.2" ry="4.51" fill="#12A594"/>
-  <path d="M25 34q7 7 14 0" fill="none" stroke="#12A594" stroke-width="3.5" stroke-linecap="round"/>
+  <defs><linearGradient id="tf-icon-remember-what-matters" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2C94C"/><stop offset=".5" stop-color="#6FB1E8"/><stop offset="1" stop-color="#B08CF0"/></linearGradient></defs>
+  <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#17161A"/>
+  <path transform="matrix(0.03571 0 0 0.03571 13.714 13.714)" fill="url(#tf-icon-remember-what-matters)" d="M632 888H392c-4.4 0-8 3.6-8 8v32c0 17.7 14.3 32 32 32h192c17.7 0 32-14.3 32-32v-32c0-4.4-3.6-8-8-8zM512 64c-181.1 0-328 146.9-328 328 0 121.4 66 227.4 164 284.1V792c0 17.7 14.3 32 32 32h264c17.7 0 32-14.3 32-32V676.1c98-56.7 164-162.7 164-284.1 0-181.1-146.9-328-328-328zm127.9 549.8L604 634.6V752H420V634.6l-35.9-20.8C305.4 568.3 256 484.5 256 392c0-141.4 114.6-256 256-256s256 114.6 256 256c0 92.5-49.4 176.3-128.1 221.8z"/>
 </svg>

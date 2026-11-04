@@ -1,0 +1,58 @@
+{
+  "asked": "Average spend per day of the week",
+  "why": "A field made by a transform may be encoded.",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "day": "Mon",
+          "euros": 20
+        },
+        {
+          "day": "Mon",
+          "euros": 30
+        },
+        {
+          "day": "Tue",
+          "euros": 12
+        },
+        {
+          "day": "Wed",
+          "euros": 40
+        },
+        {
+          "day": "Wed",
+          "euros": 22
+        }
+      ]
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {
+            "op": "mean",
+            "field": "euros",
+            "as": "average"
+          }
+        ],
+        "groupby": [
+          "day"
+        ]
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "day",
+        "type": "ordinal",
+        "sort": null,
+        "title": null
+      },
+      "y": {
+        "field": "average",
+        "type": "quantitative",
+        "title": "€ a day"
+      }
+    }
+  }
+}

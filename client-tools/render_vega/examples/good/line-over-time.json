@@ -1,0 +1,64 @@
+{
+  "asked": "How have my steps gone this year?",
+  "why": "One thing over time: a line, months in order.",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "month": "Jan",
+          "steps": 6200
+        },
+        {
+          "month": "Feb",
+          "steps": 5900
+        },
+        {
+          "month": "Mar",
+          "steps": 7100
+        },
+        {
+          "month": "Apr",
+          "steps": 8300
+        },
+        {
+          "month": "May",
+          "steps": 9100
+        },
+        {
+          "month": "Jun",
+          "steps": 8800
+        },
+        {
+          "month": "Jul",
+          "steps": 10200
+        },
+        {
+          "month": "Aug",
+          "steps": 9600
+        },
+        {
+          "month": "Sep",
+          "steps": 8100
+        },
+        {
+          "month": "Oct",
+          "steps": 7400
+        }
+      ]
+    },
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "month",
+        "type": "ordinal",
+        "sort": null,
+        "title": null
+      },
+      "y": {
+        "field": "steps",
+        "type": "quantitative",
+        "title": "Steps a day"
+      }
+    }
+  }
+}

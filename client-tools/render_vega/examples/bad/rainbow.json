@@ -1,0 +1,73 @@
+{
+  "why": "Twelve colours can't be told apart.",
+  "expect": "12 colours",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "c": "c0",
+          "v": 0
+        },
+        {
+          "c": "c1",
+          "v": 1
+        },
+        {
+          "c": "c2",
+          "v": 2
+        },
+        {
+          "c": "c3",
+          "v": 3
+        },
+        {
+          "c": "c4",
+          "v": 4
+        },
+        {
+          "c": "c5",
+          "v": 5
+        },
+        {
+          "c": "c6",
+          "v": 6
+        },
+        {
+          "c": "c7",
+          "v": 7
+        },
+        {
+          "c": "c8",
+          "v": 8
+        },
+        {
+          "c": "c9",
+          "v": 9
+        },
+        {
+          "c": "c10",
+          "v": 10
+        },
+        {
+          "c": "c11",
+          "v": 11
+        }
+      ]
+    },
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "v",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "v",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "c",
+        "type": "nominal"
+      }
+    }
+  }
+}

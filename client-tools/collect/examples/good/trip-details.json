@@ -1,0 +1,27 @@
+{
+  "why": "A short form; the reply is an object fitting the schema.",
+  "title": "Your trip",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "destination": {
+        "type": "string",
+        "title": "Where to"
+      },
+      "nights": {
+        "type": "integer",
+        "title": "Nights",
+        "minimum": 1
+      },
+      "budget": {
+        "type": "number",
+        "title": "Budget (€)"
+      }
+    },
+    "required": [
+      "destination",
+      "nights"
+    ]
+  },
+  "submit": "Next"
+}

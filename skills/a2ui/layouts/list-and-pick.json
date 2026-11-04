@@ -1,0 +1,91 @@
+{
+  "layout": "list-and-pick",
+  "when": "Things to choose from as cards, best first, a note, and your pick as the primary button.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "pick",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "places",
+              "note",
+              "actions"
+            ]
+          },
+          {
+            "id": "places",
+            "component": "Places",
+            "title": "Coffee near you",
+            "places": [
+              {
+                "name": "Café Ana",
+                "rating": 4.7,
+                "distance": "0.2 km",
+                "openNow": true
+              },
+              {
+                "name": "Grão",
+                "rating": 4.5,
+                "distance": "0.5 km",
+                "openNow": true
+              }
+            ]
+          },
+          {
+            "id": "note",
+            "component": "Text",
+            "text": "Both open till 19:00.",
+            "variant": "caption"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "go",
+              "more"
+            ]
+          },
+          {
+            "id": "go",
+            "component": "Button",
+            "child": "go-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Directions to Café Ana"
+              }
+            }
+          },
+          {
+            "id": "go-label",
+            "component": "Text",
+            "text": "Directions to Café Ana"
+          },
+          {
+            "id": "more",
+            "component": "Button",
+            "child": "more-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Show me somewhere quieter"
+              }
+            }
+          },
+          {
+            "id": "more-label",
+            "component": "Text",
+            "text": "Somewhere quieter"
+          }
+        ]
+      }
+    }
+  ]
+}

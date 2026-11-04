@@ -1,0 +1,6 @@
+{
+  "why": "One file of the accepted types, up to a size.",
+  "label": "Your latest payslip",
+  "accept": ".pdf,.png,.jpg",
+  "maxBytes": 10485760
+}

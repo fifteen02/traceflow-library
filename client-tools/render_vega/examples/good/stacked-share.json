@@ -1,0 +1,74 @@
+{
+  "asked": "What share of my time went where each week?",
+  "why": "Parts of a whole over a few periods: stacked bars, normalised.",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "week": "W1",
+          "kind": "Meetings",
+          "hours": 12
+        },
+        {
+          "week": "W1",
+          "kind": "Focus",
+          "hours": 20
+        },
+        {
+          "week": "W1",
+          "kind": "Email",
+          "hours": 8
+        },
+        {
+          "week": "W2",
+          "kind": "Meetings",
+          "hours": 15
+        },
+        {
+          "week": "W2",
+          "kind": "Focus",
+          "hours": 18
+        },
+        {
+          "week": "W2",
+          "kind": "Email",
+          "hours": 7
+        },
+        {
+          "week": "W3",
+          "kind": "Meetings",
+          "hours": 10
+        },
+        {
+          "week": "W3",
+          "kind": "Focus",
+          "hours": 24
+        },
+        {
+          "week": "W3",
+          "kind": "Email",
+          "hours": 6
+        }
+      ]
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "week",
+        "type": "ordinal",
+        "title": null
+      },
+      "y": {
+        "field": "hours",
+        "type": "quantitative",
+        "stack": "normalize",
+        "title": "Share of hours"
+      },
+      "color": {
+        "field": "kind",
+        "type": "nominal",
+        "title": null
+      }
+    }
+  }
+}

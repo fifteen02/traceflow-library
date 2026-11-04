@@ -1,0 +1,39 @@
+{
+  "layout": "answer-with-sources",
+  "when": "An answer, then where it comes from; no buttons when there is nothing to do.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "sourced",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "answer",
+              "sources"
+            ]
+          },
+          {
+            "id": "answer",
+            "component": "Text",
+            "text": "The museum is free on the first Sunday of each month."
+          },
+          {
+            "id": "sources",
+            "component": "Sources",
+            "sources": [
+              {
+                "title": "Visiting hours",
+                "url": "https://example.com/visit",
+                "site": "example.com"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

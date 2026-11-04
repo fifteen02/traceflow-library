@@ -1,0 +1,8 @@
+{
+  "label": "Link your WhatsApp",
+  "qr": "2@example-pairing-string",
+  "qrLabel": "Scan with your phone",
+  "code": "K7QF-2M9X",
+  "help": "Open **WhatsApp › Linked devices › Link a device**.",
+  "expiresAt": "2026-11-04T10:15:00Z"
+}

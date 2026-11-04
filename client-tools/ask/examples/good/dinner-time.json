@@ -1,0 +1,10 @@
+{
+  "asked": "Book us somewhere for Friday.",
+  "why": "One open question, with the likely answers as suggestions.",
+  "question": "What time would you like the table for?",
+  "suggestions": [
+    "19:30",
+    "20:00",
+    "20:30"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "asked": "What does Friday look like?",
+  "said": "Friday is full in the morning and two meetings overlap at 11:30.",
+  "why": "A day, the one thing that needs a decision, and the decision as buttons.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "friday",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "schedule",
+              "clash",
+              "actions"
+            ]
+          },
+          {
+            "id": "schedule",
+            "component": "Schedule",
+            "day": "Friday 6 November",
+            "summary": "Free after 12:00 until the farewell",
+            "items": [
+              {
+                "start": "09:00",
+                "end": "09:30",
+                "title": "Standup",
+                "place": "Meet"
+              },
+              {
+                "start": "11:00",
+                "end": "12:00",
+                "title": "Design review with Oskar",
+                "place": "Valletta office"
+              },
+              {
+                "start": "11:30",
+                "end": "12:00",
+                "title": "Call with the bank",
+                "place": "Phone"
+              },
+              {
+                "start": "16:00",
+                "end": "17:00",
+                "title": "Roberta's farewell",
+                "place": "Lucia by Grano"
+              }
+            ]
+          },
+          {
+            "id": "clash",
+            "component": "Text",
+            "text": "The design review and the bank's call overlap at 11:30. The bank's call can move; Oskar's review can't."
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "move",
+              "keep"
+            ]
+          },
+          {
+            "id": "move",
+            "component": "Button",
+            "child": "move-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Move the call with the bank to 14:00 on Friday"
+              }
+            }
+          },
+          {
+            "id": "move-label",
+            "component": "Text",
+            "text": "Move the bank to 14:00"
+          },
+          {
+            "id": "keep",
+            "component": "Button",
+            "child": "keep-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Leave Friday as it is"
+              }
+            }
+          },
+          {
+            "id": "keep-label",
+            "component": "Text",
+            "text": "Leave it"
+          }
+        ]
+      }
+    }
+  ]
+}

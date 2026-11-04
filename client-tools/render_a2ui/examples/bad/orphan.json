@@ -1,0 +1,25 @@
+{
+  "why": "A piece no one has as a child is never drawn.",
+  "expect": "never drawn",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Text",
+            "text": "Hello"
+          },
+          {
+            "id": "extra",
+            "component": "Text",
+            "text": "Lost"
+          }
+        ]
+      }
+    }
+  ]
+}

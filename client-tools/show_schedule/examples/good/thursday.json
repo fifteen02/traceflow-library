@@ -1,0 +1,25 @@
+{
+  "asked": "What does Thursday look like?",
+  "day": "Thursday 5 November",
+  "summary": "Busy until 15:00, then free",
+  "items": [
+    {
+      "start": "09:00",
+      "end": "09:30",
+      "title": "Standup",
+      "place": "Meet"
+    },
+    {
+      "start": "10:00",
+      "end": "11:30",
+      "title": "Contract review with Roberta",
+      "place": "Valletta office"
+    },
+    {
+      "start": "13:00",
+      "end": "15:00",
+      "title": "Quarterly planning",
+      "place": "Meet"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "traceflow/show_progress@1",
+  "name": "show_progress",
+  "version": 1,
+  "description": "Show how far along something is: the label and current out of total, as a progress bar. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "current": {
+        "description": "How far along",
+        "type": "integer"
+      },
+      "label": {
+        "description": "What is being done",
+        "type": "string"
+      },
+      "total": {
+        "description": "Out of how many",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "label",
+      "current",
+      "total"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

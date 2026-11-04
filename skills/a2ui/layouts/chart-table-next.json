@@ -1,0 +1,101 @@
+{
+  "layout": "chart-table-next",
+  "when": "A chart for the shape, a short table for the detail, one next step.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "numbers",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "chart",
+              "table",
+              "actions"
+            ]
+          },
+          {
+            "id": "chart",
+            "component": "VegaChart",
+            "height": 180,
+            "spec": {
+              "data": {
+                "values": [
+                  {
+                    "month": "Sep",
+                    "euros": 120
+                  },
+                  {
+                    "month": "Oct",
+                    "euros": 164
+                  }
+                ]
+              },
+              "mark": "bar",
+              "encoding": {
+                "x": {
+                  "field": "month",
+                  "type": "ordinal",
+                  "sort": null,
+                  "title": null
+                },
+                "y": {
+                  "field": "euros",
+                  "type": "quantitative",
+                  "title": "€"
+                }
+              }
+            }
+          },
+          {
+            "id": "table",
+            "component": "Table",
+            "columns": [
+              {
+                "key": "what",
+                "label": "What"
+              },
+              {
+                "key": "amount",
+                "label": "Amount"
+              }
+            ],
+            "rows": [
+              {
+                "what": "Electricity",
+                "amount": "€64"
+              }
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "budget"
+            ]
+          },
+          {
+            "id": "budget",
+            "component": "Button",
+            "child": "budget-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Set a monthly budget for bills"
+              }
+            }
+          },
+          {
+            "id": "budget-label",
+            "component": "Text",
+            "text": "Set a budget"
+          }
+        ]
+      }
+    }
+  ]
+}

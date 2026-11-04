@@ -1,0 +1,88 @@
+{
+  "layout": "day-and-clash",
+  "when": "A day as a timeline, the clash said in words, and the way out as buttons.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "day",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "schedule",
+              "clash",
+              "actions"
+            ]
+          },
+          {
+            "id": "schedule",
+            "component": "Schedule",
+            "day": "Tuesday 10 November",
+            "items": [
+              {
+                "start": "10:00",
+                "end": "11:00",
+                "title": "Planning"
+              },
+              {
+                "start": "10:30",
+                "end": "11:00",
+                "title": "Dentist"
+              }
+            ]
+          },
+          {
+            "id": "clash",
+            "component": "Text",
+            "text": "Planning and the dentist overlap at 10:30."
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "move",
+              "keep"
+            ]
+          },
+          {
+            "id": "move",
+            "component": "Button",
+            "child": "move-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Move planning on Tuesday to 11:30"
+              }
+            }
+          },
+          {
+            "id": "move-label",
+            "component": "Text",
+            "text": "Move planning to 11:30"
+          },
+          {
+            "id": "keep",
+            "component": "Button",
+            "child": "keep-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Leave Tuesday as it is"
+              }
+            }
+          },
+          {
+            "id": "keep-label",
+            "component": "Text",
+            "text": "Leave it"
+          }
+        ]
+      }
+    }
+  ]
+}

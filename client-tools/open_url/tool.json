@@ -1,0 +1,35 @@
+{
+  "id": "traceflow/open_url@1",
+  "name": "open_url",
+  "version": 1,
+  "description": "Ask the person to open a link: a sign-in page, a bot to start. Show the label as a button that opens the url in a new tab or window (a channel sends the link); once it is opened, reply. The page opened is the provider's, never this one.",
+  "parameters": {
+    "properties": {
+      "label": {
+        "description": "What the button says, e.g. Sign in with Google",
+        "type": "string"
+      },
+      "url": {
+        "description": "The link to open, https",
+        "type": "string"
+      }
+    },
+    "required": [
+      "url",
+      "label"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "opened": {
+        "description": "Whether the link was opened; true unless the person said otherwise",
+        "type": "boolean"
+      }
+    },
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

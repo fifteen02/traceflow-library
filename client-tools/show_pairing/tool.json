@@ -1,0 +1,49 @@
+{
+  "id": "traceflow/show_pairing@1",
+  "name": "show_pairing",
+  "version": 1,
+  "description": "Show what links a device: a QR to scan and/or a code to type, large and copyable, under the label, with the help (markdown) when given. Call it again as it changes; it updates in place. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "code": {
+        "description": "A code to type or send, shown large and copyable",
+        "type": "string"
+      },
+      "expiresAt": {
+        "description": "When the QR or code stops working, an ISO instant; shown as a countdown under it",
+        "type": "string"
+      },
+      "help": {
+        "description": "What to do with it, markdown",
+        "type": "string"
+      },
+      "label": {
+        "description": "What is being linked, e.g. Link your WhatsApp",
+        "type": "string"
+      },
+      "link": {
+        "description": "A link that opens the app with the code typed in, e.g. sms: or wa.me",
+        "type": "string"
+      },
+      "linkLabel": {
+        "description": "What the link's button says, e.g. Open in Messages",
+        "type": "string"
+      },
+      "qr": {
+        "description": "What the QR encodes: a link or a pairing string",
+        "type": "string"
+      },
+      "qrLabel": {
+        "description": "What the QR is for, under it, e.g. Scan with your iPhone",
+        "type": "string"
+      }
+    },
+    "required": [
+      "label"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

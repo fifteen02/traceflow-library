@@ -1,0 +1,55 @@
+{
+  "asked": "Which apps take most of my screen time?",
+  "why": "Many categories: the five largest as sorted bars and the rest summed as Other, instead of a pie of twelve.",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "app": "Messages",
+          "hours": 9.5
+        },
+        {
+          "app": "Browser",
+          "hours": 7.2
+        },
+        {
+          "app": "Maps",
+          "hours": 4.1
+        },
+        {
+          "app": "Mail",
+          "hours": 3.8
+        },
+        {
+          "app": "Music",
+          "hours": 3.1
+        },
+        {
+          "app": "Other",
+          "hours": 5.4
+        }
+      ]
+    },
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "app",
+        "type": "nominal",
+        "sort": [
+          "Messages",
+          "Browser",
+          "Maps",
+          "Mail",
+          "Music",
+          "Other"
+        ],
+        "title": null
+      },
+      "x": {
+        "field": "hours",
+        "type": "quantitative",
+        "title": "Hours this week"
+      }
+    }
+  }
+}

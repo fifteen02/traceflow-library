@@ -1,0 +1,28 @@
+{
+  "why": "A child must be a component of the surface.",
+  "expect": "child \"actions\" isn't a component",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "answer",
+              "actions"
+            ]
+          },
+          {
+            "id": "answer",
+            "component": "Text",
+            "text": "Done."
+          }
+        ]
+      }
+    }
+  ]
+}

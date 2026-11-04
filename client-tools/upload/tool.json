@@ -1,0 +1,191 @@
+{
+  "id": "traceflow/upload@1",
+  "name": "upload",
+  "version": 1,
+  "description": "Ask the person for a file. Show the label and a file picker taking the accepted types up to the size given, and a field for where the file comes from when that is required. Reply with the file, base64.",
+  "parameters": {
+    "properties": {
+      "accept": {
+        "description": "Accepted file types, e.g. .pdf,.txt",
+        "type": "string"
+      },
+      "attributionRequired": {
+        "description": "Whether the person must say where the file comes from",
+        "type": "boolean"
+      },
+      "label": {
+        "description": "What to upload",
+        "type": "string"
+      },
+      "maxBytes": {
+        "description": "The largest file accepted, in bytes; 0 for no limit",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "label"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "attribution": {
+        "description": "Where the file comes from",
+        "properties": {
+          "facts": {
+            "items": {
+              "properties": {
+                "members": {
+                  "items": {
+                    "properties": {
+                      "kind": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "namespace",
+                      "kind",
+                      "value"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "members"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "owner": {
+            "properties": {
+              "domains": {
+                "items": {
+                  "properties": {
+                    "kind": {
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "namespace",
+                    "kind",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "identities": {
+                "items": {
+                  "properties": {
+                    "kind": {
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "namespace",
+                    "kind",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "identities",
+              "domains"
+            ],
+            "type": "object"
+          },
+          "visibility": {
+            "properties": {
+              "keys": {
+                "items": {
+                  "properties": {
+                    "kind": {
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "namespace",
+                    "kind",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "keys"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "facts",
+          "owner",
+          "visibility"
+        ],
+        "type": "object"
+      },
+      "file": {
+        "description": "The uploaded file",
+        "properties": {
+          "content": {
+            "description": "The file's content, base64",
+            "type": "string"
+          },
+          "filename": {
+            "description": "The file's name",
+            "type": "string"
+          },
+          "mimeType": {
+            "description": "The file's media type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename",
+          "mimeType",
+          "content"
+        ],
+        "type": "object"
+      }
+    },
+    "required": [
+      "file"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

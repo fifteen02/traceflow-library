@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="A2UI layout">
+  <defs><linearGradient id="tf-icon-render-a2ui" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2C94C"/><stop offset=".5" stop-color="#6FB1E8"/><stop offset="1" stop-color="#B08CF0"/></linearGradient></defs>
+  <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#17161A"/>
+  <path transform="matrix(0.03571 0 0 0.03571 13.714 13.714)" fill="url(#tf-icon-render-a2ui)" d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-696 72h136v656H184V184zm656 656H384V384h456v456zM384 320V184h456v136H384z"/>
+</svg>

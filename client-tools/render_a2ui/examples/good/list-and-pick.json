@@ -1,0 +1,113 @@
+{
+  "asked": "Somewhere for dinner tonight, four of us, not far",
+  "said": "Three places open tonight within a short walk.",
+  "why": "A list to pick from, a note and the next step: the agent's pick as the primary button.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "dinner-tonight",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "places",
+              "note",
+              "actions"
+            ]
+          },
+          {
+            "id": "places",
+            "component": "Places",
+            "title": "Dinner near Valletta",
+            "places": [
+              {
+                "name": "Rubino",
+                "rating": 4.6,
+                "reviews": 1240,
+                "price": "€€",
+                "kind": "Maltese",
+                "distance": "0.4 km",
+                "openNow": true,
+                "hours": "till 22:30",
+                "address": "53 Old Bakery Street, Valletta, Malta"
+              },
+              {
+                "name": "Noni",
+                "rating": 4.8,
+                "reviews": 640,
+                "price": "€€€",
+                "kind": "Modern Maltese",
+                "distance": "0.7 km",
+                "openNow": true,
+                "hours": "till 23:00",
+                "address": "211 Republic Street, Valletta, Malta"
+              },
+              {
+                "name": "Legligin",
+                "rating": 4.5,
+                "reviews": 980,
+                "price": "€€",
+                "kind": "Maltese",
+                "distance": "0.5 km",
+                "openNow": false,
+                "hours": "opens 19:00",
+                "address": "119 St Lucia Street, Valletta, Malta"
+              }
+            ]
+          },
+          {
+            "id": "note",
+            "component": "Text",
+            "variant": "caption",
+            "text": "Rubino and Noni take bookings; Legligin opens at 19:00."
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "book",
+              "more"
+            ]
+          },
+          {
+            "id": "book",
+            "component": "Button",
+            "child": "book-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Book Rubino for 4 tonight at 20:00"
+              }
+            }
+          },
+          {
+            "id": "book-label",
+            "component": "Text",
+            "text": "Book Rubino for 4 at 20:00"
+          },
+          {
+            "id": "more",
+            "component": "Button",
+            "child": "more-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Show me somewhere quieter"
+              }
+            }
+          },
+          {
+            "id": "more-label",
+            "component": "Text",
+            "text": "Somewhere quieter"
+          }
+        ]
+      }
+    }
+  ]
+}

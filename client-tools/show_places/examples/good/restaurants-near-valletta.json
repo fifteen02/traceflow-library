@@ -1,0 +1,43 @@
+{
+  "asked": "Where should we eat tonight?",
+  "title": "Restaurants near Valletta",
+  "places": [
+    {
+      "name": "Rubino",
+      "rating": 4.6,
+      "reviews": 1240,
+      "price": "€€",
+      "kind": "Maltese",
+      "distance": "0.4 km",
+      "openNow": true,
+      "hours": "till 22:30",
+      "mapsUrl": "https://maps.google.com/?cid=1",
+      "phone": "+356 2122 4656"
+    },
+    {
+      "name": "Noni",
+      "rating": 4.8,
+      "reviews": 640,
+      "price": "€€€",
+      "kind": "Modern Maltese",
+      "distance": "0.7 km",
+      "openNow": true,
+      "hours": "till 23:00",
+      "mapsUrl": "https://maps.google.com/?cid=2"
+    },
+    {
+      "name": "Legligin",
+      "rating": 4.5,
+      "reviews": 980,
+      "price": "€€",
+      "kind": "Maltese",
+      "distance": "0.5 km",
+      "openNow": false,
+      "hours": "opens 19:00"
+    }
+  ],
+  "from": {
+    "latitude": 35.8989,
+    "longitude": 14.5146
+  }
+}

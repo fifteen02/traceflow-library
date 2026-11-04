@@ -1,0 +1,25 @@
+{
+  "why": "An encoding can only name a field the rows have.",
+  "expect": "\"amount\" isn't in the rows",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "category": "A",
+          "euros": 1
+        }
+      ]
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "category",
+        "type": "nominal"
+      },
+      "y": {
+        "field": "amount",
+        "type": "quantitative"
+      }
+    }
+  }
+}

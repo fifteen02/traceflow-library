@@ -1,0 +1,21 @@
+{
+  "why": "Text is body or caption; say a heading in bold instead.",
+  "expect": "isn't one of [caption, body]",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Text",
+            "variant": "h1",
+            "text": "Dinner"
+          }
+        ]
+      }
+    }
+  ]
+}

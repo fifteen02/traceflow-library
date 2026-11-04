@@ -1,0 +1,158 @@
+{
+  "asked": "Where did my money go this month?",
+  "said": "Groceries and eating out are two thirds of this month's spending.",
+  "why": "A chart for the shape, a short table for the detail, one next step.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "spending",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "chart",
+              "table",
+              "actions"
+            ]
+          },
+          {
+            "id": "chart",
+            "component": "VegaChart",
+            "spec": {
+              "data": {
+                "values": [
+                  {
+                    "category": "Groceries",
+                    "euros": 412
+                  },
+                  {
+                    "category": "Eating out",
+                    "euros": 286
+                  },
+                  {
+                    "category": "Home",
+                    "euros": 190
+                  },
+                  {
+                    "category": "Transport",
+                    "euros": 148
+                  },
+                  {
+                    "category": "Subscriptions",
+                    "euros": 64
+                  }
+                ]
+              },
+              "mark": "bar",
+              "encoding": {
+                "y": {
+                  "field": "category",
+                  "type": "nominal",
+                  "sort": "-x",
+                  "title": null
+                },
+                "x": {
+                  "field": "euros",
+                  "type": "quantitative",
+                  "title": "€"
+                },
+                "tooltip": [
+                  {
+                    "field": "category",
+                    "type": "nominal"
+                  },
+                  {
+                    "field": "euros",
+                    "type": "quantitative",
+                    "format": ",.0f"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": "table",
+            "component": "Table",
+            "title": "Largest this month",
+            "columns": [
+              {
+                "key": "what",
+                "label": "What"
+              },
+              {
+                "key": "category",
+                "label": "Category"
+              },
+              {
+                "key": "amount",
+                "label": "Amount"
+              }
+            ],
+            "rows": [
+              {
+                "what": "Lidl, Qormi",
+                "category": "Groceries",
+                "amount": "€96"
+              },
+              {
+                "what": "Rubino",
+                "category": "Eating out",
+                "amount": "€84"
+              },
+              {
+                "what": "Bolt",
+                "category": "Transport",
+                "amount": "€38"
+              }
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "budget",
+              "compare"
+            ]
+          },
+          {
+            "id": "budget",
+            "component": "Button",
+            "child": "budget-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Set a monthly budget for eating out"
+              }
+            }
+          },
+          {
+            "id": "budget-label",
+            "component": "Text",
+            "text": "Set a budget for eating out"
+          },
+          {
+            "id": "compare",
+            "component": "Button",
+            "child": "compare-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Compare this month's spending with October"
+              }
+            }
+          },
+          {
+            "id": "compare-label",
+            "component": "Text",
+            "text": "Compare with October"
+          }
+        ]
+      }
+    }
+  ]
+}

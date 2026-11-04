@@ -1,0 +1,25 @@
+{
+  "why": "A chart inside a surface follows the chart rules: rows inline.",
+  "expect": "reads nothing from an address",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "VegaChart",
+            "spec": {
+              "data": {
+                "url": "https://example.com/d.csv"
+              },
+              "mark": "bar"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

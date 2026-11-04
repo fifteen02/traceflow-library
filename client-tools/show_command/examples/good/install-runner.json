@@ -1,0 +1,5 @@
+{
+  "label": "Install the runner",
+  "command": "curl -fsSL https://example.com/install.sh | sh",
+  "submit": "I've run it"
+}

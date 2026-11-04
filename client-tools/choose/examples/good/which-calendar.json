@@ -1,0 +1,9 @@
+{
+  "why": "Exactly one of a few options, picked with the client's own button.",
+  "question": "Which calendar should the call go in?",
+  "options": [
+    "Work",
+    "Personal",
+    "Family"
+  ]
+}

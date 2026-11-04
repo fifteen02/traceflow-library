@@ -1,0 +1,20 @@
+{
+  "why": "Surfaces are A2UI 1.0.",
+  "expect": "must be \"1.0\"",
+  "messages": [
+    {
+      "version": "0.9",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Text",
+            "text": "Hello"
+          }
+        ]
+      }
+    }
+  ]
+}

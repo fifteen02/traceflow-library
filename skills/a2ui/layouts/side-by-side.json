@@ -1,0 +1,95 @@
+{
+  "layout": "side-by-side",
+  "when": "Two or three options in cards side by side, each with its own button.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "compare",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Row",
+            "children": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "id": "a",
+            "component": "Card",
+            "child": "a-body",
+            "weight": 1
+          },
+          {
+            "id": "a-body",
+            "component": "Column",
+            "children": [
+              "a-what",
+              "a-pick"
+            ]
+          },
+          {
+            "id": "a-what",
+            "component": "Text",
+            "text": "**Lisbon** · €212"
+          },
+          {
+            "id": "a-pick",
+            "component": "Button",
+            "child": "a-pick-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Book the Lisbon flight"
+              }
+            }
+          },
+          {
+            "id": "a-pick-label",
+            "component": "Text",
+            "text": "Take Lisbon"
+          },
+          {
+            "id": "b",
+            "component": "Card",
+            "child": "b-body",
+            "weight": 1
+          },
+          {
+            "id": "b-body",
+            "component": "Column",
+            "children": [
+              "b-what",
+              "b-pick"
+            ]
+          },
+          {
+            "id": "b-what",
+            "component": "Text",
+            "text": "**Porto** · €164"
+          },
+          {
+            "id": "b-pick",
+            "component": "Button",
+            "child": "b-pick-label",
+            "variant": "default",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Book the Porto flight"
+              }
+            }
+          },
+          {
+            "id": "b-pick-label",
+            "component": "Text",
+            "text": "Take Porto"
+          }
+        ]
+      }
+    }
+  ]
+}

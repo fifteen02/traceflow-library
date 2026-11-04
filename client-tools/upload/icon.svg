@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Upload">
+  <defs><linearGradient id="tf-icon-upload" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2C94C"/><stop offset=".5" stop-color="#6FB1E8"/><stop offset="1" stop-color="#B08CF0"/></linearGradient></defs>
+  <path d="M32 0C58 0 64 6 64 32S58 64 32 64 0 58 0 32 6 0 32 0Z" fill="#17161A"/>
+  <path transform="matrix(0.03571 0 0 0.03571 13.714 13.714)" fill="url(#tf-icon-upload)" d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"/>
+</svg>

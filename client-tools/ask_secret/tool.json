@@ -1,0 +1,41 @@
+{
+  "id": "traceflow/ask_secret@1",
+  "name": "ask_secret",
+  "version": 1,
+  "description": "Ask the person for a secret, such as a bot token or an API key. Show the label, the help (markdown) and a masked field. Never put the value in the reply: post it to the console's secret endpoint (POST /api/wizards/threads/{sessionId}/secrets with the value), which answers with a handle, and reply with that handle. A reply holding anything but a handle is refused.",
+  "parameters": {
+    "properties": {
+      "help": {
+        "description": "Where to find it, markdown",
+        "type": "string"
+      },
+      "label": {
+        "description": "What the secret is, e.g. Bot token",
+        "type": "string"
+      },
+      "submit": {
+        "description": "What the button sending it says, e.g. Next",
+        "type": "string"
+      }
+    },
+    "required": [
+      "label"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "handle": {
+        "description": "The handle the console's secret endpoint gave for the value",
+        "type": "string"
+      }
+    },
+    "required": [
+      "handle"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

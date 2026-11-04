@@ -1,0 +1,46 @@
+{
+  "id": "traceflow/ask_location@1",
+  "name": "ask_location",
+  "version": 1,
+  "description": "Ask the person where they are, when an answer depends on it (places near them, directions, the weather there). Show why you ask, a button sharing their device's location once, for this answer, and one saying no; a chat without buttons (WhatsApp) asks them to share a location pin or say where they are. Reply with the coordinates when shared, or with the place they typed; shared is false when they said no. A place shared or said earlier is where they were then: ask again whenever the answer depends on where they are now, never reuse it and never guess.",
+  "parameters": {
+    "properties": {
+      "reason": {
+        "description": "Why you ask, said to the person, e.g. To find restaurants near you",
+        "type": "string"
+      }
+    },
+    "required": [
+      "reason"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "accuracyMeters": {
+        "description": "How close the position is, in metres",
+        "type": "integer"
+      },
+      "latitude": {
+        "description": "Latitude, in degrees",
+        "type": "number"
+      },
+      "longitude": {
+        "description": "Longitude, in degrees",
+        "type": "number"
+      },
+      "place": {
+        "description": "Where they are in their own words, or the location line a chat without buttons sent",
+        "type": "string"
+      },
+      "shared": {
+        "description": "Whether the person shared where they are; false when they said no",
+        "type": "boolean"
+      }
+    },
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

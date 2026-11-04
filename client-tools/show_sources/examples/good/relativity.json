@@ -1,0 +1,16 @@
+{
+  "title": "Sources",
+  "sources": [
+    {
+      "title": "The theory of relativity",
+      "url": "https://en.wikipedia.org/wiki/Theory_of_relativity",
+      "site": "en.wikipedia.org",
+      "snippet": "The theory of relativity usually encompasses two interrelated physics theories by Albert Einstein."
+    },
+    {
+      "title": "Nobel Prize in Physics 1921",
+      "url": "https://www.nobelprize.org/prizes/physics/1921/summary/",
+      "site": "nobelprize.org"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "why": "Every surface starts from the piece with the id root.",
+  "expect": "one needs the id root",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "main",
+            "component": "Text",
+            "text": "Hi"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "why": "Values are literal: there is no data model to bind to.",
+  "expect": "values are literal here",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Text",
+            "text": {
+              "@path": "/user/name"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

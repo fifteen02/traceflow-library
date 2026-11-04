@@ -1,0 +1,27 @@
+{
+  "why": "A piece can't contain itself.",
+  "expect": "is its own ancestor",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "a"
+            ]
+          },
+          {
+            "id": "a",
+            "component": "Card",
+            "child": "root"
+          }
+        ]
+      }
+    }
+  ]
+}

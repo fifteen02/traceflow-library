@@ -1,0 +1,41 @@
+{
+  "id": "traceflow/ask@1",
+  "name": "ask",
+  "version": 1,
+  "description": "Ask the person a question. Show the question and the suggestions, if any, as answers to pick; the person may also answer in their own words. Reply with the answer.",
+  "parameters": {
+    "properties": {
+      "question": {
+        "description": "The question to ask",
+        "type": "string"
+      },
+      "suggestions": {
+        "description": "Answers to suggest; the person may still answer in their own words",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "question"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "properties": {
+      "answer": {
+        "description": "A suggestion the person picked, or their own answer",
+        "type": "string",
+        "x-pick-from": "suggestions"
+      }
+    },
+    "required": [
+      "answer"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

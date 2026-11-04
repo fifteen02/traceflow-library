@@ -1,0 +1,22 @@
+{
+  "title": "Checking the Docker host",
+  "checks": [
+    {
+      "label": "Docker answers",
+      "status": "passed",
+      "detail": "Docker 27.3 on example-host"
+    },
+    {
+      "label": "Enough disk",
+      "status": "failed",
+      "detail": "4 GB free, 20 GB needed",
+      "fix": "Free some space: `docker system prune` removes stopped containers and unused images.",
+      "actionLabel": "Open Docker settings",
+      "actionUrl": "https://docs.docker.com/desktop/settings/"
+    },
+    {
+      "label": "Image registry reachable",
+      "status": "running"
+    }
+  ]
+}

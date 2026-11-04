@@ -1,0 +1,34 @@
+{
+  "id": "traceflow/collect@1",
+  "name": "collect",
+  "version": 1,
+  "description": "Ask the person to fill in a form. Show the title and a form for the call's schema. Reply with the filled object, fitting that schema. A field the schema marks secret (\"secret\": true) is typed masked and never shown back; the reply holds its handle (secret/<uuid>), never the value.",
+  "parameters": {
+    "properties": {
+      "schema": {
+        "description": "JSON schema of the object to fill in",
+        "type": "object"
+      },
+      "submit": {
+        "description": "What the button sending the form says, e.g. Next",
+        "type": "string"
+      },
+      "title": {
+        "description": "What the form is for",
+        "type": "string"
+      }
+    },
+    "required": [
+      "title",
+      "schema"
+    ],
+    "type": "object"
+  },
+  "reply": {
+    "type": "object",
+    "x-schema-from": "schema"
+  },
+  "rendersOnly": false,
+  "channels": "all",
+  "icon": "icon.svg"
+}

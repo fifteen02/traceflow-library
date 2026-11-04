@@ -1,0 +1,25 @@
+{
+  "id": "traceflow/render_vega@1",
+  "name": "render_vega",
+  "version": 1,
+  "description": "Show a chart drawn from a Vega-Lite spec. Give the rows inline as data.values (at most 5000), never a URL; use one y axis and at most 8 colours, and pick the chart for the question: sorted bars to compare, a line for change over time, stacked bars for parts of a whole. The spec is checked and compiled before it is shown: the chat app draws it live, a channel such as WhatsApp gets it as a picture, and the picture is kept in the workspace under charts/. A spec that breaks a rule or doesn't compile is refused with one line per problem: fix them and call again. After it, say in one line what the chart shows; don't repeat its numbers. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "spec": {
+        "description": "The Vega-Lite spec: data.values (the rows), mark and encoding; every field it encodes is in the rows",
+        "type": "object"
+      },
+      "title": {
+        "description": "What the chart shows, in a few words, e.g. Spending this month",
+        "type": "string"
+      }
+    },
+    "required": [
+      "spec"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

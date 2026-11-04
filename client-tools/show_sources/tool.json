@@ -1,0 +1,50 @@
+{
+  "id": "traceflow/show_sources@1",
+  "name": "show_sources",
+  "version": 1,
+  "description": "Show sources as citation cards, in order: each its title as a link to its url, the site it is on and a snippet from it when given. Only shows them; there is no reply.",
+  "parameters": {
+    "properties": {
+      "sources": {
+        "description": "The sources, in order",
+        "items": {
+          "properties": {
+            "site": {
+              "description": "The site it is on, e.g. en.wikipedia.org",
+              "type": "string"
+            },
+            "snippet": {
+              "description": "A short passage from it",
+              "type": "string"
+            },
+            "title": {
+              "description": "The source's title",
+              "type": "string"
+            },
+            "url": {
+              "description": "Where the source is: its link",
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "url"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "title": {
+        "description": "What the sources are for",
+        "type": "string"
+      }
+    },
+    "required": [
+      "sources"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

@@ -1,0 +1,19 @@
+{
+  "why": "A chart says what draws its data.",
+  "expect": "no mark",
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "a": 1
+        }
+      ]
+    },
+    "encoding": {
+      "x": {
+        "field": "a",
+        "type": "quantitative"
+      }
+    }
+  }
+}

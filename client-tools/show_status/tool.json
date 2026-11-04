@@ -1,0 +1,37 @@
+{
+  "id": "traceflow/show_status@1",
+  "name": "show_status",
+  "version": 1,
+  "description": "Show a status line: its segments in order, each coloured by its tone. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "segments": {
+        "description": "The segments of the status line, in order",
+        "items": {
+          "properties": {
+            "label": {
+              "description": "What the segment says",
+              "type": "string"
+            },
+            "tone": {
+              "description": "neutral, info, success, warning or error",
+              "type": "string"
+            }
+          },
+          "required": [
+            "label"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "segments"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

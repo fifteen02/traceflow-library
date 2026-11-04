@@ -1,0 +1,51 @@
+{
+  "id": "traceflow/show_table@1",
+  "name": "show_table",
+  "version": 1,
+  "description": "Show rows of the same shape as a table: its title, the columns in order under their labels, and one line per row, each cell the row's value under its column's key. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "columns": {
+        "description": "The columns, in order",
+        "items": {
+          "properties": {
+            "key": {
+              "description": "The key each row gives this column's value under",
+              "type": "string"
+            },
+            "label": {
+              "description": "The column's heading",
+              "type": "string"
+            }
+          },
+          "required": [
+            "key",
+            "label"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "rows": {
+        "description": "The rows: each maps a column's key to its value",
+        "items": {
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "title": {
+        "description": "What the table is",
+        "type": "string"
+      }
+    },
+    "required": [
+      "title",
+      "columns",
+      "rows"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}

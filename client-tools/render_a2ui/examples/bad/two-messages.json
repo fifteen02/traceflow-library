@@ -1,0 +1,26 @@
+{
+  "why": "One message creates the surface with its components in it.",
+  "expect": "send one message",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1"
+      }
+    },
+    {
+      "version": "1.0",
+      "updateComponents": {
+        "surfaceId": "s",
+        "components": [
+          {
+            "id": "root",
+            "component": "Text",
+            "text": "Hello"
+          }
+        ]
+      }
+    }
+  ]
+}

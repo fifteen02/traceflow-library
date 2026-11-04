@@ -1,0 +1,52 @@
+{
+  "id": "traceflow/show_plan@1",
+  "name": "show_plan",
+  "version": 1,
+  "description": "Show a plan: its title and its steps in order, each with its status (pending, active, done, skipped, failed) and note. Only shows it; there is no reply.",
+  "parameters": {
+    "properties": {
+      "items": {
+        "description": "The steps, in order",
+        "items": {
+          "properties": {
+            "id": {
+              "description": "A stable id for the step",
+              "type": "string"
+            },
+            "label": {
+              "description": "What the step is",
+              "type": "string"
+            },
+            "note": {
+              "description": "A short note on the step",
+              "type": "string"
+            },
+            "status": {
+              "description": "pending, active, done, skipped or failed",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "label",
+            "status"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "title": {
+        "description": "What the plan is for",
+        "type": "string"
+      }
+    },
+    "required": [
+      "title",
+      "items"
+    ],
+    "type": "object"
+  },
+  "rendersOnly": true,
+  "channels": "all",
+  "icon": "icon.svg"
+}
