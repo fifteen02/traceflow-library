@@ -61,11 +61,11 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
 ## Layouts
 
-**Steps, a plan, options or numbers are a layout; one fact is a sentence.** A recipe, a set of instructions, a day, a choice between places, a budget: lay it out, without being asked to. Find the scenario below, read its file (`read_file` on `.skills/a2ui/layouts/<name>.json`), copy it and change its words and data. Each is a whole, valid surface. In the skeletons, `>` reads "has as children"; `data:` is the shape its dataModel takes.
+**Steps, a plan, options or numbers are a layout; one fact is a sentence.** **And show the real thing whenever you can:** a place, a stay, a product, a dish or a person's venue has a photo somewhere (its own site, the listing, the maker's page, the recipe's page, its Google place); find it and put it in, an `Image` at the top of the card or as `Places` cards (their photos come from Google). A card about something real with no picture is the exception, when none can be found. A recipe, a set of instructions, a day, a choice between places, a budget: lay it out, without being asked to. Find the scenario below, read its file (`read_file` on `.skills/a2ui/layouts/<name>.json`), copy it and change its words and data. Each is a whole, valid surface. In the skeletons, `>` reads "has as children"; `data:` is the shape its dataModel takes.
 
 ### Scenarios
 
-**Recipe** ([recipe](layouts/recipe.json)): a dish to cook. Serves and time, what you need, the steps numbered one to a line, one next step.
+**Recipe** ([recipe](layouts/recipe.json)): a dish to cook. The dish's photo from the recipe's page when there is one (an `Image` first), serves and time, what you need, the steps numbered one to a line, one next step.
 
     root Column > summary Text (caption), needs Table, steps Column (one step Text per /steps), actions Row > shop Button (primary)
     data: {serves, minutes, ingredients: [{item, amount}], steps: [{n, text}]}
@@ -75,7 +75,7 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
     root Column > needs Text (caption), steps Column (one step Text per /steps), actions Row > done Button (primary), stuck Button
     data: {steps: [{n, text}]}
 
-**Reservation** ([reservation](layouts/reservation.json)): a booking to finish. The place, what is already settled (the date and party, said once, never asked again), the open choice as a button each. Never say it's booked until the place confirms.
+**Reservation** ([reservation](layouts/reservation.json)): a booking to finish. The place (as `Places`, so its photo comes with it), what is already settled (the date and party, said once, never asked again), the open choice as a button each. Never say it's booked until the place confirms.
 
     root Column > place Places, settled Text (caption), times Row (one time Button per /times), sources Sources
     data: {dateLabel, people, times: [{at, variant}]}
@@ -89,7 +89,7 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
     root Column > events Table (rows from /events), note Text (caption), actions Row > add Button, move Button
     data: {events: [{day, time, what}]}
 
-**Stay** ([stay](layouts/stay.json)): one listing. What and where, its rating on its own provider's scale (9.2 / 10 stays 9.2 / 10), the price a night and in all, what it has, the listing as a source, one step. Each fact once.
+**Stay** ([stay](layouts/stay.json)): one listing. Its photo from the listing (an `Image` first), what and where, its rating on its own provider's scale (9.2 / 10 stays 9.2 / 10), the price a night and in all, what it has, the listing as a source, one step. Each fact once.
 
     root Column > listing Card > facts Column > name, kind, rating, price, has Text; sources Sources; actions Row > book Button (primary)
 
@@ -112,7 +112,7 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
     root Column > stops Places, length Text (caption), actions Row > start Button (primary)
 
-**Products** ([products](layouts/products.json)): things to buy, from their makers' own pages. Brand, name, what it is, the detail that matters, the pages as sources. No price or photo the maker's page doesn't have.
+**Products** ([products](layouts/products.json)): things to buy, from their makers' own pages. Each product's photo from its maker's page (an `Image` in its card), brand, name, what it is, the detail that matters, the pages as sources. No price or photo the maker's page doesn't have.
 
     root Column > items Column (one product Card per /products), sources Sources
     data: {products: [{brand, name, what, detail}]}
