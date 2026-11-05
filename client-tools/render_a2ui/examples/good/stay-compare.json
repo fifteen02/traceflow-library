@@ -1,0 +1,303 @@
+{
+  "asked": "Booking.com or Airbnb for the Lisbon weekend?",
+  "said": "Two places for the same dates: the Airbnb is €128 less for the two nights.",
+  "why": "Offers for the same dates, guests and currency side by side: the same facts in the same order, each rating on its own scale, the dates said once above them, and a button each. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "lisbon-compare",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "offers": [
+            {
+              "site": "Booking.com · Serviced apartment",
+              "name": "Riverside apartment",
+              "rating": "9.2 / 10 · 248 reviews",
+              "nightly": 189,
+              "total": 378
+            },
+            {
+              "site": "Airbnb · Entire apartment",
+              "name": "Garden apartment",
+              "rating": "4.78 / 5 · 314 reviews",
+              "nightly": 125,
+              "total": 250
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "dates",
+              "offers",
+              "actions"
+            ]
+          },
+          {
+            "id": "dates",
+            "component": "Text",
+            "text": "13–15 November · 2 guests · 2 nights",
+            "variant": "caption"
+          },
+          {
+            "id": "offers",
+            "component": "Row",
+            "children": {
+              "path": "/offers",
+              "componentId": "offer"
+            }
+          },
+          {
+            "id": "offer",
+            "component": "Card",
+            "child": "offer-facts",
+            "weight": 1
+          },
+          {
+            "id": "offer-facts",
+            "component": "Column",
+            "children": [
+              "offer-site",
+              "offer-name",
+              "offer-rating",
+              "offer-price"
+            ]
+          },
+          {
+            "id": "offer-site",
+            "component": "Text",
+            "text": {
+              "@path": "site"
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "offer-name",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "**${name}**"
+              }
+            }
+          },
+          {
+            "id": "offer-rating",
+            "component": "Text",
+            "text": {
+              "@path": "rating"
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "offer-price",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "**${formatCurrency(value: ${nightly}, decimals: 0)} a night** · ${formatCurrency(value: ${total}, decimals: 0)} in all"
+              }
+            }
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "take-0",
+              "take-1"
+            ]
+          },
+          {
+            "id": "take-0",
+            "component": "Button",
+            "variant": "default",
+            "child": "take-0-label",
+            "action": {
+              "event": {
+                "name": "take-0",
+                "userMessage": "Book the Riverside apartment on Booking.com for 13–15 November"
+              }
+            }
+          },
+          {
+            "id": "take-0-label",
+            "component": "Text",
+            "text": "Riverside"
+          },
+          {
+            "id": "take-1",
+            "component": "Button",
+            "variant": "primary",
+            "child": "take-1-label",
+            "action": {
+              "event": {
+                "name": "take-1",
+                "userMessage": "Book the Garden apartment on Airbnb for 13–15 November"
+              }
+            }
+          },
+          {
+            "id": "take-1-label",
+            "component": "Text",
+            "text": "Garden"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "lisbon-compare",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "dates",
+              "offers",
+              "actions"
+            ]
+          },
+          {
+            "id": "dates",
+            "component": "Text",
+            "text": "13–15 November · 2 guests · 2 nights",
+            "variant": "caption"
+          },
+          {
+            "id": "offer#0",
+            "component": "Card",
+            "child": "offer-facts#0",
+            "weight": 1
+          },
+          {
+            "id": "offer-facts#0",
+            "component": "Column",
+            "children": [
+              "offer-site#0",
+              "offer-name#0",
+              "offer-rating#0",
+              "offer-price#0"
+            ]
+          },
+          {
+            "id": "offer-site#0",
+            "component": "Text",
+            "text": "Booking.com · Serviced apartment",
+            "variant": "caption"
+          },
+          {
+            "id": "offer-name#0",
+            "component": "Text",
+            "text": "**Riverside apartment**"
+          },
+          {
+            "id": "offer-rating#0",
+            "component": "Text",
+            "text": "9.2 / 10 · 248 reviews",
+            "variant": "caption"
+          },
+          {
+            "id": "offer-price#0",
+            "component": "Text",
+            "text": "**€189 a night** · €378 in all"
+          },
+          {
+            "id": "offer#1",
+            "component": "Card",
+            "child": "offer-facts#1",
+            "weight": 1
+          },
+          {
+            "id": "offer-facts#1",
+            "component": "Column",
+            "children": [
+              "offer-site#1",
+              "offer-name#1",
+              "offer-rating#1",
+              "offer-price#1"
+            ]
+          },
+          {
+            "id": "offer-site#1",
+            "component": "Text",
+            "text": "Airbnb · Entire apartment",
+            "variant": "caption"
+          },
+          {
+            "id": "offer-name#1",
+            "component": "Text",
+            "text": "**Garden apartment**"
+          },
+          {
+            "id": "offer-rating#1",
+            "component": "Text",
+            "text": "4.78 / 5 · 314 reviews",
+            "variant": "caption"
+          },
+          {
+            "id": "offer-price#1",
+            "component": "Text",
+            "text": "**€125 a night** · €250 in all"
+          },
+          {
+            "id": "offers",
+            "component": "Row",
+            "children": [
+              "offer#0",
+              "offer#1"
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "take-0",
+              "take-1"
+            ]
+          },
+          {
+            "id": "take-0",
+            "component": "Button",
+            "variant": "default",
+            "child": "take-0-label",
+            "action": {
+              "event": {
+                "name": "take-0",
+                "userMessage": "Book the Riverside apartment on Booking.com for 13–15 November"
+              }
+            }
+          },
+          {
+            "id": "take-0-label",
+            "component": "Text",
+            "text": "Riverside"
+          },
+          {
+            "id": "take-1",
+            "component": "Button",
+            "variant": "primary",
+            "child": "take-1-label",
+            "action": {
+              "event": {
+                "name": "take-1",
+                "userMessage": "Book the Garden apartment on Airbnb for 13–15 November"
+              }
+            }
+          },
+          {
+            "id": "take-1-label",
+            "component": "Text",
+            "text": "Garden"
+          }
+        ]
+      }
+    }
+  ]
+}

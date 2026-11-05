@@ -1,0 +1,259 @@
+{
+  "asked": "How do I make a quick tomato pasta?",
+  "said": "About 20 minutes, one pan and one pot.",
+  "why": "Steps are something to follow, so they are laid out: serves and time, what you need, the steps numbered one to a line, then one step. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "tomato-pasta",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "serves": 2,
+          "minutes": 20,
+          "ingredients": [
+            {
+              "item": "Spaghetti",
+              "amount": "200 g"
+            },
+            {
+              "item": "Tinned tomatoes",
+              "amount": "400 g"
+            },
+            {
+              "item": "Garlic",
+              "amount": "2 cloves"
+            },
+            {
+              "item": "Olive oil",
+              "amount": "2 tbsp"
+            },
+            {
+              "item": "Basil",
+              "amount": "A handful"
+            }
+          ],
+          "steps": [
+            {
+              "n": 1,
+              "text": "Boil salted water and cook the pasta a minute short of the packet time."
+            },
+            {
+              "n": 2,
+              "text": "Warm the oil and cook the sliced garlic until just golden."
+            },
+            {
+              "n": 3,
+              "text": "Add the tomatoes, simmer for 10 minutes and season."
+            },
+            {
+              "n": 4,
+              "text": "Toss the pasta in the sauce with a splash of its water; tear in the basil."
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "summary",
+              "needs",
+              "steps",
+              "actions"
+            ]
+          },
+          {
+            "id": "summary",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "Serves ${/serves} · ${/minutes} minutes"
+              }
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "needs",
+            "component": "Table",
+            "title": "You'll need",
+            "columns": [
+              {
+                "key": "item",
+                "label": "Ingredient"
+              },
+              {
+                "key": "amount",
+                "label": "Amount"
+              }
+            ],
+            "rows": {
+              "@path": "/ingredients"
+            }
+          },
+          {
+            "id": "steps",
+            "component": "Column",
+            "children": {
+              "path": "/steps",
+              "componentId": "step"
+            }
+          },
+          {
+            "id": "step",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "**${n}.** ${text}"
+              }
+            }
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "shop"
+            ]
+          },
+          {
+            "id": "shop",
+            "component": "Button",
+            "variant": "primary",
+            "child": "shop-label",
+            "action": {
+              "event": {
+                "name": "shop",
+                "userMessage": "Add the tomato pasta ingredients to my shopping list"
+              }
+            }
+          },
+          {
+            "id": "shop-label",
+            "component": "Text",
+            "text": "Add to shopping list"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "tomato-pasta",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "summary",
+              "needs",
+              "steps",
+              "actions"
+            ]
+          },
+          {
+            "id": "summary",
+            "component": "Text",
+            "text": "Serves 2 · 20 minutes",
+            "variant": "caption"
+          },
+          {
+            "id": "needs",
+            "component": "Table",
+            "title": "You'll need",
+            "columns": [
+              {
+                "key": "item",
+                "label": "Ingredient"
+              },
+              {
+                "key": "amount",
+                "label": "Amount"
+              }
+            ],
+            "rows": [
+              {
+                "item": "Spaghetti",
+                "amount": "200 g"
+              },
+              {
+                "item": "Tinned tomatoes",
+                "amount": "400 g"
+              },
+              {
+                "item": "Garlic",
+                "amount": "2 cloves"
+              },
+              {
+                "item": "Olive oil",
+                "amount": "2 tbsp"
+              },
+              {
+                "item": "Basil",
+                "amount": "A handful"
+              }
+            ]
+          },
+          {
+            "id": "step#0",
+            "component": "Text",
+            "text": "**1.** Boil salted water and cook the pasta a minute short of the packet time."
+          },
+          {
+            "id": "step#1",
+            "component": "Text",
+            "text": "**2.** Warm the oil and cook the sliced garlic until just golden."
+          },
+          {
+            "id": "step#2",
+            "component": "Text",
+            "text": "**3.** Add the tomatoes, simmer for 10 minutes and season."
+          },
+          {
+            "id": "step#3",
+            "component": "Text",
+            "text": "**4.** Toss the pasta in the sauce with a splash of its water; tear in the basil."
+          },
+          {
+            "id": "steps",
+            "component": "Column",
+            "children": [
+              "step#0",
+              "step#1",
+              "step#2",
+              "step#3"
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "shop"
+            ]
+          },
+          {
+            "id": "shop",
+            "component": "Button",
+            "variant": "primary",
+            "child": "shop-label",
+            "action": {
+              "event": {
+                "name": "shop",
+                "userMessage": "Add the tomato pasta ingredients to my shopping list"
+              }
+            }
+          },
+          {
+            "id": "shop-label",
+            "component": "Text",
+            "text": "Add to shopping list"
+          }
+        ]
+      }
+    }
+  ]
+}

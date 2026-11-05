@@ -1,0 +1,172 @@
+{
+  "asked": "Help me work out my working style",
+  "said": "Three quick questions. It's a reflection, not a test.",
+  "why": "One question at a time: where you are, the question, its answers as buttons. Each answer is said back, so the next question follows from it. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "working-style-1",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "options": [
+            {
+              "label": "Start building straight away"
+            },
+            {
+              "label": "Sketch a detailed plan"
+            },
+            {
+              "label": "Get the team together"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "progress",
+              "question",
+              "answers"
+            ]
+          },
+          {
+            "id": "progress",
+            "component": "Text",
+            "text": "Question 1 of 3",
+            "variant": "caption"
+          },
+          {
+            "id": "question",
+            "component": "Text",
+            "text": "**A new project lands on your desk. You…**"
+          },
+          {
+            "id": "answers",
+            "component": "Column",
+            "children": {
+              "path": "/options",
+              "componentId": "answer"
+            }
+          },
+          {
+            "id": "answer",
+            "component": "Button",
+            "variant": "default",
+            "child": "answer-label",
+            "action": {
+              "event": {
+                "name": "answer",
+                "userMessage": {
+                  "@call": "formatString",
+                  "args": {
+                    "value": "Question 1: ${label}"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "answer-label",
+            "component": "Text",
+            "text": {
+              "@path": "label"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "working-style-1",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "progress",
+              "question",
+              "answers"
+            ]
+          },
+          {
+            "id": "progress",
+            "component": "Text",
+            "text": "Question 1 of 3",
+            "variant": "caption"
+          },
+          {
+            "id": "question",
+            "component": "Text",
+            "text": "**A new project lands on your desk. You…**"
+          },
+          {
+            "id": "answer#0",
+            "component": "Button",
+            "variant": "default",
+            "child": "answer-label#0",
+            "action": {
+              "event": {
+                "name": "answer",
+                "userMessage": "Question 1: Start building straight away"
+              }
+            }
+          },
+          {
+            "id": "answer-label#0",
+            "component": "Text",
+            "text": "Start building straight away"
+          },
+          {
+            "id": "answer#1",
+            "component": "Button",
+            "variant": "default",
+            "child": "answer-label#1",
+            "action": {
+              "event": {
+                "name": "answer",
+                "userMessage": "Question 1: Sketch a detailed plan"
+              }
+            }
+          },
+          {
+            "id": "answer-label#1",
+            "component": "Text",
+            "text": "Sketch a detailed plan"
+          },
+          {
+            "id": "answer#2",
+            "component": "Button",
+            "variant": "default",
+            "child": "answer-label#2",
+            "action": {
+              "event": {
+                "name": "answer",
+                "userMessage": "Question 1: Get the team together"
+              }
+            }
+          },
+          {
+            "id": "answer-label#2",
+            "component": "Text",
+            "text": "Get the team together"
+          },
+          {
+            "id": "answers",
+            "component": "Column",
+            "children": [
+              "answer#0",
+              "answer#1",
+              "answer#2"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

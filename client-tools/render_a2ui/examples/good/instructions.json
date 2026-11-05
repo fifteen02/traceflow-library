@@ -1,0 +1,209 @@
+{
+  "asked": "How do I add the office printer to my Mac?",
+  "said": "Four steps, a couple of minutes.",
+  "why": "Setting something up: what you need first, the steps numbered one to a line, and a button to say it's done or stuck. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "add-printer",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "steps": [
+            {
+              "n": 1,
+              "text": "Open System Settings, then Printers & Scanners."
+            },
+            {
+              "n": 2,
+              "text": "Choose Add Printer, Scanner or Fax."
+            },
+            {
+              "n": 3,
+              "text": "Pick \"Office-Floor-2\" from the list."
+            },
+            {
+              "n": 4,
+              "text": "Choose Add, then print a test page."
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "needs",
+              "steps",
+              "actions"
+            ]
+          },
+          {
+            "id": "needs",
+            "component": "Text",
+            "text": "You'll need to be on the office Wi-Fi.",
+            "variant": "caption"
+          },
+          {
+            "id": "steps",
+            "component": "Column",
+            "children": {
+              "path": "/steps",
+              "componentId": "step"
+            }
+          },
+          {
+            "id": "step",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "**${n}.** ${text}"
+              }
+            }
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "done",
+              "stuck"
+            ]
+          },
+          {
+            "id": "done",
+            "component": "Button",
+            "variant": "primary",
+            "child": "done-label",
+            "action": {
+              "event": {
+                "name": "done",
+                "userMessage": "The printer is added"
+              }
+            }
+          },
+          {
+            "id": "done-label",
+            "component": "Text",
+            "text": "Done"
+          },
+          {
+            "id": "stuck",
+            "component": "Button",
+            "variant": "default",
+            "child": "stuck-label",
+            "action": {
+              "event": {
+                "name": "stuck",
+                "userMessage": "I'm stuck adding the printer"
+              }
+            }
+          },
+          {
+            "id": "stuck-label",
+            "component": "Text",
+            "text": "I'm stuck"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "add-printer",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "needs",
+              "steps",
+              "actions"
+            ]
+          },
+          {
+            "id": "needs",
+            "component": "Text",
+            "text": "You'll need to be on the office Wi-Fi.",
+            "variant": "caption"
+          },
+          {
+            "id": "step#0",
+            "component": "Text",
+            "text": "**1.** Open System Settings, then Printers & Scanners."
+          },
+          {
+            "id": "step#1",
+            "component": "Text",
+            "text": "**2.** Choose Add Printer, Scanner or Fax."
+          },
+          {
+            "id": "step#2",
+            "component": "Text",
+            "text": "**3.** Pick \"Office-Floor-2\" from the list."
+          },
+          {
+            "id": "step#3",
+            "component": "Text",
+            "text": "**4.** Choose Add, then print a test page."
+          },
+          {
+            "id": "steps",
+            "component": "Column",
+            "children": [
+              "step#0",
+              "step#1",
+              "step#2",
+              "step#3"
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "done",
+              "stuck"
+            ]
+          },
+          {
+            "id": "done",
+            "component": "Button",
+            "variant": "primary",
+            "child": "done-label",
+            "action": {
+              "event": {
+                "name": "done",
+                "userMessage": "The printer is added"
+              }
+            }
+          },
+          {
+            "id": "done-label",
+            "component": "Text",
+            "text": "Done"
+          },
+          {
+            "id": "stuck",
+            "component": "Button",
+            "variant": "default",
+            "child": "stuck-label",
+            "action": {
+              "event": {
+                "name": "stuck",
+                "userMessage": "I'm stuck adding the printer"
+              }
+            }
+          },
+          {
+            "id": "stuck-label",
+            "component": "Text",
+            "text": "I'm stuck"
+          }
+        ]
+      }
+    }
+  ]
+}

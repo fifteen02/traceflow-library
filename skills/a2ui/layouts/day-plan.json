@@ -1,0 +1,50 @@
+{
+  "asked": "What's my Wednesday look like?",
+  "said": "Two things on Wednesday, and the afternoon is free.",
+  "why": "A day to read, not act on: the timeline and one line about the gap. No button, because nothing needs doing.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "wednesday",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "day",
+              "note"
+            ]
+          },
+          {
+            "id": "day",
+            "component": "Schedule",
+            "day": "Wednesday 11 November",
+            "summary": "Two events",
+            "items": [
+              {
+                "start": "10:00",
+                "end": "10:45",
+                "title": "Design review",
+                "place": "Online call"
+              },
+              {
+                "start": "13:00",
+                "end": "15:00",
+                "title": "Lunch with Priya",
+                "place": "Loaf Coffee Shop"
+              }
+            ]
+          },
+          {
+            "id": "note",
+            "component": "Text",
+            "text": "Free from 15:00 to the end of the day.",
+            "variant": "caption"
+          }
+        ]
+      }
+    }
+  ]
+}

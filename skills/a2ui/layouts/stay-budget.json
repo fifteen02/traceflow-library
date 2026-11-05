@@ -1,0 +1,297 @@
+{
+  "asked": "What would Lisbon cost us?",
+  "said": "About €426 for two nights with breakfast.",
+  "why": "An estimate, called one: the rate it rests on, each line of it, the total, and buttons to change what it assumes. The numbers come from the data, worked out before the surface is written, never typed into words. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "lisbon-estimate",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "rate": 189,
+          "breakfast": 12,
+          "total": 426,
+          "lines": [
+            {
+              "what": "Apartment, 2 nights",
+              "euros": 378
+            },
+            {
+              "what": "Breakfast, 2 guests × 2 days",
+              "euros": 48
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "basis",
+              "lines",
+              "total",
+              "change"
+            ]
+          },
+          {
+            "id": "basis",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "${formatCurrency(value: ${/rate}, decimals: 0)} a night for the apartment (up to 2 guests) · breakfast ${formatCurrency(value: ${/breakfast}, decimals: 0)} a guest a day"
+              }
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "lines",
+            "component": "Column",
+            "children": {
+              "path": "/lines",
+              "componentId": "line"
+            }
+          },
+          {
+            "id": "line",
+            "component": "Row",
+            "children": [
+              "line-what",
+              "line-euros"
+            ],
+            "justify": "spaceBetween"
+          },
+          {
+            "id": "line-what",
+            "component": "Text",
+            "text": {
+              "@path": "what"
+            }
+          },
+          {
+            "id": "line-euros",
+            "component": "Text",
+            "text": {
+              "@call": "formatCurrency",
+              "args": {
+                "value": {
+                  "@path": "euros"
+                },
+                "decimals": 0
+              }
+            }
+          },
+          {
+            "id": "total",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "**Estimated total ${formatCurrency(value: ${/total}, decimals: 0)}**"
+              }
+            }
+          },
+          {
+            "id": "change",
+            "component": "Row",
+            "children": [
+              "more-nights",
+              "more-guests",
+              "no-breakfast"
+            ]
+          },
+          {
+            "id": "more-nights",
+            "component": "Button",
+            "variant": "default",
+            "child": "more-nights-label",
+            "action": {
+              "event": {
+                "name": "more-nights",
+                "userMessage": "Estimate it for 3 nights"
+              }
+            }
+          },
+          {
+            "id": "more-nights-label",
+            "component": "Text",
+            "text": "3 nights"
+          },
+          {
+            "id": "more-guests",
+            "component": "Button",
+            "variant": "default",
+            "child": "more-guests-label",
+            "action": {
+              "event": {
+                "name": "more-guests",
+                "userMessage": "Estimate it for 3 guests"
+              }
+            }
+          },
+          {
+            "id": "more-guests-label",
+            "component": "Text",
+            "text": "3 guests"
+          },
+          {
+            "id": "no-breakfast",
+            "component": "Button",
+            "variant": "default",
+            "child": "no-breakfast-label",
+            "action": {
+              "event": {
+                "name": "no-breakfast",
+                "userMessage": "Estimate it without breakfast"
+              }
+            }
+          },
+          {
+            "id": "no-breakfast-label",
+            "component": "Text",
+            "text": "No breakfast"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "lisbon-estimate",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "basis",
+              "lines",
+              "total",
+              "change"
+            ]
+          },
+          {
+            "id": "basis",
+            "component": "Text",
+            "text": "€189 a night for the apartment (up to 2 guests) · breakfast €12 a guest a day",
+            "variant": "caption"
+          },
+          {
+            "id": "line#0",
+            "component": "Row",
+            "children": [
+              "line-what#0",
+              "line-euros#0"
+            ],
+            "justify": "spaceBetween"
+          },
+          {
+            "id": "line-what#0",
+            "component": "Text",
+            "text": "Apartment, 2 nights"
+          },
+          {
+            "id": "line-euros#0",
+            "component": "Text",
+            "text": "€378"
+          },
+          {
+            "id": "line#1",
+            "component": "Row",
+            "children": [
+              "line-what#1",
+              "line-euros#1"
+            ],
+            "justify": "spaceBetween"
+          },
+          {
+            "id": "line-what#1",
+            "component": "Text",
+            "text": "Breakfast, 2 guests × 2 days"
+          },
+          {
+            "id": "line-euros#1",
+            "component": "Text",
+            "text": "€48"
+          },
+          {
+            "id": "lines",
+            "component": "Column",
+            "children": [
+              "line#0",
+              "line#1"
+            ]
+          },
+          {
+            "id": "total",
+            "component": "Text",
+            "text": "**Estimated total €426**"
+          },
+          {
+            "id": "change",
+            "component": "Row",
+            "children": [
+              "more-nights",
+              "more-guests",
+              "no-breakfast"
+            ]
+          },
+          {
+            "id": "more-nights",
+            "component": "Button",
+            "variant": "default",
+            "child": "more-nights-label",
+            "action": {
+              "event": {
+                "name": "more-nights",
+                "userMessage": "Estimate it for 3 nights"
+              }
+            }
+          },
+          {
+            "id": "more-nights-label",
+            "component": "Text",
+            "text": "3 nights"
+          },
+          {
+            "id": "more-guests",
+            "component": "Button",
+            "variant": "default",
+            "child": "more-guests-label",
+            "action": {
+              "event": {
+                "name": "more-guests",
+                "userMessage": "Estimate it for 3 guests"
+              }
+            }
+          },
+          {
+            "id": "more-guests-label",
+            "component": "Text",
+            "text": "3 guests"
+          },
+          {
+            "id": "no-breakfast",
+            "component": "Button",
+            "variant": "default",
+            "child": "no-breakfast-label",
+            "action": {
+              "event": {
+                "name": "no-breakfast",
+                "userMessage": "Estimate it without breakfast"
+              }
+            }
+          },
+          {
+            "id": "no-breakfast-label",
+            "component": "Text",
+            "text": "No breakfast"
+          }
+        ]
+      }
+    }
+  ]
+}

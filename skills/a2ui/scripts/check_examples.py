@@ -12,6 +12,7 @@ Prints a line per check and exits 1 when any fails.
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -66,6 +67,14 @@ def main():
                          name(path) + ": expected \"" + expect + "\", got: " + said[:140])
 
     body = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+    # Every layout is one SKILL.md points to, and every pointer finds its layout: an unlisted one is never read.
+    pointed = set(re.findall(r"\]\(layouts/([\w-]+\.json)\)", body))
+    present = {path.name for path in (SKILL / "layouts").glob("*.json")}
+    for file in sorted(present - pointed):
+        failed += report(False, "layouts/" + file + ": SKILL.md doesn't point to it, so it is never read")
+    for file in sorted(pointed - present):
+        failed += report(False, "SKILL.md points to layouts/" + file + ", which isn't there")
+    failed += report(pointed == present, "SKILL.md points to every layout, and only to layouts that are there")
     listed = body.split(START, 1)[1].split(END, 1)[0].strip() if START in body and END in body else None
     made = pieces.markdown(json.loads((SKILL / "catalog.json").read_text(encoding="utf-8")))
     failed += report(listed == made, "SKILL.md's pieces are catalog.json's"

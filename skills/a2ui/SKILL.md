@@ -61,7 +61,73 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
 ## Layouts
 
-Eight shapes cover most replies. Each is a whole, valid surface in `layouts/`; copy the one that fits and change its words. In the skeletons, `>` reads "has as children".
+**Steps, a plan, options or numbers are a layout; one fact is a sentence.** A recipe, a set of instructions, a day, a choice between places, a budget: lay it out, without being asked to. Find the scenario below, read its file (`read_file` on `.skills/a2ui/layouts/<name>.json`), copy it and change its words and data. Each is a whole, valid surface. In the skeletons, `>` reads "has as children"; `data:` is the shape its dataModel takes.
+
+### Scenarios
+
+**Recipe** ([recipe](layouts/recipe.json)): a dish to cook. Serves and time, what you need, the steps numbered one to a line, one next step.
+
+    root Column > summary Text (caption), needs Table, steps Column (one step Text per /steps), actions Row > shop Button (primary)
+    data: {serves, minutes, ingredients: [{item, amount}], steps: [{n, text}]}
+
+**Instructions** ([instructions](layouts/instructions.json)): setting something up. What you need first, the steps numbered, a button for done and one for stuck.
+
+    root Column > needs Text (caption), steps Column (one step Text per /steps), actions Row > done Button (primary), stuck Button
+    data: {steps: [{n, text}]}
+
+**Reservation** ([reservation](layouts/reservation.json)): a booking to finish. The place, what is already settled (the date and party, said once, never asked again), the open choice as a button each. Never say it's booked until the place confirms.
+
+    root Column > place Places, settled Text (caption), times Row (one time Button per /times), sources Sources
+    data: {dateLabel, people, times: [{at, variant}]}
+
+**Day plan** ([day-plan](layouts/day-plan.json)): a day to read. The timeline and one line about it; no button when nothing needs doing.
+
+    root Column > day Schedule, note Text (caption)
+
+**Month plan** ([month-plan](layouts/month-plan.json)): a month at a glance. Its events by date, the one thing worth knowing, add and move.
+
+    root Column > events Table (rows from /events), note Text (caption), actions Row > add Button, move Button
+    data: {events: [{day, time, what}]}
+
+**Stay** ([stay](layouts/stay.json)): one listing. What and where, its rating on its own provider's scale (9.2 / 10 stays 9.2 / 10), the price a night and in all, what it has, the listing as a source, one step. Each fact once.
+
+    root Column > listing Card > facts Column > name, kind, rating, price, has Text; sources Sources; actions Row > book Button (primary)
+
+**Stay compare** ([stay-compare](layouts/stay-compare.json)): offers for the same dates, guests and currency. The dates once above them, a card each with the same facts in the same order, a button each.
+
+    root Column > dates Text (caption), offers Row (one offer Card per /offers), actions Row > take-0 Button, take-1 Button
+    data: {offers: [{site, name, rating, nightly, total}]}
+
+**Stay budget** ([stay-budget](layouts/stay-budget.json)): an estimate, called one. The rate it rests on, each line, the total, buttons to change what it assumes. Work the numbers out before writing the surface; never invent a fee or a discount.
+
+    root Column > basis Text (caption), lines Column (one line Row per /lines), total Text, change Row > three Buttons
+    data: {rate, breakfast, total, lines: [{what, euros}]}
+
+**Quiz** ([quiz](layouts/quiz.json)): one question at a time. Where you are, the question, its answers as buttons. Call the result a reflection, never an assessment.
+
+    root Column > progress Text (caption), question Text, answers Column (one answer Button per /options)
+    data: {options: [{label}]}
+
+**Route** ([route](layouts/route.json)): stops in the order walked or driven, each opening in maps, how long it takes, one step.
+
+    root Column > stops Places, length Text (caption), actions Row > start Button (primary)
+
+**Products** ([products](layouts/products.json)): things to buy, from their makers' own pages. Brand, name, what it is, the detail that matters, the pages as sources. No price or photo the maker's page doesn't have.
+
+    root Column > items Column (one product Card per /products), sources Sources
+    data: {products: [{brand, name, what, detail}]}
+
+**Connect** ([connect-calendar](layouts/connect-calendar.json), [connect-gmail](layouts/connect-gmail.json)): when a task needs a service that isn't connected. What it would let you do, what it can do, one Connect button. Never say it's connected until it is.
+
+    root Column > title Text, benefit Text, can Column (one ability Text per /can), actions Row > connect Button (primary)
+    data: {can: [{what}]}
+
+**Connected apps** ([connected-apps](layouts/connected-apps.json)): the connections and where each stands, as the connections say, and the actions that change them.
+
+    root Column > apps Table (rows from /apps), actions Row > connect Button, manage Button
+    data: {apps: [{app, for, state}]}
+
+### More shapes
 
 **Answer and actions** ([answer-and-actions](layouts/answer-and-actions.json)): an answer in a line or two, then what to do next.
 

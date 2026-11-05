@@ -1,0 +1,107 @@
+{
+  "asked": "Show me that Booking.com apartment in Lisbon",
+  "said": "Here it is, for your dates.",
+  "why": "One listing: what it is and where, its rating on its own provider's scale, the price a night and in total, what it has, one step, and the listing as the source. Each fact once.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "lisbon-riverside",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "listing",
+              "sources",
+              "actions"
+            ]
+          },
+          {
+            "id": "listing",
+            "component": "Card",
+            "child": "facts"
+          },
+          {
+            "id": "facts",
+            "component": "Column",
+            "children": [
+              "name",
+              "kind",
+              "rating",
+              "price",
+              "has"
+            ]
+          },
+          {
+            "id": "name",
+            "component": "Text",
+            "text": "**Riverside apartment**"
+          },
+          {
+            "id": "kind",
+            "component": "Text",
+            "text": "Serviced apartment · Lisbon",
+            "variant": "caption"
+          },
+          {
+            "id": "rating",
+            "component": "Text",
+            "text": "9.2 / 10 · 248 reviews on Booking.com"
+          },
+          {
+            "id": "price",
+            "component": "Text",
+            "text": "**€189 a night** · €378 for 13–15 November, 2 guests"
+          },
+          {
+            "id": "has",
+            "component": "Text",
+            "text": "Wi-Fi · Coffee machine · Air conditioning",
+            "variant": "caption"
+          },
+          {
+            "id": "sources",
+            "component": "Sources",
+            "sources": [
+              {
+                "title": "Riverside apartment",
+                "site": "Booking.com",
+                "url": "https://www.booking.com/searchresults.html?ss=Lisbon"
+              },
+              {
+                "title": "Your Lisbon trip dates",
+                "site": "Gmail"
+              }
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "book"
+            ]
+          },
+          {
+            "id": "book",
+            "component": "Button",
+            "variant": "primary",
+            "child": "book-label",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": "Book the Riverside apartment for 13–15 November"
+              }
+            }
+          },
+          {
+            "id": "book-label",
+            "component": "Text",
+            "text": "Book these dates"
+          }
+        ]
+      }
+    }
+  ]
+}

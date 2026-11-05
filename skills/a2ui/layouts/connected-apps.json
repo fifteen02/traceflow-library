@@ -1,0 +1,214 @@
+{
+  "asked": "What have I connected?",
+  "said": "Two of four are connected.",
+  "why": "Connections at a glance: each app, what it is for and where it stands, as the connections say (never a guess), and the actions that change them. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "connections",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "apps": [
+            {
+              "app": "Google Calendar",
+              "for": "Events and free time",
+              "state": "Connected"
+            },
+            {
+              "app": "Gmail",
+              "for": "Mail and drafts",
+              "state": "Connected"
+            },
+            {
+              "app": "Google Drive",
+              "for": "Documents and files",
+              "state": "Not connected"
+            },
+            {
+              "app": "Google Account",
+              "for": "Sign-in",
+              "state": "Not connected"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "apps",
+              "actions"
+            ]
+          },
+          {
+            "id": "apps",
+            "component": "Table",
+            "title": "Your connections",
+            "columns": [
+              {
+                "key": "app",
+                "label": "App"
+              },
+              {
+                "key": "for",
+                "label": "For"
+              },
+              {
+                "key": "state",
+                "label": "State"
+              }
+            ],
+            "rows": {
+              "@path": "/apps"
+            }
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "connect-drive",
+              "manage-gmail"
+            ]
+          },
+          {
+            "id": "connect-drive",
+            "component": "Button",
+            "variant": "default",
+            "child": "connect-drive-label",
+            "action": {
+              "event": {
+                "name": "connect-drive",
+                "userMessage": "Connect my Google Drive"
+              }
+            }
+          },
+          {
+            "id": "connect-drive-label",
+            "component": "Text",
+            "text": "Connect Drive"
+          },
+          {
+            "id": "manage-gmail",
+            "component": "Button",
+            "variant": "default",
+            "child": "manage-gmail-label",
+            "action": {
+              "event": {
+                "name": "manage-gmail",
+                "userMessage": "Show me what Gmail is allowed to do"
+              }
+            }
+          },
+          {
+            "id": "manage-gmail-label",
+            "component": "Text",
+            "text": "Manage Gmail"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "connections",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "apps",
+              "actions"
+            ]
+          },
+          {
+            "id": "apps",
+            "component": "Table",
+            "title": "Your connections",
+            "columns": [
+              {
+                "key": "app",
+                "label": "App"
+              },
+              {
+                "key": "for",
+                "label": "For"
+              },
+              {
+                "key": "state",
+                "label": "State"
+              }
+            ],
+            "rows": [
+              {
+                "app": "Google Calendar",
+                "for": "Events and free time",
+                "state": "Connected"
+              },
+              {
+                "app": "Gmail",
+                "for": "Mail and drafts",
+                "state": "Connected"
+              },
+              {
+                "app": "Google Drive",
+                "for": "Documents and files",
+                "state": "Not connected"
+              },
+              {
+                "app": "Google Account",
+                "for": "Sign-in",
+                "state": "Not connected"
+              }
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "connect-drive",
+              "manage-gmail"
+            ]
+          },
+          {
+            "id": "connect-drive",
+            "component": "Button",
+            "variant": "default",
+            "child": "connect-drive-label",
+            "action": {
+              "event": {
+                "name": "connect-drive",
+                "userMessage": "Connect my Google Drive"
+              }
+            }
+          },
+          {
+            "id": "connect-drive-label",
+            "component": "Text",
+            "text": "Connect Drive"
+          },
+          {
+            "id": "manage-gmail",
+            "component": "Button",
+            "variant": "default",
+            "child": "manage-gmail-label",
+            "action": {
+              "event": {
+                "name": "manage-gmail",
+                "userMessage": "Show me what Gmail is allowed to do"
+              }
+            }
+          },
+          {
+            "id": "manage-gmail-label",
+            "component": "Text",
+            "text": "Manage Gmail"
+          }
+        ]
+      }
+    }
+  ]
+}

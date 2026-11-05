@@ -1,0 +1,174 @@
+{
+  "asked": "Did the venue reply to my email?",
+  "said": "I can check, once I can see your mail.",
+  "why": "Asking to connect: what it would let me do, then one button. What it can do is not what it is allowed: the connection asks the person for that, and nothing is said to be connected until it is. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "connect-gmail",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "can": [
+            {
+              "what": "Search and read your mail"
+            },
+            {
+              "what": "Draft replies for you to look at"
+            },
+            {
+              "what": "Send, with your OK"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "title",
+              "benefit",
+              "can",
+              "actions"
+            ]
+          },
+          {
+            "id": "title",
+            "component": "Text",
+            "text": "**Connect Gmail**"
+          },
+          {
+            "id": "benefit",
+            "component": "Text",
+            "text": "Find what came in and draft replies, without opening your inbox."
+          },
+          {
+            "id": "can",
+            "component": "Column",
+            "children": {
+              "path": "/can",
+              "componentId": "ability"
+            }
+          },
+          {
+            "id": "ability",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "✓ ${what}"
+              }
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "connect"
+            ]
+          },
+          {
+            "id": "connect",
+            "component": "Button",
+            "variant": "primary",
+            "child": "connect-label",
+            "action": {
+              "event": {
+                "name": "connect",
+                "userMessage": "Connect my Gmail"
+              }
+            }
+          },
+          {
+            "id": "connect-label",
+            "component": "Text",
+            "text": "Connect Gmail"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "connect-gmail",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "title",
+              "benefit",
+              "can",
+              "actions"
+            ]
+          },
+          {
+            "id": "title",
+            "component": "Text",
+            "text": "**Connect Gmail**"
+          },
+          {
+            "id": "benefit",
+            "component": "Text",
+            "text": "Find what came in and draft replies, without opening your inbox."
+          },
+          {
+            "id": "ability#0",
+            "component": "Text",
+            "text": "✓ Search and read your mail",
+            "variant": "caption"
+          },
+          {
+            "id": "ability#1",
+            "component": "Text",
+            "text": "✓ Draft replies for you to look at",
+            "variant": "caption"
+          },
+          {
+            "id": "ability#2",
+            "component": "Text",
+            "text": "✓ Send, with your OK",
+            "variant": "caption"
+          },
+          {
+            "id": "can",
+            "component": "Column",
+            "children": [
+              "ability#0",
+              "ability#1",
+              "ability#2"
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "connect"
+            ]
+          },
+          {
+            "id": "connect",
+            "component": "Button",
+            "variant": "primary",
+            "child": "connect-label",
+            "action": {
+              "event": {
+                "name": "connect",
+                "userMessage": "Connect my Gmail"
+              }
+            }
+          },
+          {
+            "id": "connect-label",
+            "component": "Text",
+            "text": "Connect Gmail"
+          }
+        ]
+      }
+    }
+  ]
+}

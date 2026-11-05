@@ -1,0 +1,228 @@
+{
+  "asked": "What have I got on in November?",
+  "said": "Three things so far; the 6th is the only busy day.",
+  "why": "A month at a glance: its events by date in a table, the one thing worth knowing in words, and the two things people do next. A change is only made once the calendar confirms it. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "november",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "events": [
+            {
+              "day": "Wed 4",
+              "time": "10:00",
+              "what": "Design review"
+            },
+            {
+              "day": "Fri 6",
+              "time": "14:00",
+              "what": "Design sync"
+            },
+            {
+              "day": "Fri 6",
+              "time": "15:00",
+              "what": "Call with Erik"
+            },
+            {
+              "day": "Thu 12",
+              "time": "13:00",
+              "what": "Lunch with Priya"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "events",
+              "note",
+              "actions"
+            ]
+          },
+          {
+            "id": "events",
+            "component": "Table",
+            "title": "November",
+            "columns": [
+              {
+                "key": "day",
+                "label": "Day"
+              },
+              {
+                "key": "time",
+                "label": "Time"
+              },
+              {
+                "key": "what",
+                "label": "What"
+              }
+            ],
+            "rows": {
+              "@path": "/events"
+            }
+          },
+          {
+            "id": "note",
+            "component": "Text",
+            "text": "Friday the 6th has two things back to back.",
+            "variant": "caption"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "add",
+              "move"
+            ]
+          },
+          {
+            "id": "add",
+            "component": "Button",
+            "variant": "default",
+            "child": "add-label",
+            "action": {
+              "event": {
+                "name": "add",
+                "userMessage": "Add an event in November"
+              }
+            }
+          },
+          {
+            "id": "add-label",
+            "component": "Text",
+            "text": "Add an event"
+          },
+          {
+            "id": "move",
+            "component": "Button",
+            "variant": "default",
+            "child": "move-label",
+            "action": {
+              "event": {
+                "name": "move",
+                "userMessage": "Move Design sync on Friday 6 November"
+              }
+            }
+          },
+          {
+            "id": "move-label",
+            "component": "Text",
+            "text": "Move Design sync"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "november",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "events",
+              "note",
+              "actions"
+            ]
+          },
+          {
+            "id": "events",
+            "component": "Table",
+            "title": "November",
+            "columns": [
+              {
+                "key": "day",
+                "label": "Day"
+              },
+              {
+                "key": "time",
+                "label": "Time"
+              },
+              {
+                "key": "what",
+                "label": "What"
+              }
+            ],
+            "rows": [
+              {
+                "day": "Wed 4",
+                "time": "10:00",
+                "what": "Design review"
+              },
+              {
+                "day": "Fri 6",
+                "time": "14:00",
+                "what": "Design sync"
+              },
+              {
+                "day": "Fri 6",
+                "time": "15:00",
+                "what": "Call with Erik"
+              },
+              {
+                "day": "Thu 12",
+                "time": "13:00",
+                "what": "Lunch with Priya"
+              }
+            ]
+          },
+          {
+            "id": "note",
+            "component": "Text",
+            "text": "Friday the 6th has two things back to back.",
+            "variant": "caption"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "add",
+              "move"
+            ]
+          },
+          {
+            "id": "add",
+            "component": "Button",
+            "variant": "default",
+            "child": "add-label",
+            "action": {
+              "event": {
+                "name": "add",
+                "userMessage": "Add an event in November"
+              }
+            }
+          },
+          {
+            "id": "add-label",
+            "component": "Text",
+            "text": "Add an event"
+          },
+          {
+            "id": "move",
+            "component": "Button",
+            "variant": "default",
+            "child": "move-label",
+            "action": {
+              "event": {
+                "name": "move",
+                "userMessage": "Move Design sync on Friday 6 November"
+              }
+            }
+          },
+          {
+            "id": "move-label",
+            "component": "Text",
+            "text": "Move Design sync"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "asked": "Plan me a short walk around Valletta",
+  "said": "Three stops, about 25 minutes on foot.",
+  "why": "A route: the stops in the order walked, each opening in maps, how long it takes, and one step.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "valletta-walk",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "stops",
+              "length",
+              "actions"
+            ]
+          },
+          {
+            "id": "stops",
+            "component": "Places",
+            "title": "Walk around Valletta",
+            "places": [
+              {
+                "name": "Upper Barrakka Gardens",
+                "kind": "Garden",
+                "address": "Castille Place, Valletta",
+                "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Upper+Barrakka+Gardens"
+              },
+              {
+                "name": "St John's Co-Cathedral",
+                "kind": "Cathedral",
+                "address": "St John Street, Valletta",
+                "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+John%27s+Co-Cathedral"
+              },
+              {
+                "name": "Fort St Elmo",
+                "kind": "Fort",
+                "address": "Mediterranean Street, Valletta",
+                "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fort+St+Elmo"
+              }
+            ]
+          },
+          {
+            "id": "length",
+            "component": "Text",
+            "text": "1.4 km · about 25 minutes, mostly downhill",
+            "variant": "caption"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "start"
+            ]
+          },
+          {
+            "id": "start",
+            "component": "Button",
+            "variant": "primary",
+            "child": "start-label",
+            "action": {
+              "event": {
+                "name": "start",
+                "userMessage": "Start the Valletta walk from Upper Barrakka Gardens"
+              }
+            }
+          },
+          {
+            "id": "start-label",
+            "component": "Text",
+            "text": "Start from the gardens"
+          }
+        ]
+      }
+    }
+  ]
+}

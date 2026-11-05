@@ -1,0 +1,236 @@
+{
+  "asked": "Book dinner with Pierre on Friday, somewhere quiet",
+  "said": "Harbour Table has a calm terrace. Pick a time and I'll ask them for Friday.",
+  "why": "A booking to finish: the place, what is already settled (the date and the party, said once), and the open choice as one button each. Nothing is booked until the restaurant confirms. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "dinner-friday",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "dateLabel": "Friday 6 November",
+          "people": 2,
+          "times": [
+            {
+              "at": "19:00",
+              "variant": "default"
+            },
+            {
+              "at": "19:30",
+              "variant": "primary"
+            },
+            {
+              "at": "20:00",
+              "variant": "default"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "place",
+              "settled",
+              "times",
+              "sources"
+            ]
+          },
+          {
+            "id": "place",
+            "component": "Places",
+            "places": [
+              {
+                "name": "Harbour Table",
+                "rating": 4.6,
+                "reviews": 142,
+                "price": "€€",
+                "kind": "Seafood",
+                "address": "Tower Road, Sliema",
+                "hours": "till 23:00",
+                "openNow": true
+              }
+            ]
+          },
+          {
+            "id": "settled",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "${/dateLabel} · ${/people} ${pluralize(value: ${/people}, one: 'guest', other: 'guests')}"
+              }
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "times",
+            "component": "Row",
+            "children": {
+              "path": "/times",
+              "componentId": "time"
+            }
+          },
+          {
+            "id": "time",
+            "component": "Button",
+            "variant": {
+              "@path": "variant"
+            },
+            "child": "time-label",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": {
+                  "@call": "formatString",
+                  "args": {
+                    "value": "Book Harbour Table on ${/dateLabel} at ${at} for ${/people}"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "time-label",
+            "component": "Text",
+            "text": {
+              "@path": "at"
+            }
+          },
+          {
+            "id": "sources",
+            "component": "Sources",
+            "sources": [
+              {
+                "title": "Pierre: somewhere quiet on Friday?",
+                "site": "WhatsApp"
+              },
+              {
+                "title": "Harbour Table reviews: \"calm terrace\"",
+                "site": "Google Maps"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "dinner-friday",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "place",
+              "settled",
+              "times",
+              "sources"
+            ]
+          },
+          {
+            "id": "place",
+            "component": "Places",
+            "places": [
+              {
+                "name": "Harbour Table",
+                "rating": 4.6,
+                "reviews": 142,
+                "price": "€€",
+                "kind": "Seafood",
+                "address": "Tower Road, Sliema",
+                "hours": "till 23:00",
+                "openNow": true
+              }
+            ]
+          },
+          {
+            "id": "settled",
+            "component": "Text",
+            "text": "Friday 6 November · 2 guests",
+            "variant": "caption"
+          },
+          {
+            "id": "time#0",
+            "component": "Button",
+            "variant": "default",
+            "child": "time-label#0",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": "Book Harbour Table on Friday 6 November at 19:00 for 2"
+              }
+            }
+          },
+          {
+            "id": "time-label#0",
+            "component": "Text",
+            "text": "19:00"
+          },
+          {
+            "id": "time#1",
+            "component": "Button",
+            "variant": "primary",
+            "child": "time-label#1",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": "Book Harbour Table on Friday 6 November at 19:30 for 2"
+              }
+            }
+          },
+          {
+            "id": "time-label#1",
+            "component": "Text",
+            "text": "19:30"
+          },
+          {
+            "id": "time#2",
+            "component": "Button",
+            "variant": "default",
+            "child": "time-label#2",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": "Book Harbour Table on Friday 6 November at 20:00 for 2"
+              }
+            }
+          },
+          {
+            "id": "time-label#2",
+            "component": "Text",
+            "text": "20:00"
+          },
+          {
+            "id": "times",
+            "component": "Row",
+            "children": [
+              "time#0",
+              "time#1",
+              "time#2"
+            ]
+          },
+          {
+            "id": "sources",
+            "component": "Sources",
+            "sources": [
+              {
+                "title": "Pierre: somewhere quiet on Friday?",
+                "site": "WhatsApp"
+              },
+              {
+                "title": "Harbour Table reviews: \"calm terrace\"",
+                "site": "Google Maps"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
