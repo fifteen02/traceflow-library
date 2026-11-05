@@ -1,6 +1,6 @@
 ---
 name: a2ui
-description: How to lay a reply out in traceflow's chat app with render_a2ui - cards to pick from, a day with a clash, charts (which chart answers which question, and a Vega-Lite spec that passes first time), a chart with a table and a next step, options side by side, an answer with its sources, and buttons that send the person's next message. Use it when a reply in the chat app would be easier to act on or compare as a layout than as text. Not for WhatsApp or other channels, where render_a2ui isn't offered.
+description: Lay a reply out in traceflow's chat app with render_a2ui, with a layout for each kind of answer - a recipe, instructions or steps, a day or month plan, places to go or eat, a booking, stays to compare, a budget or split, products, a route, a quiz, connecting a service, numbers and charts, an answer with its sources - each with the real photo of what it is about. Use it for every chat-app reply that is steps, a plan, options or numbers (not only when asked for a card); a single fact stays a sentence. Not for WhatsApp or other channels, where render_a2ui isn't offered.
 license: Apache-2.0
 compatibility: Only in traceflow's own chat app, where render_a2ui is offered (the skill isn't offered without it). Its scripts are optional, standard library only, and run in the skill computer of the documents environment (traceflow-skill-runtime, which has python3); vl-convert-python, to compile and draw a chart, comes from requirements.txt when that computer is built. Needs no internet.
 metadata:
