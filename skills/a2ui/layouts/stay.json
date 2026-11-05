@@ -1,7 +1,7 @@
 {
   "asked": "Show me that Booking.com apartment in Lisbon",
   "said": "Here it is, for your dates.",
-  "why": "One listing: what it is and where, its rating on its own provider's scale, the price a night and in total, what it has, one step, and the listing as the source. Each fact once.",
+  "why": "One listing, flat on the card (no card inside it): its photo from the listing when there is one, what it is and where, its rating on its own provider's scale, the price a night and in total, what it has, one step, then the listing as the source. Each fact once.",
   "messages": [
     {
       "version": "1.0",
@@ -13,25 +13,20 @@
             "id": "root",
             "component": "Column",
             "children": [
-              "listing",
-              "sources",
-              "actions"
+              "heading",
+              "rating",
+              "price",
+              "has",
+              "actions",
+              "sources"
             ]
           },
           {
-            "id": "listing",
-            "component": "Card",
-            "child": "facts"
-          },
-          {
-            "id": "facts",
+            "id": "heading",
             "component": "Column",
             "children": [
               "name",
-              "kind",
-              "rating",
-              "price",
-              "has"
+              "kind"
             ]
           },
           {
@@ -62,21 +57,6 @@
             "variant": "caption"
           },
           {
-            "id": "sources",
-            "component": "Sources",
-            "sources": [
-              {
-                "title": "Riverside apartment",
-                "site": "Booking.com",
-                "url": "https://www.booking.com/searchresults.html?ss=Lisbon"
-              },
-              {
-                "title": "Your Lisbon trip dates",
-                "site": "Gmail"
-              }
-            ]
-          },
-          {
             "id": "actions",
             "component": "Row",
             "children": [
@@ -99,6 +79,21 @@
             "id": "book-label",
             "component": "Text",
             "text": "Book these dates"
+          },
+          {
+            "id": "sources",
+            "component": "Sources",
+            "sources": [
+              {
+                "title": "Riverside apartment",
+                "site": "Booking.com",
+                "url": "https://www.booking.com/searchresults.html?ss=Lisbon"
+              },
+              {
+                "title": "Your Lisbon trip dates",
+                "site": "Gmail"
+              }
+            ]
           }
         ]
       }

@@ -21,7 +21,6 @@
             "id": "day",
             "component": "Schedule",
             "day": "Wednesday 11 November",
-            "summary": "Two events",
             "items": [
               {
                 "start": "10:00",

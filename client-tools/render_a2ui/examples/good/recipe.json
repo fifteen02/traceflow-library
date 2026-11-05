@@ -1,7 +1,7 @@
 {
   "asked": "How do I make a quick tomato pasta?",
   "said": "About 20 minutes, one pan and one pot.",
-  "why": "Steps are something to follow, so they are laid out: serves and time, what you need, the steps numbered one to a line, then one step. \"drawn\" is the surface the app is sent.",
+  "why": "Steps are something to follow, so they are laid out: the dish's real photo, serves and time, what you need, the steps numbered one to a line, then one step. \"drawn\" is the surface the app is sent.",
   "messages": [
     {
       "version": "1.0",
@@ -57,11 +57,19 @@
             "id": "root",
             "component": "Column",
             "children": [
+              "photo",
               "summary",
               "needs",
               "steps",
               "actions"
             ]
+          },
+          {
+            "id": "photo",
+            "component": "Image",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/960px-Spaghettata.JPG",
+            "alt": "A plate of spaghetti with tomato sauce",
+            "caption": "Spaghetti al pomodoro · Wikimedia Commons"
           },
           {
             "id": "summary",
@@ -149,11 +157,19 @@
             "id": "root",
             "component": "Column",
             "children": [
+              "photo",
               "summary",
               "needs",
               "steps",
               "actions"
             ]
+          },
+          {
+            "id": "photo",
+            "component": "Image",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Spaghettata.JPG/960px-Spaghettata.JPG",
+            "alt": "A plate of spaghetti with tomato sauce",
+            "caption": "Spaghetti al pomodoro · Wikimedia Commons"
           },
           {
             "id": "summary",

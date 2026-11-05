@@ -1,7 +1,7 @@
 {
   "asked": "Plan me a short walk around Valletta",
   "said": "Three stops, about 25 minutes on foot.",
-  "why": "A route: the stops in the order walked, each opening in maps, how long it takes, and one step.",
+  "why": "A route: the stops in the order walked, each with its real photo and opening in maps, how long it takes, and one step.",
   "messages": [
     {
       "version": "1.0",
@@ -26,18 +26,21 @@
               {
                 "name": "Upper Barrakka Gardens",
                 "kind": "Garden",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Upper_barrakka_gardens-IMG_1670.jpg/960px-Upper_barrakka_gardens-IMG_1670.jpg",
                 "address": "Castille Place, Valletta",
                 "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Upper+Barrakka+Gardens"
               },
               {
                 "name": "St John's Co-Cathedral",
                 "kind": "Cathedral",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/St_John%27s_Co-Cathedral%2C_Valletta_001.jpg/960px-St_John%27s_Co-Cathedral%2C_Valletta_001.jpg",
                 "address": "St John Street, Valletta",
                 "mapsUrl": "https://www.google.com/maps/search/?api=1&query=St+John%27s+Co-Cathedral"
               },
               {
                 "name": "Fort St Elmo",
                 "kind": "Fort",
+                "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Valletta%2C_Malta_-_2018_%2839570984425%29.jpg/960px-Valletta%2C_Malta_-_2018_%2839570984425%29.jpg",
                 "address": "Mediterranean Street, Valletta",
                 "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fort+St+Elmo"
               }

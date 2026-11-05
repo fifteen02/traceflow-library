@@ -89,9 +89,9 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
     root Column > events Table (rows from /events), note Text (caption), actions Row > add Button, move Button
     data: {events: [{day, time, what}]}
 
-**Stay** ([stay](layouts/stay.json)): one listing. Its photo from the listing (an `Image` first), what and where, its rating on its own provider's scale (9.2 / 10 stays 9.2 / 10), the price a night and in all, what it has, the listing as a source, one step. Each fact once.
+**Stay** ([stay](layouts/stay.json)): one listing. Its photo from the listing (an `Image` first), what and where, its rating on its own provider's scale (9.2 / 10 stays 9.2 / 10), the price a night and in all, what it has, one step, then the listing as a source. Each fact once, and flat on the surface: a Card inside it only when there are several to tell apart.
 
-    root Column > listing Card > facts Column > name, kind, rating, price, has Text; sources Sources; actions Row > book Button (primary)
+    root Column > photo Image, heading Column > name, kind Text; rating, price, has Text; actions Row > book Button (primary); sources Sources
 
 **Stay compare** ([stay-compare](layouts/stay-compare.json)): offers for the same dates, guests and currency. The dates once above them, a card each with the same facts in the same order, a button each.
 
@@ -114,7 +114,7 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
 **Products** ([products](layouts/products.json)): things to buy, from their makers' own pages. Each product's photo from its maker's page (an `Image` in its card), brand, name, what it is, the detail that matters, the pages as sources. No price or photo the maker's page doesn't have.
 
-    root Column > items Column (one product Card per /products), sources Sources
+    root Column > items Column (one product Column per /products: brand, name, what Text, a Button), sources Sources
     data: {products: [{brand, name, what, detail}]}
 
 **Connect** ([connect-calendar](layouts/connect-calendar.json), [connect-gmail](layouts/connect-gmail.json)): when a task needs a service that isn't connected. What it would let you do, what it can do, one Connect button. Never say it's connected until it is.

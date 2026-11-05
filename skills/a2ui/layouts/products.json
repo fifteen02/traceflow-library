@@ -1,7 +1,7 @@
 {
   "asked": "Anything to make my desk better?",
   "said": "Two upgrades worth a look.",
-  "why": "Products from their makers' own pages: brand, name, what it is and the one detail that matters, the pages as sources. No price or photo unless the maker's page has it. \"drawn\" is the surface the app is sent.",
+  "why": "Products from their makers' own pages: brand, name, what it is and the one detail that matters, one step each, the pages as sources. No price or photo unless the maker's page has it: these have none here, so none is shown. \"drawn\" is the surface the app is sent.",
   "messages": [
     {
       "version": "1.0",
@@ -43,16 +43,12 @@
           },
           {
             "id": "product",
-            "component": "Card",
-            "child": "product-facts"
-          },
-          {
-            "id": "product-facts",
             "component": "Column",
             "children": [
               "product-brand",
               "product-name",
-              "product-what"
+              "product-what",
+              "product-view"
             ]
           },
           {
@@ -80,6 +76,33 @@
               "@call": "formatString",
               "args": {
                 "value": "${what}. ${detail}."
+              }
+            }
+          },
+          {
+            "id": "product-view",
+            "component": "Button",
+            "variant": "default",
+            "child": "product-view-label",
+            "action": {
+              "event": {
+                "name": "view",
+                "userMessage": {
+                  "@call": "formatString",
+                  "args": {
+                    "value": "Tell me more about the ${brand} ${name}"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "product-view-label",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "More on the ${name}"
               }
             }
           },
@@ -120,16 +143,12 @@
           },
           {
             "id": "product#0",
-            "component": "Card",
-            "child": "product-facts#0"
-          },
-          {
-            "id": "product-facts#0",
             "component": "Column",
             "children": [
               "product-brand#0",
               "product-name#0",
-              "product-what#0"
+              "product-what#0",
+              "product-view#0"
             ]
           },
           {
@@ -149,17 +168,30 @@
             "text": "Wireless noise-cancelling headphones. Up to 30 hours with noise cancelling on."
           },
           {
-            "id": "product#1",
-            "component": "Card",
-            "child": "product-facts#1"
+            "id": "product-view#0",
+            "component": "Button",
+            "variant": "default",
+            "child": "product-view-label#0",
+            "action": {
+              "event": {
+                "name": "view",
+                "userMessage": "Tell me more about the Sony WH-1000XM6"
+              }
+            }
           },
           {
-            "id": "product-facts#1",
+            "id": "product-view-label#0",
+            "component": "Text",
+            "text": "More on the WH-1000XM6"
+          },
+          {
+            "id": "product#1",
             "component": "Column",
             "children": [
               "product-brand#1",
               "product-name#1",
-              "product-what#1"
+              "product-what#1",
+              "product-view#1"
             ]
           },
           {
@@ -177,6 +209,23 @@
             "id": "product-what#1",
             "component": "Text",
             "text": "Wireless mouse with haptic feedback. Customisable controls."
+          },
+          {
+            "id": "product-view#1",
+            "component": "Button",
+            "variant": "default",
+            "child": "product-view-label#1",
+            "action": {
+              "event": {
+                "name": "view",
+                "userMessage": "Tell me more about the Logitech MX Master 4"
+              }
+            }
+          },
+          {
+            "id": "product-view-label#1",
+            "component": "Text",
+            "text": "More on the MX Master 4"
           },
           {
             "id": "items",
