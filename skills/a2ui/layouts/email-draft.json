@@ -1,0 +1,101 @@
+{
+  "asked": "Reply to Anna saying Thursday works for the signing",
+  "said": "Here's the reply, in her thread. It goes when you say so.",
+  "why": "A draft is shown before it goes: who it is to and which thread it answers, the words as they will be sent, then send (the person is still asked before it sends) or change. Never say it was sent until the tool says so.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "reply-anna",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "to",
+              "draft",
+              "actions"
+            ]
+          },
+          {
+            "id": "to",
+            "component": "Text",
+            "text": "To **Anna Borg** · Re: Lease renewal",
+            "variant": "caption"
+          },
+          {
+            "id": "draft",
+            "component": "Card",
+            "child": "draft-text"
+          },
+          {
+            "id": "draft-text",
+            "component": "Text",
+            "text": "Hi Anna,\n\nThursday works for me. Would 10:00 at your office suit you? I'll bring the signed pages and my ID.\n\nThanks,\nMark"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "send",
+              "shorter",
+              "time"
+            ]
+          },
+          {
+            "id": "send",
+            "component": "Button",
+            "variant": "primary",
+            "child": "send-label",
+            "action": {
+              "event": {
+                "name": "send",
+                "userMessage": "Send the reply to Anna"
+              }
+            }
+          },
+          {
+            "id": "send-label",
+            "component": "Text",
+            "text": "Send it"
+          },
+          {
+            "id": "shorter",
+            "component": "Button",
+            "variant": "default",
+            "child": "shorter-label",
+            "action": {
+              "event": {
+                "name": "shorter",
+                "userMessage": "Make the reply to Anna shorter"
+              }
+            }
+          },
+          {
+            "id": "shorter-label",
+            "component": "Text",
+            "text": "Make it shorter"
+          },
+          {
+            "id": "time",
+            "component": "Button",
+            "variant": "default",
+            "child": "time-label",
+            "action": {
+              "event": {
+                "name": "time",
+                "userMessage": "Ask Anna for Thursday afternoon instead"
+              }
+            }
+          },
+          {
+            "id": "time-label",
+            "component": "Text",
+            "text": "Suggest another time"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -127,6 +127,44 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
     root Column > apps Table (rows from /apps), actions Row > connect Button, manage Button
     data: {apps: [{app, for, state}]}
 
+**Morning brief** ([morning-brief](layouts/morning-brief.json)): what was missed. Today as a timeline, what came in that needs the person (only that), the first thing to do. Nothing to report is a line, without a surface.
+
+    root Column > today Schedule, needs Table (rows from /needs), actions Row > first Button (primary)
+    data: {needs: [{from, about, by}]}
+
+**Inbox triage** ([inbox-triage](layouts/inbox-triage.json)): mail that needs the person, most pressing first. Who and what about, why it needs them (a date, a question asked), a reply each; the rest counted in a line, not listed.
+
+    root Column > mails Column (one mail Column per /mails: what Text, why Text (caption), reply Button), rest Text (caption)
+    data: {waiting, mails: [{from, subject, why, variant}]}
+
+**Email draft** ([email-draft](layouts/email-draft.json)): a reply or an email to read before it goes. Who to and which thread, the words as they will be sent, send or change. The person is still asked before it sends; never say it went until the tool says so.
+
+    root Column > to Text (caption), draft Card > draft-text Text, actions Row > send Button (primary), shorter Button, time Button
+
+**Person** ([person](layouts/person.json)): someone as the messages know them. Their name, each way to reach them, when you last spoke and about what, the ways to reach out. Only addresses and numbers found; two people of one name are asked about, not merged.
+
+    root Column > name Text, reach Table (rows from /reach), last Text (caption), actions Row > email Button (primary), message Button
+    data: {lastOn, lastAbout, reach: [{how, at}]}
+
+**Find a time** ([find-a-time](layouts/find-a-time.json)): when to meet. What was asked once (how long, which days), each slot both calendars show free as a button, the best primary.
+
+    root Column > asked Text (caption), slots Column (one slot Button per /slots), note Text (caption)
+    data: {week, slots: [{day, from, to, variant}]}
+
+**Invite** ([invite](layouts/invite.json)): an invitation to answer. What, when and where once, whether the time is free, yes, maybe and no.
+
+    root Column > what Text, when Text (caption), fits Text, actions Row > yes Button (primary), maybe Button, no Button
+
+**Meeting brief** ([meeting-brief](layouts/meeting-brief.json)): before a meeting. When and with whom, what is still open between you one point a line, where each came from, one step.
+
+    root Column > when Text (caption), points Column (one point Text per /points), sources Sources, actions Row > notes Button (primary)
+    data: {points: [{n, text}]}
+
+**To-dos** ([to-dos](layouts/to-dos.json)): the open list, soonest first. Each with when it is due and a done button, then one to add; done ones are gone, not crossed out.
+
+    root Column > items Column (one item Row per /items: what Text (weight 1), done Button (borderless)), actions Row > add Button
+    data: {items: [{what, due}]}
+
 ### More shapes
 
 **Answer and actions** ([answer-and-actions](layouts/answer-and-actions.json)): an answer in a line or two, then what to do next.

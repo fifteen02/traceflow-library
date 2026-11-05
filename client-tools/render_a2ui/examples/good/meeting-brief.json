@@ -1,0 +1,193 @@
+{
+  "asked": "Brief me before my 3pm with the landlord",
+  "said": "Three things are open with Anna.",
+  "why": "Before a meeting: when and with whom, what is still open between you (one point a line), where each came from as sources, and one step. Points read from the mail and messages, never assumed. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "landlord-brief",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "points": [
+            {
+              "n": 1,
+              "text": "The renewal: she wants it signed by Friday; the rent goes up €40 a month."
+            },
+            {
+              "n": 2,
+              "text": "The boiler: she said a plumber would come last week; nobody has."
+            },
+            {
+              "n": 3,
+              "text": "The deposit: you asked whether it carries over; she hasn't answered."
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "when",
+              "points",
+              "sources",
+              "actions"
+            ]
+          },
+          {
+            "id": "when",
+            "component": "Text",
+            "text": "Today 15:00 · Anna Borg · her office, Gzira",
+            "variant": "caption"
+          },
+          {
+            "id": "points",
+            "component": "Column",
+            "children": {
+              "path": "/points",
+              "componentId": "point"
+            }
+          },
+          {
+            "id": "point",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "**${n}.** ${text}"
+              }
+            }
+          },
+          {
+            "id": "sources",
+            "component": "Sources",
+            "sources": [
+              {
+                "title": "Anna: Lease renewal (2 Nov)",
+                "site": "Gmail"
+              },
+              {
+                "title": "Anna: about the boiler (24 Oct)",
+                "site": "WhatsApp"
+              }
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "notes"
+            ]
+          },
+          {
+            "id": "notes",
+            "component": "Button",
+            "variant": "primary",
+            "child": "notes-label",
+            "action": {
+              "event": {
+                "name": "notes",
+                "userMessage": "Keep notes of my meeting with Anna"
+              }
+            }
+          },
+          {
+            "id": "notes-label",
+            "component": "Text",
+            "text": "Keep notes of it"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "landlord-brief",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "when",
+              "points",
+              "sources",
+              "actions"
+            ]
+          },
+          {
+            "id": "when",
+            "component": "Text",
+            "text": "Today 15:00 · Anna Borg · her office, Gzira",
+            "variant": "caption"
+          },
+          {
+            "id": "point#0",
+            "component": "Text",
+            "text": "**1.** The renewal: she wants it signed by Friday; the rent goes up €40 a month."
+          },
+          {
+            "id": "point#1",
+            "component": "Text",
+            "text": "**2.** The boiler: she said a plumber would come last week; nobody has."
+          },
+          {
+            "id": "point#2",
+            "component": "Text",
+            "text": "**3.** The deposit: you asked whether it carries over; she hasn't answered."
+          },
+          {
+            "id": "points",
+            "component": "Column",
+            "children": [
+              "point#0",
+              "point#1",
+              "point#2"
+            ]
+          },
+          {
+            "id": "sources",
+            "component": "Sources",
+            "sources": [
+              {
+                "title": "Anna: Lease renewal (2 Nov)",
+                "site": "Gmail"
+              },
+              {
+                "title": "Anna: about the boiler (24 Oct)",
+                "site": "WhatsApp"
+              }
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "notes"
+            ]
+          },
+          {
+            "id": "notes",
+            "component": "Button",
+            "variant": "primary",
+            "child": "notes-label",
+            "action": {
+              "event": {
+                "name": "notes",
+                "userMessage": "Keep notes of my meeting with Anna"
+              }
+            }
+          },
+          {
+            "id": "notes-label",
+            "component": "Text",
+            "text": "Keep notes of it"
+          }
+        ]
+      }
+    }
+  ]
+}

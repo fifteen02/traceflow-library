@@ -1,0 +1,266 @@
+{
+  "asked": "What's on my list?",
+  "said": "Three things, one due today.",
+  "why": "Open to-dos, soonest first: each with when it is due and a done button, then one to add. Done items are gone, not crossed out. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "to-dos",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "items": [
+            {
+              "what": "Renew the car insurance",
+              "due": "today"
+            },
+            {
+              "what": "Send Daniel the photos",
+              "due": "Friday"
+            },
+            {
+              "what": "Book the dentist",
+              "due": "next week"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "items",
+              "actions"
+            ]
+          },
+          {
+            "id": "items",
+            "component": "Column",
+            "children": {
+              "path": "/items",
+              "componentId": "item"
+            }
+          },
+          {
+            "id": "item",
+            "component": "Row",
+            "children": [
+              "item-what",
+              "item-done"
+            ],
+            "justify": "spaceBetween",
+            "align": "center"
+          },
+          {
+            "id": "item-what",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "${what} · _${due}_"
+              }
+            },
+            "weight": 1
+          },
+          {
+            "id": "item-done",
+            "component": "Button",
+            "variant": "borderless",
+            "child": "item-done-label",
+            "action": {
+              "event": {
+                "name": "done",
+                "userMessage": {
+                  "@call": "formatString",
+                  "args": {
+                    "value": "Mark \"${what}\" as done"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "item-done-label",
+            "component": "Text",
+            "text": "Done"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "add"
+            ]
+          },
+          {
+            "id": "add",
+            "component": "Button",
+            "variant": "default",
+            "child": "add-label",
+            "action": {
+              "event": {
+                "name": "add",
+                "userMessage": "Add something to my list"
+              }
+            }
+          },
+          {
+            "id": "add-label",
+            "component": "Text",
+            "text": "Add one"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "to-dos",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "items",
+              "actions"
+            ]
+          },
+          {
+            "id": "item#0",
+            "component": "Row",
+            "children": [
+              "item-what#0",
+              "item-done#0"
+            ],
+            "justify": "spaceBetween",
+            "align": "center"
+          },
+          {
+            "id": "item-what#0",
+            "component": "Text",
+            "text": "Renew the car insurance · _today_",
+            "weight": 1
+          },
+          {
+            "id": "item-done#0",
+            "component": "Button",
+            "variant": "borderless",
+            "child": "item-done-label#0",
+            "action": {
+              "event": {
+                "name": "done",
+                "userMessage": "Mark \"Renew the car insurance\" as done"
+              }
+            }
+          },
+          {
+            "id": "item-done-label#0",
+            "component": "Text",
+            "text": "Done"
+          },
+          {
+            "id": "item#1",
+            "component": "Row",
+            "children": [
+              "item-what#1",
+              "item-done#1"
+            ],
+            "justify": "spaceBetween",
+            "align": "center"
+          },
+          {
+            "id": "item-what#1",
+            "component": "Text",
+            "text": "Send Daniel the photos · _Friday_",
+            "weight": 1
+          },
+          {
+            "id": "item-done#1",
+            "component": "Button",
+            "variant": "borderless",
+            "child": "item-done-label#1",
+            "action": {
+              "event": {
+                "name": "done",
+                "userMessage": "Mark \"Send Daniel the photos\" as done"
+              }
+            }
+          },
+          {
+            "id": "item-done-label#1",
+            "component": "Text",
+            "text": "Done"
+          },
+          {
+            "id": "item#2",
+            "component": "Row",
+            "children": [
+              "item-what#2",
+              "item-done#2"
+            ],
+            "justify": "spaceBetween",
+            "align": "center"
+          },
+          {
+            "id": "item-what#2",
+            "component": "Text",
+            "text": "Book the dentist · _next week_",
+            "weight": 1
+          },
+          {
+            "id": "item-done#2",
+            "component": "Button",
+            "variant": "borderless",
+            "child": "item-done-label#2",
+            "action": {
+              "event": {
+                "name": "done",
+                "userMessage": "Mark \"Book the dentist\" as done"
+              }
+            }
+          },
+          {
+            "id": "item-done-label#2",
+            "component": "Text",
+            "text": "Done"
+          },
+          {
+            "id": "items",
+            "component": "Column",
+            "children": [
+              "item#0",
+              "item#1",
+              "item#2"
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "add"
+            ]
+          },
+          {
+            "id": "add",
+            "component": "Button",
+            "variant": "default",
+            "child": "add-label",
+            "action": {
+              "event": {
+                "name": "add",
+                "userMessage": "Add something to my list"
+              }
+            }
+          },
+          {
+            "id": "add-label",
+            "component": "Text",
+            "text": "Add one"
+          }
+        ]
+      }
+    }
+  ]
+}

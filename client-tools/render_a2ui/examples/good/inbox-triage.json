@@ -1,0 +1,262 @@
+{
+  "asked": "Anything in my email I need to deal with?",
+  "said": "Three need you; the rest can wait.",
+  "why": "Mail that needs the person, most pressing first, flat (a Column each, as products are): who it is from and what about, why it needs them (a date, a question asked), and one step each. Only what the mail says; the rest is left out, not listed. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "inbox",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "waiting": 11,
+          "mails": [
+            {
+              "from": "Anna Borg",
+              "subject": "Lease renewal",
+              "why": "Asks you to sign by Friday 13 November",
+              "variant": "primary"
+            },
+            {
+              "from": "Daniel Vella",
+              "subject": "Dinner on Saturday?",
+              "why": "Asks whether 8 or 8:30 suits you",
+              "variant": "default"
+            },
+            {
+              "from": "City Dental",
+              "subject": "Your check-up",
+              "why": "Wants you to confirm Tuesday 17 at 10:00",
+              "variant": "default"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "mails",
+              "rest"
+            ]
+          },
+          {
+            "id": "mails",
+            "component": "Column",
+            "children": {
+              "path": "/mails",
+              "componentId": "mail"
+            }
+          },
+          {
+            "id": "mail",
+            "component": "Column",
+            "children": [
+              "mail-what",
+              "mail-why",
+              "mail-reply"
+            ]
+          },
+          {
+            "id": "mail-what",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "**${from}** · ${subject}"
+              }
+            }
+          },
+          {
+            "id": "mail-why",
+            "component": "Text",
+            "text": {
+              "@path": "why"
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "mail-reply",
+            "component": "Button",
+            "variant": {
+              "@path": "variant"
+            },
+            "child": "mail-reply-label",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": {
+                  "@call": "formatString",
+                  "args": {
+                    "value": "Draft a reply to ${from} about ${subject}"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "mail-reply-label",
+            "component": "Text",
+            "text": "Draft a reply"
+          },
+          {
+            "id": "rest",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "${/waiting} more can wait: newsletters and receipts."
+              }
+            },
+            "variant": "caption"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "inbox",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "mails",
+              "rest"
+            ]
+          },
+          {
+            "id": "mail#0",
+            "component": "Column",
+            "children": [
+              "mail-what#0",
+              "mail-why#0",
+              "mail-reply#0"
+            ]
+          },
+          {
+            "id": "mail-what#0",
+            "component": "Text",
+            "text": "**Anna Borg** · Lease renewal"
+          },
+          {
+            "id": "mail-why#0",
+            "component": "Text",
+            "text": "Asks you to sign by Friday 13 November",
+            "variant": "caption"
+          },
+          {
+            "id": "mail-reply#0",
+            "component": "Button",
+            "variant": "primary",
+            "child": "mail-reply-label#0",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Draft a reply to Anna Borg about Lease renewal"
+              }
+            }
+          },
+          {
+            "id": "mail-reply-label#0",
+            "component": "Text",
+            "text": "Draft a reply"
+          },
+          {
+            "id": "mail#1",
+            "component": "Column",
+            "children": [
+              "mail-what#1",
+              "mail-why#1",
+              "mail-reply#1"
+            ]
+          },
+          {
+            "id": "mail-what#1",
+            "component": "Text",
+            "text": "**Daniel Vella** · Dinner on Saturday?"
+          },
+          {
+            "id": "mail-why#1",
+            "component": "Text",
+            "text": "Asks whether 8 or 8:30 suits you",
+            "variant": "caption"
+          },
+          {
+            "id": "mail-reply#1",
+            "component": "Button",
+            "variant": "default",
+            "child": "mail-reply-label#1",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Draft a reply to Daniel Vella about Dinner on Saturday?"
+              }
+            }
+          },
+          {
+            "id": "mail-reply-label#1",
+            "component": "Text",
+            "text": "Draft a reply"
+          },
+          {
+            "id": "mail#2",
+            "component": "Column",
+            "children": [
+              "mail-what#2",
+              "mail-why#2",
+              "mail-reply#2"
+            ]
+          },
+          {
+            "id": "mail-what#2",
+            "component": "Text",
+            "text": "**City Dental** · Your check-up"
+          },
+          {
+            "id": "mail-why#2",
+            "component": "Text",
+            "text": "Wants you to confirm Tuesday 17 at 10:00",
+            "variant": "caption"
+          },
+          {
+            "id": "mail-reply#2",
+            "component": "Button",
+            "variant": "default",
+            "child": "mail-reply-label#2",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Draft a reply to City Dental about Your check-up"
+              }
+            }
+          },
+          {
+            "id": "mail-reply-label#2",
+            "component": "Text",
+            "text": "Draft a reply"
+          },
+          {
+            "id": "mails",
+            "component": "Column",
+            "children": [
+              "mail#0",
+              "mail#1",
+              "mail#2"
+            ]
+          },
+          {
+            "id": "rest",
+            "component": "Text",
+            "text": "11 more can wait: newsletters and receipts.",
+            "variant": "caption"
+          }
+        ]
+      }
+    }
+  ]
+}

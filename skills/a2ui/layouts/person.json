@@ -1,0 +1,213 @@
+{
+  "asked": "What's Julie's email?",
+  "said": "Julie Zammit, from your messages.",
+  "why": "A person as the messages know them: their name, each way to reach them, when you last spoke and about what, then the ways to reach out. Only addresses and numbers found, never guessed; two people of that name are asked about, not merged. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "julie",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "lastOn": "2026-10-28",
+          "lastAbout": "the flat viewing in Gzira",
+          "reach": [
+            {
+              "how": "Email",
+              "at": "julie.zammit@example.com"
+            },
+            {
+              "how": "Phone",
+              "at": "+356 9900 0002"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "name",
+              "reach",
+              "last",
+              "actions"
+            ]
+          },
+          {
+            "id": "name",
+            "component": "Text",
+            "text": "**Julie Zammit**"
+          },
+          {
+            "id": "reach",
+            "component": "Table",
+            "columns": [
+              {
+                "key": "how",
+                "label": "Reach her"
+              },
+              {
+                "key": "at",
+                "label": "At"
+              }
+            ],
+            "rows": {
+              "@path": "/reach"
+            }
+          },
+          {
+            "id": "last",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "Last spoke ${formatDate(value: ${/lastOn}, format: 'd MMMM')}: ${/lastAbout}"
+              }
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "email",
+              "message"
+            ]
+          },
+          {
+            "id": "email",
+            "component": "Button",
+            "variant": "primary",
+            "child": "email-label",
+            "action": {
+              "event": {
+                "name": "email",
+                "userMessage": "Email Julie Zammit"
+              }
+            }
+          },
+          {
+            "id": "email-label",
+            "component": "Text",
+            "text": "Email her"
+          },
+          {
+            "id": "message",
+            "component": "Button",
+            "variant": "default",
+            "child": "message-label",
+            "action": {
+              "event": {
+                "name": "message",
+                "userMessage": "Message Julie Zammit on WhatsApp"
+              }
+            }
+          },
+          {
+            "id": "message-label",
+            "component": "Text",
+            "text": "Message her"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "julie",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "name",
+              "reach",
+              "last",
+              "actions"
+            ]
+          },
+          {
+            "id": "name",
+            "component": "Text",
+            "text": "**Julie Zammit**"
+          },
+          {
+            "id": "reach",
+            "component": "Table",
+            "columns": [
+              {
+                "key": "how",
+                "label": "Reach her"
+              },
+              {
+                "key": "at",
+                "label": "At"
+              }
+            ],
+            "rows": [
+              {
+                "how": "Email",
+                "at": "julie.zammit@example.com"
+              },
+              {
+                "how": "Phone",
+                "at": "+356 9900 0002"
+              }
+            ]
+          },
+          {
+            "id": "last",
+            "component": "Text",
+            "text": "Last spoke 28 October: the flat viewing in Gzira",
+            "variant": "caption"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "email",
+              "message"
+            ]
+          },
+          {
+            "id": "email",
+            "component": "Button",
+            "variant": "primary",
+            "child": "email-label",
+            "action": {
+              "event": {
+                "name": "email",
+                "userMessage": "Email Julie Zammit"
+              }
+            }
+          },
+          {
+            "id": "email-label",
+            "component": "Text",
+            "text": "Email her"
+          },
+          {
+            "id": "message",
+            "component": "Button",
+            "variant": "default",
+            "child": "message-label",
+            "action": {
+              "event": {
+                "name": "message",
+                "userMessage": "Message Julie Zammit on WhatsApp"
+              }
+            }
+          },
+          {
+            "id": "message-label",
+            "component": "Text",
+            "text": "Message her"
+          }
+        ]
+      }
+    }
+  ]
+}

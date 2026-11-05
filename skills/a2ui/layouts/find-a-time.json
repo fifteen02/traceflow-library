@@ -1,0 +1,194 @@
+{
+  "asked": "When can I meet Oskar next week for an hour?",
+  "said": "Three slots where you're both free.",
+  "why": "Times to pick from, read off both calendars: what was asked said once (how long, which days), each free slot a button, the one that suits best primary. A slot is only one both calendars show free. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "meet-oskar",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "week": "9–13 November",
+          "slots": [
+            {
+              "day": "Tuesday 10",
+              "from": "09:30",
+              "to": "10:30",
+              "variant": "primary"
+            },
+            {
+              "day": "Wednesday 11",
+              "from": "14:00",
+              "to": "15:00",
+              "variant": "default"
+            },
+            {
+              "day": "Friday 13",
+              "from": "11:00",
+              "to": "12:00",
+              "variant": "default"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "asked",
+              "slots",
+              "note"
+            ]
+          },
+          {
+            "id": "asked",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "1 hour with Oskar · ${/week}"
+              }
+            },
+            "variant": "caption"
+          },
+          {
+            "id": "slots",
+            "component": "Column",
+            "children": {
+              "path": "/slots",
+              "componentId": "slot"
+            }
+          },
+          {
+            "id": "slot",
+            "component": "Button",
+            "variant": {
+              "@path": "variant"
+            },
+            "child": "slot-label",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": {
+                  "@call": "formatString",
+                  "args": {
+                    "value": "Book an hour with Oskar on ${day} at ${from}"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "slot-label",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "${day} · ${from}–${to}"
+              }
+            }
+          },
+          {
+            "id": "note",
+            "component": "Text",
+            "text": "Tuesday morning is clear for both of you; the others sit between meetings.",
+            "variant": "caption"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "meet-oskar",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "asked",
+              "slots",
+              "note"
+            ]
+          },
+          {
+            "id": "asked",
+            "component": "Text",
+            "text": "1 hour with Oskar · 9–13 November",
+            "variant": "caption"
+          },
+          {
+            "id": "slot#0",
+            "component": "Button",
+            "variant": "primary",
+            "child": "slot-label#0",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": "Book an hour with Oskar on Tuesday 10 at 09:30"
+              }
+            }
+          },
+          {
+            "id": "slot-label#0",
+            "component": "Text",
+            "text": "Tuesday 10 · 09:30–10:30"
+          },
+          {
+            "id": "slot#1",
+            "component": "Button",
+            "variant": "default",
+            "child": "slot-label#1",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": "Book an hour with Oskar on Wednesday 11 at 14:00"
+              }
+            }
+          },
+          {
+            "id": "slot-label#1",
+            "component": "Text",
+            "text": "Wednesday 11 · 14:00–15:00"
+          },
+          {
+            "id": "slot#2",
+            "component": "Button",
+            "variant": "default",
+            "child": "slot-label#2",
+            "action": {
+              "event": {
+                "name": "book",
+                "userMessage": "Book an hour with Oskar on Friday 13 at 11:00"
+              }
+            }
+          },
+          {
+            "id": "slot-label#2",
+            "component": "Text",
+            "text": "Friday 13 · 11:00–12:00"
+          },
+          {
+            "id": "slots",
+            "component": "Column",
+            "children": [
+              "slot#0",
+              "slot#1",
+              "slot#2"
+            ]
+          },
+          {
+            "id": "note",
+            "component": "Text",
+            "text": "Tuesday morning is clear for both of you; the others sit between meetings.",
+            "variant": "caption"
+          }
+        ]
+      }
+    }
+  ]
+}

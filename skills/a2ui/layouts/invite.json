@@ -1,0 +1,102 @@
+{
+  "asked": "Did Carla invite me to something?",
+  "said": "Yes, her birthday dinner on Saturday the 14th.",
+  "why": "An invitation to answer: what it is, when and where (each once), whether the evening is free, then yes, maybe and no. The answer goes only when pressed.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "carla-dinner",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "what",
+              "when",
+              "fits",
+              "actions"
+            ]
+          },
+          {
+            "id": "what",
+            "component": "Text",
+            "text": "**Carla's birthday dinner**"
+          },
+          {
+            "id": "when",
+            "component": "Text",
+            "text": "Saturday 14 November · 19:30 · Carla's, Sliema",
+            "variant": "caption"
+          },
+          {
+            "id": "fits",
+            "component": "Text",
+            "text": "Your evening is free; you're back from Gozo by 17:00."
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "yes",
+              "maybe",
+              "no"
+            ]
+          },
+          {
+            "id": "yes",
+            "component": "Button",
+            "variant": "primary",
+            "child": "yes-label",
+            "action": {
+              "event": {
+                "name": "yes",
+                "userMessage": "Tell Carla I'll be at her dinner on Saturday"
+              }
+            }
+          },
+          {
+            "id": "yes-label",
+            "component": "Text",
+            "text": "I'll be there"
+          },
+          {
+            "id": "maybe",
+            "component": "Button",
+            "variant": "default",
+            "child": "maybe-label",
+            "action": {
+              "event": {
+                "name": "maybe",
+                "userMessage": "Tell Carla I might make it on Saturday"
+              }
+            }
+          },
+          {
+            "id": "maybe-label",
+            "component": "Text",
+            "text": "Maybe"
+          },
+          {
+            "id": "no",
+            "component": "Button",
+            "variant": "default",
+            "child": "no-label",
+            "action": {
+              "event": {
+                "name": "no",
+                "userMessage": "Tell Carla I can't make her dinner on Saturday"
+              }
+            }
+          },
+          {
+            "id": "no-label",
+            "component": "Text",
+            "text": "Can't make it"
+          }
+        ]
+      }
+    }
+  ]
+}

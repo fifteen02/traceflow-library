@@ -1,0 +1,200 @@
+{
+  "asked": "What did I miss since yesterday?",
+  "said": "A quiet night: two emails need you and your day starts at 10.",
+  "why": "The morning in one surface: today's day as a timeline, what came in that needs the person (and only that), then the first thing to do. Nothing to report is said in a line, without a surface. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "morning",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "needs": [
+            {
+              "from": "Anna Borg",
+              "about": "Sign the lease renewal",
+              "by": "Friday"
+            },
+            {
+              "from": "City Dental",
+              "about": "Confirm your check-up",
+              "by": "Monday"
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "today",
+              "needs",
+              "actions"
+            ]
+          },
+          {
+            "id": "today",
+            "component": "Schedule",
+            "day": "Thursday 12 November",
+            "summary": "Two meetings, free after 15:00",
+            "items": [
+              {
+                "start": "10:00",
+                "end": "10:30",
+                "title": "Call with Daniel",
+                "place": "Phone"
+              },
+              {
+                "start": "14:00",
+                "end": "15:00",
+                "title": "Team review",
+                "place": "Valletta office"
+              }
+            ]
+          },
+          {
+            "id": "needs",
+            "component": "Table",
+            "title": "Needs you",
+            "columns": [
+              {
+                "key": "from",
+                "label": "From"
+              },
+              {
+                "key": "about",
+                "label": "About"
+              },
+              {
+                "key": "by",
+                "label": "By"
+              }
+            ],
+            "rows": {
+              "@path": "/needs"
+            }
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "first"
+            ]
+          },
+          {
+            "id": "first",
+            "component": "Button",
+            "variant": "primary",
+            "child": "first-label",
+            "action": {
+              "event": {
+                "name": "first",
+                "userMessage": "Draft a reply to Anna about the lease renewal"
+              }
+            }
+          },
+          {
+            "id": "first-label",
+            "component": "Text",
+            "text": "Start with Anna's"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "morning",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "today",
+              "needs",
+              "actions"
+            ]
+          },
+          {
+            "id": "today",
+            "component": "Schedule",
+            "day": "Thursday 12 November",
+            "summary": "Two meetings, free after 15:00",
+            "items": [
+              {
+                "start": "10:00",
+                "end": "10:30",
+                "title": "Call with Daniel",
+                "place": "Phone"
+              },
+              {
+                "start": "14:00",
+                "end": "15:00",
+                "title": "Team review",
+                "place": "Valletta office"
+              }
+            ]
+          },
+          {
+            "id": "needs",
+            "component": "Table",
+            "title": "Needs you",
+            "columns": [
+              {
+                "key": "from",
+                "label": "From"
+              },
+              {
+                "key": "about",
+                "label": "About"
+              },
+              {
+                "key": "by",
+                "label": "By"
+              }
+            ],
+            "rows": [
+              {
+                "from": "Anna Borg",
+                "about": "Sign the lease renewal",
+                "by": "Friday"
+              },
+              {
+                "from": "City Dental",
+                "about": "Confirm your check-up",
+                "by": "Monday"
+              }
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "first"
+            ]
+          },
+          {
+            "id": "first",
+            "component": "Button",
+            "variant": "primary",
+            "child": "first-label",
+            "action": {
+              "event": {
+                "name": "first",
+                "userMessage": "Draft a reply to Anna about the lease renewal"
+              }
+            }
+          },
+          {
+            "id": "first-label",
+            "component": "Text",
+            "text": "Start with Anna's"
+          }
+        ]
+      }
+    }
+  ]
+}
