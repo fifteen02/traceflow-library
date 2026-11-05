@@ -61,7 +61,7 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
 ## Layouts
 
-**Steps, a plan, options or numbers are a layout; one fact is a sentence.** **And show the real thing whenever you can:** a place, a stay, a product, a dish or a person's venue has a photo somewhere (its own site, the listing, the maker's page, the recipe's page, its Google place); find it and put it in, an `Image` at the top of the card or as `Places` cards (their photos come from Google). A card about something real with no picture is the exception, when none can be found. A recipe, a set of instructions, a day, a choice between places, a budget: lay it out, without being asked to. Find the scenario below, read its file (`read_file` on `.skills/a2ui/layouts/<name>.json`), copy it and change its words and data. Each is a whole, valid surface. In the skeletons, `>` reads "has as children"; `data:` is the shape its dataModel takes.
+**Steps, a plan, options or numbers are a layout; one fact is a sentence.** "Which is cheaper", "X or Y?", "is it worth it" is options with numbers: a Cost compare, never paragraphs of prices. A place in `Places` is named by its name alone, never "1. …": the card numbers its places and pins them on a map. **And show the real thing whenever you can:** a place, a stay, a product, a dish or a person's venue has a photo somewhere (its own site, the listing, the maker's page, the recipe's page, its Google place); find it and put it in, an `Image` at the top of the card or as `Places` cards (their photos come from Google). A card about something real with no picture is the exception, when none can be found. A recipe, a set of instructions, a day, a choice between places, a budget: lay it out, without being asked to. Find the scenario below, read its file (`read_file` on `.skills/a2ui/layouts/<name>.json`), copy it and change its words and data. Each is a whole, valid surface. In the skeletons, `>` reads "has as children"; `data:` is the shape its dataModel takes.
 
 ### Scenarios
 
@@ -111,6 +111,11 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 **Route** ([route](layouts/route.json)): stops in the order walked or driven, each opening in maps, how long it takes, one step.
 
     root Column > stops Places, length Text (caption), actions Row > start Button (primary)
+
+**Cost compare** ([cost-compare](layouts/cost-compare.json)): which of two or three ways is cheaper, faster or better ("rent a car or take taxis?", "is it worth the annual plan?"). The verdict first, in a sentence; then a card each with its total in the same unit and how it adds up; where one overtakes the other; where the prices came from.
+
+    root Column > verdict Text, options Row > a Card (weight 1), b Card (weight 1), basis Text (caption)
+    a Card > a-body Column > a-what Text ("**Hire car**"), a-total Text ("**€126–175** a week"), a-how Text (caption)
 
 **Products** ([products](layouts/products.json)): things to buy, from their makers' own pages. Each product's photo from its maker's page (an `Image` in its card), brand, name, what it is, the detail that matters, the pages as sources. No price or photo the maker's page doesn't have.
 

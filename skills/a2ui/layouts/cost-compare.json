@@ -1,0 +1,108 @@
+{
+  "layout": "cost-compare",
+  "asked": "Is it cheaper to rent a car or take taxis for a week in Gozo?",
+  "said": "A car wins if you're out most days.",
+  "why": "Two ways to pay for the same thing: the answer first, then each option's total in the same unit with how it adds up, the point where one overtakes the other, and where the prices came from.",
+  "when": "Which of two or three ways is cheaper (or faster, or better): the verdict first, then a card each with its total in the same unit and how it adds up.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "car-or-taxi",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "verdict",
+              "options",
+              "basis"
+            ]
+          },
+          {
+            "id": "verdict",
+            "component": "Text",
+            "text": "A hire car is cheaper if you'll be out most days: taxis pass it at about **eight rides** in the week."
+          },
+          {
+            "id": "options",
+            "component": "Row",
+            "children": [
+              "car",
+              "taxi"
+            ]
+          },
+          {
+            "id": "car",
+            "component": "Card",
+            "child": "car-body",
+            "weight": 1
+          },
+          {
+            "id": "car-body",
+            "component": "Column",
+            "children": [
+              "car-what",
+              "car-total",
+              "car-how"
+            ]
+          },
+          {
+            "id": "car-what",
+            "component": "Text",
+            "text": "**Hire car**"
+          },
+          {
+            "id": "car-total",
+            "component": "Text",
+            "text": "**€126–175** a week"
+          },
+          {
+            "id": "car-how",
+            "component": "Text",
+            "text": "€18–25 a day in low season, plus the ferry over (€15.70 return)",
+            "variant": "caption"
+          },
+          {
+            "id": "taxi",
+            "component": "Card",
+            "child": "taxi-body",
+            "weight": 1
+          },
+          {
+            "id": "taxi-body",
+            "component": "Column",
+            "children": [
+              "taxi-what",
+              "taxi-total",
+              "taxi-how"
+            ]
+          },
+          {
+            "id": "taxi-what",
+            "component": "Text",
+            "text": "**Taxis**"
+          },
+          {
+            "id": "taxi-total",
+            "component": "Text",
+            "text": "**€19** a 10 km ride"
+          },
+          {
+            "id": "taxi-how",
+            "component": "Text",
+            "text": "€3.50 to start, then about €1.50 a km; eight rides come to about €150",
+            "variant": "caption"
+          },
+          {
+            "id": "basis",
+            "component": "Text",
+            "text": "November prices from one 2026 guide: check a current quote before you book.",
+            "variant": "caption"
+          }
+        ]
+      }
+    }
+  ]
+}
