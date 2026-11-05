@@ -86,7 +86,7 @@
     },
     "VegaChart": {
       "type": "object",
-      "description": "A Vega-Lite chart, drawn live: the spec as render_vega takes it, its data inline.",
+      "description": "A Vega-Lite chart, drawn live, its data inline.",
       "properties": {
         "component": { "const": "VegaChart" },
         "spec": { "type": "object" },
@@ -96,7 +96,7 @@
     },
     "Places": {
       "type": "object",
-      "description": "Places to pick from as cards, best first, as show_places draws them.",
+      "description": "Places as cards, best first: one place, or several to pick from.",
       "properties": {
         "component": { "const": "Places" },
         "title": { "type": "string" },
@@ -107,7 +107,7 @@
     },
     "Schedule": {
       "type": "object",
-      "description": "A day of the calendar as a timeline, as show_schedule draws it.",
+      "description": "A day of the calendar as a timeline.",
       "properties": {
         "component": { "const": "Schedule" },
         "day": { "type": "string" },

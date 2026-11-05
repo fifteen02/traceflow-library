@@ -24,8 +24,7 @@ traceflow installs `traceflow`'s client tools from this repository, pinned to a 
 | [calendar-assistant](skills/calendar-assistant/SKILL.md) | Finding a free time, checking for clashes, and saying exactly what will change before adding, moving or cancelling an event. |
 | [read-documents](skills/read-documents/SKILL.md) | Any PDF, Word, Excel or PowerPoint file as text, tables included, scanned pages read by OCR. Scripts on the skill computer as it comes. |
 | [skill-review](skills/skill-review/SKILL.md) | Checking a community skill before an admin installs it: what it runs, where it reaches, the secrets it asks for, what it installs, and what doesn't match its description. |
-| [vega-lite](skills/vega-lite/SKILL.md) | Charts with [`render_vega`](client-tools/render_vega/): when a chart beats a sentence, which chart answers which question, and a Vega-Lite spec that passes first time. Its scripts check a spec as traceflow does and draw it as a PNG. Requires `traceflow/render_vega@1`. |
-| [a2ui](skills/a2ui/SKILL.md) | Laying a reply out in traceflow's chat app with [`render_a2ui`](client-tools/render_a2ui/): its A2UI 1.0 pieces, six layouts, buttons that send the person's next message, and how to read a refusal. Requires `traceflow/render_a2ui@1`. |
+| [a2ui](skills/a2ui/SKILL.md) | Laying a reply out in traceflow's chat app with [`render_a2ui`](client-tools/render_a2ui/): its A2UI 1.0 pieces, seven layouts, charts (which chart for which question, a spec that passes first time), buttons that send the person's next message, and how to read a refusal. Requires `traceflow/render_a2ui@1`. |
 
 ## Client tools
 

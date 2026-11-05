@@ -1,8 +1,9 @@
-"""Check a Vega-Lite spec the way render_vega will, before sending it.
+"""Check a chart's Vega-Lite spec the way render_a2ui checks a VegaChart (and render_vega a chart), before sending it.
 
-    python3 validate.py chart.json     (or - to read it from stdin)
+    python3 validate_chart.py chart.json     (or - to read it from stdin)
 
-The file is the spec itself, render_vega's arguments ({"title": ..., "spec": {...}}), or one of render_vega's examples.
+The file is the spec itself, a VegaChart piece ({"id": ..., "component": "VegaChart", "spec": {...}}), render_vega's
+arguments ({"title": ..., "spec": {...}}), or one of render_vega's examples.
 Runs traceflow's chart rules (vega_rules.py, beside this script), then, when vl-convert-python is installed, compiles the
 spec with vl_convert.vegalite_to_vega to prove it renders. Prints "ok" and whether it compiled, or one problem per line.
 Exits 0 when the spec is fine, 1 when it isn't.
@@ -17,8 +18,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import vega_rules  # noqa: E402  (beside this script)
 
-WRAPPER = {"spec", "title", "why", "expect", "asked", "said"}
-"""The keys of render_vega's arguments and of an example; a spec with any other key is a spec, not a wrapper."""
+WRAPPER = {"spec", "title", "why", "expect", "asked", "said", "id", "component", "height", "accessibility", "metadata"}
+"""The keys of a VegaChart piece, of render_vega's arguments and of an example; a spec with any other key is a spec, not a wrapper."""
 
 
 def read(name):
@@ -28,7 +29,7 @@ def read(name):
 
 
 def unwrap(value):
-    """The spec: inside render_vega's arguments or an example, else the value itself."""
+    """The spec: inside a VegaChart piece, render_vega's arguments or an example, else the value itself."""
     if isinstance(value, dict) and "spec" in value and set(value) <= WRAPPER:
         return value["spec"]
     return value

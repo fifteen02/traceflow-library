@@ -9,7 +9,7 @@ A copy, in Python, of traceflow's A2uiSurfaces and A2uiCatalog (the source of tr
 backend/traceflow-parent/traceflow-effects/traceflow-tools/src/main/java/com/fifteen02/traceflow/tool/generative/),
 with the same rules, limits and wording. It reads catalog.json from the skill's folder, a copy of the library's
 client-tools/render_a2ui/catalog.json, and checks each VegaChart's spec with vega_rules.py, beside this
-script (the same file as the vega-lite skill's). It doesn't compile charts: the vega-lite skill's validate.py does.
+script. It doesn't compile charts: validate_chart.py, beside it, does.
 Standard library only.
 """
 

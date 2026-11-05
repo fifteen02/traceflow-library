@@ -1,8 +1,8 @@
 """Draw a Vega-Lite spec as a PNG, to look at it before sending it or to put it in a report or a deck.
 
-    python3 draw.py chart.json charts/spending.png [--scale 2]
+    python3 draw_chart.py chart.json charts/spending.png [--scale 2]
 
-Checks the spec first, as validate.py does, and draws nothing when it has a problem. The spec reads no address: its
+Checks the spec first, as validate_chart.py does, and draws nothing when it has a problem. The spec reads no address: its
 rows must be inline. It draws as traceflow draws render_vega's PNG for WhatsApp and the other channels: the same look
 and, unless the spec says its own size or has several views, 560 by 260 (a copy of DRAW and LOOK in ClientCallChecks.java,
 traceflow repo, backend/traceflow-parent/traceflow-effects/traceflow-llm/src/main/java/com/fifteen02/traceflow/llm/agent/). Prints the PNG's path and size, or one problem per line. Exits 0 when it drew, 1 when it didn't.
@@ -15,7 +15,7 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import validate  # noqa: E402  (beside this script)
+import validate_chart as validate  # noqa: E402  (beside this script)
 import vl_convert  # noqa: E402
 
 LOOK = {"font": "Helvetica", "background": "#ffffff", "padding": 12,

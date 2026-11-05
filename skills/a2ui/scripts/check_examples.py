@@ -1,7 +1,7 @@
 """Run validate.py over the layouts and, in the library, over render_a2ui's examples: good ones and layouts must print ok,
 each bad one must fail with a line holding its expect. Also checks that SKILL.md's list of pieces is what pieces.py makes
-from catalog.json, and, in the library, that catalog.json is the tool's (../../client-tools/render_a2ui/catalog.json)
-and that the vega-lite skill beside this one carries the same vega_rules.py. Installed alone (no library around it), it
+from catalog.json, and, in the library, that catalog.json is the tool's (../../client-tools/render_a2ui/catalog.json).
+Installed alone (no library around it), it
 says so and checks what the skill holds.
 
     python3 check_examples.py [--source <traceflow repo>]
@@ -74,10 +74,6 @@ def main():
         same = (TOOL / "catalog.json").read_bytes() == (SKILL / "catalog.json").read_bytes()
         failed += report(same, "catalog.json is client-tools/render_a2ui/catalog.json"
                          + ("" if same else ": copy the tool's catalog.json over the skill's"))
-    sibling = SKILL.parent / "vega-lite" / "scripts" / "vega_rules.py"
-    if sibling.exists():
-        same = sibling.read_bytes() == (SKILL / "scripts" / "vega_rules.py").read_bytes()
-        failed += report(same, "vega_rules.py is the vega-lite skill's" + ("" if same else ": copy it across"))
 
     if args.source:
         tools = Path(args.source) / TOOLS

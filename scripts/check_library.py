@@ -36,7 +36,7 @@ NOTES = {"asked", "said", "why", "expect"}
 """Keys an example may carry beside the call's arguments: what was asked, what was said with it, why, what it gets."""
 ID = re.compile(r"^([a-z0-9][a-z0-9-]*)/([a-z0-9_]+)@([1-9][0-9]*)$")
 VALIDATORS = {"render_a2ui": SKILLS / "a2ui" / "scripts" / "validate.py",
-              "render_vega": SKILLS / "vega-lite" / "scripts" / "validate.py"}
+              "render_vega": SKILLS / "a2ui" / "scripts" / "validate_chart.py"}
 """The tools whose examples a skill's validator runs, and that validator."""
 
 ICON = "icon.svg"

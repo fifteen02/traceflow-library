@@ -6,7 +6,6 @@ Same rules, same limits, same wording: its data inline (no url or href anywhere 
 MOST_ROWS rows, every field its encodings name in its rows, at most MOST_COLOURS colours, a pie of at most MOST_SLICES
 slices and one y axis. Each problem is one line: where, what is wrong and what to do instead.
 
-The vega-lite and a2ui skills each ship this same file, since skills install separately; keep the two identical.
 Standard library only.
 """
 

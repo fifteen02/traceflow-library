@@ -16,4 +16,4 @@ The picture, attached after the reply's text as an image (with the spec in its m
 
 ## More
 
-The rules are the vega-lite skill's `scripts/vega_rules.py`; [examples/](examples/) holds calls that pass (`good/`) and calls that fail with the line they get (`bad/`, `why` and `expect`).
+The rules are the a2ui skill's `scripts/vega_rules.py`; [examples/](examples/) holds calls that pass (`good/`) and calls that fail with the line they get (`bad/`, `why` and `expect`).

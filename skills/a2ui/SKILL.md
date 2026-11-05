@@ -1,13 +1,13 @@
 ---
 name: a2ui
-description: How to lay a reply out in traceflow's chat app with render_a2ui - cards to pick from, a day with a clash, a chart with a table and a next step, options side by side, an answer with its sources, and buttons that send the person's next message. Use it when a reply in the chat app would be easier to act on or compare as a layout than as text. Not for WhatsApp or other channels, where render_a2ui isn't offered.
+description: How to lay a reply out in traceflow's chat app with render_a2ui - cards to pick from, a day with a clash, charts (which chart answers which question, and a Vega-Lite spec that passes first time), a chart with a table and a next step, options side by side, an answer with its sources, and buttons that send the person's next message. Use it when a reply in the chat app would be easier to act on or compare as a layout than as text. Not for WhatsApp or other channels, where render_a2ui isn't offered.
 license: Apache-2.0
-compatibility: Only in traceflow's own chat app, where render_a2ui is offered (the skill isn't offered without it). Its scripts are optional, standard library only, and run in the skill computer of the documents environment (traceflow-skill-runtime, which has python3). Needs no internet.
+compatibility: Only in traceflow's own chat app, where render_a2ui is offered (the skill isn't offered without it). Its scripts are optional, standard library only, and run in the skill computer of the documents environment (traceflow-skill-runtime, which has python3); vl-convert-python, to compile and draw a chart, comes from requirements.txt when that computer is built. Needs no internet.
 metadata:
   icon: icon.svg
   author: traceflow
   traceflow:
-    tools: [render_a2ui, execute, write_file]
+    tools: [render_a2ui, execute, write_file, view_image]
     requires:
       tools: [traceflow/render_a2ui@1]
 ---
@@ -50,14 +50,14 @@ What the chat app can draw: each piece, what it is for, and its properties (requ
 - `Divider`: A line between parts. axis (horizontal | vertical).
 - `Image`: A real photo from the web of what the reply is about (from a place's own site, a product's page), at its https address: the app fetches it and credits its site. Never a made-up picture standing in for a real place or thing. **url** (string ≤2000); **alt** (string ≤200); caption (string ≤200); weight (a number, its share of a Row).
 - `Button`: Sends action.event.userMessage as the person's next message when pressed. Its child is a Text: its label. primary for the one thing you recommend, default for the rest. **child** (an id); variant (default | primary | borderless); **action** ({event: {**name**, **userMessage** ≤300}}); weight (a number, its share of a Row).
-- `VegaChart`: A Vega-Lite chart, drawn live: the spec as render_vega takes it, its data inline. **spec** (object); height (number 120–600).
-- `Places`: Places to pick from as cards, best first, as show_places draws them. title (string); **places** (list of {**name**, photo, rating, reviews, price, kind, distance, openNow, hours, address, mapsUrl, phone}, 1–8); from ({**latitude**, **longitude**}).
-- `Schedule`: A day of the calendar as a timeline, as show_schedule draws it. **day** (string); summary (string); **items** (list of {**start**, end, **title**, place}, ≤30).
+- `VegaChart`: A Vega-Lite chart, drawn live, its data inline. **spec** (object); height (number 120–600).
+- `Places`: Places as cards, best first: one place, or several to pick from. title (string); **places** (list of {**name**, photo, rating, reviews, price, kind, distance, openNow, hours, address, mapsUrl, phone}, 1–8); from ({**latitude**, **longitude**}).
+- `Schedule`: A day of the calendar as a timeline. **day** (string); summary (string); **items** (list of {**start**, end, **title**, place}, ≤30).
 - `Table`: Rows of the same shape under their columns. title (string); **columns** (list of {**key**, **label**}, 1–8); **rows** (list of objects, ≤50).
 - `Sources`: Where an answer comes from, in order. title (string); **sources** (list of {**title**, url, site, snippet}, 1–10).
 <!-- /pieces -->
 
-Every component may also carry `accessibility` and `metadata`. A Table's rows are objects keyed by its columns' `key`s, values as text ("€96"). A VegaChart's spec follows the chart rules of render_vega: rows inline, at most 5000, 8 colours, a pie of 6 slices, one y axis (the vega-lite skill says how to pick a chart).
+Every component may also carry `accessibility` and `metadata`. A Table's rows are objects keyed by its columns' `key`s, values as text ("€96"). A VegaChart's spec follows the chart rules: rows inline, at most 5000, 8 colours, a pie of 6 slices, one y axis (Charts, below, says which chart to pick).
 
 ## Layouts
 
@@ -94,6 +94,37 @@ Seven shapes cover most replies. Each is a whole, valid surface in `layouts/`; c
     root Column > answer Text, sources Sources
 
 Worked examples, each with the question asked and the line said before it, are in the tool's [examples/good](https://github.com/fifteen02/traceflow-library/tree/main/client-tools/render_a2ui/examples/good).
+
+## Charts
+
+A chart is a `VegaChart` piece: a [Vega-Lite](https://vega.github.io/vega-lite/) spec with its rows inline, drawn live, on its own or beside a table and a next step ([chart-table-next](layouts/chart-table-next.json)).
+
+- **A chart only when it helps.** Two or three numbers are a sentence ("€412 on groceries, €286 eating out"). A chart is for a shape: a trend, a ranking, a share, a spread, more numbers than a sentence holds. Say the point in one line; never read its numbers back in words.
+- **The rows go inline** in `data.values`, already summed or averaged to what the chart shows. Never a `url`: nothing is fetched.
+- **Titles in words.** An axis says what and in what unit ("Steps a day", "€"); set a title to `null` when the labels say it already.
+- **One colour for one series.** Colour only to tell series apart, never to decorate.
+- **Made-up numbers never.** Chart only what you read or worked out, and say where it came from.
+
+| The question | The chart | Example |
+|---|---|---|
+| Which is biggest? How do they compare? | Bars, sorted (`"sort": "-x"`), horizontal when labels are long | [bar-by-category](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/good/bar-by-category.json) |
+| How has it changed? | A line, time along x in order | [line-over-time](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/good/line-over-time.json) |
+| How have a few things changed? | A line each, coloured by series (8 at most) | [lines-by-group](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/good/lines-by-group.json) |
+| What share went where? | Stacked bars, normalised (`"stack": "normalize"`) | [stacked-share](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/good/stacked-share.json) |
+| How is it spread? What is usual? | A histogram: `bin` on x, `count` on y | [histogram](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/good/histogram.json) |
+| Many categories | The largest five, the rest summed as Other | [largest-and-other](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/good/largest-and-other.json) |
+| Two measures in different units | Two charts side by side (`hconcat`), never two y axes | [two-measures-side-by-side](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/good/two-measures-side-by-side.json) |
+| An average per group | A `transform` (aggregate), then encode what it makes | [with-transform](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/good/with-transform.json) |
+
+A pie (`"mark": "arc"`) only for parts of one whole, 6 slices at most; bars read better almost always. The limits: at most **5000 rows**, **8 colours**, a pie of **6 slices**, **one y axis** (no `"resolve": {"scale": {"y": "independent"}}`), every field an encoding names in the rows or made by a `transform` (`as`), and a `mark` wherever there is an `encoding`.
+
+    {"id": "chart", "component": "VegaChart",
+     "spec": {"data": {"values": [{"category": "Groceries", "euros": 412}, {"category": "Eating out", "euros": 286}]},
+              "mark": "bar",
+              "encoding": {"y": {"field": "category", "type": "nominal", "sort": "-x", "title": null},
+                           "x": {"field": "euros", "type": "quantitative", "title": "€"}}}}
+
+Bad: rows from an address ([data-from-url](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/bad/data-from-url.json)); a pie of twelve slices or twelve coloured lines ([pie-of-twelve](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/bad/pie-of-twelve.json), [rainbow](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/bad/rainbow.json)); a field the rows don't have ([field-not-in-rows](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/bad/field-not-in-rows.json)); two y axes ([dual-axis](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_vega/examples/bad/dual-axis.json)).
 
 ## Rules
 
@@ -137,8 +168,13 @@ With `execute` (`skill` set to `a2ui`), write the arguments with `write_file` an
 
     python3 .skills/a2ui/scripts/validate.py surfaces/dinner.json
 
-It prints `ok` or one problem per line. It doesn't compile charts; the vega-lite skill's `validate.py` does. Without `execute`, skip this: render_a2ui checks it anyway.
+It prints `ok` or one problem per line. To check one chart's spec on its own and compile it with vl-convert, proving it draws, write the spec to a file and run `validate_chart.py`; to look at it, draw it and open it with `view_image`:
+
+    python3 .skills/a2ui/scripts/validate_chart.py charts/spending.json
+    python3 .skills/a2ui/scripts/draw_chart.py charts/spending.json charts/spending.png
+
+Without `execute`, skip this: render_a2ui checks it anyway.
 
 ## Where this comes from
 
-The tool, its catalog and its examples live in [client-tools/render_a2ui](https://github.com/fifteen02/traceflow-library/tree/main/client-tools/render_a2ui) of the traceflow library. `catalog.json` here is a copy of the tool's, kept so the validator works where only this skill is installed; `scripts/validate.py` is a copy, in Python, of `A2uiSurfaces.java` and `A2uiCatalog.java` in the traceflow repo (`backend/traceflow-parent/traceflow-effects/traceflow-tools/src/main/java/com/fifteen02/traceflow/tool/generative/`), and `scripts/vega_rules.py` of `VegaLiteRules.java`, the same file as the vega-lite skill's. In the library, `python3 scripts/check_examples.py` runs the tool's examples and this skill's layouts, checks the pieces list above against `catalog.json` (`scripts/pieces.py` makes it), and says when `catalog.json` differs from the tool's; with `--source <traceflow checkout>` it also says when the tool's catalog or examples differ from traceflow's.
+The tool, its catalog and its examples live in [client-tools/render_a2ui](https://github.com/fifteen02/traceflow-library/tree/main/client-tools/render_a2ui) of the traceflow library. `catalog.json` here is a copy of the tool's, kept so the validator works where only this skill is installed; `scripts/validate.py` is a copy, in Python, of `A2uiSurfaces.java` and `A2uiCatalog.java` in the traceflow repo (`backend/traceflow-parent/traceflow-effects/traceflow-tools/src/main/java/com/fifteen02/traceflow/tool/generative/`), and `scripts/vega_rules.py` of `VegaLiteRules.java`. The chart examples are render_vega's, in [client-tools/render_vega/examples](https://github.com/fifteen02/traceflow-library/tree/main/client-tools/render_vega/examples), which `scripts/validate_chart.py` runs in the library's check. In the library, `python3 scripts/check_examples.py` runs the tool's examples and this skill's layouts, checks the pieces list above against `catalog.json` (`scripts/pieces.py` makes it), and says when `catalog.json` differs from the tool's; with `--source <traceflow checkout>` it also says when the tool's catalog or examples differ from traceflow's.
