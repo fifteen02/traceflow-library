@@ -1,6 +1,6 @@
 # render_a2ui
 
-A reply laid out by the agent: one A2UI 1.0 `createSurface` message whose components are a flat list joined by id from `root`, each a piece of [catalog.json](catalog.json) with literal values. The runtime checks the surface against the catalog before it is shown (at most 40 pieces, 5 levels, 4 buttons; each VegaChart's spec by `render_vega`'s rules); a surface that fails comes back as a failed call, one line per problem. A Button sends its `action.event.userMessage` as the person's next message.
+A reply laid out by the agent: one A2UI 1.0 `createSurface` message whose components are a flat list joined by id from `root`, each a piece of [catalog.json](catalog.json), its values literal or read from the surface's `dataModel` (`@path`, `@call` of the catalog's functions, `children` templates). The runtime reads the data into the surface, so the app is sent a surface of literal values, and checks it against the catalog before it is shown (at most 40 pieces, 5 levels, 4 buttons; each VegaChart's spec by `render_vega`'s rules); a surface that fails comes back as a failed call, one line per problem. A Button sends its `action.event.userMessage` as the person's next message.
 
 ## Reply
 

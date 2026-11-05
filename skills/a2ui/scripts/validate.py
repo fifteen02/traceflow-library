@@ -8,8 +8,8 @@ render_a2ui's examples or this skill's layouts. Prints "ok", or one problem per 
 A copy, in Python, of traceflow's A2uiSurfaces and A2uiCatalog (the source of truth, in the traceflow repo:
 backend/traceflow-parent/traceflow-effects/traceflow-tools/src/main/java/com/fifteen02/traceflow/tool/generative/),
 with the same rules, limits and wording. It reads catalog.json from the skill's folder, a copy of the library's
-client-tools/render_a2ui/catalog.json, and checks each VegaChart's spec with vega_rules.py, beside this
-script. It doesn't compile charts: validate_chart.py, beside it, does.
+client-tools/render_a2ui/catalog.json, reads a surface's dataModel into it with data.py (so the rules are checked on
+what will be drawn), and checks each VegaChart's spec with vega_rules.py, beside this script. It doesn't compile charts: validate_chart.py, beside it, does.
 Standard library only.
 """
 
@@ -22,6 +22,7 @@ sys.dont_write_bytecode = True
 sys.setrecursionlimit(10000)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import data  # noqa: E402  (beside this script)
 import vega_rules  # noqa: E402  (beside this script)
 from vega_rules import jstr  # noqa: E402
 
@@ -203,16 +204,23 @@ def check(messages, catalog):
     if "catalogId" in surface and not same(catalog.id, surface["catalogId"]):
         found.append(at + ".catalogId: must be \"" + jstr(catalog.id) + "\"")
     for key in surface:
-        if key not in ("surfaceId", "catalogId", "components"):
-            found.append(at + "." + jstr(key) + ": not used here; values are literal, so there is no data model")
+        if key not in ("surfaceId", "catalogId", "components", "dataModel"):
+            found.append(at + "." + jstr(key) + ": not used here; a surface is its surfaceId, catalogId, components and dataModel")
     components = surface.get("components")
     if not isinstance(components, list) or not components:
         found.append(at + ".components: needs the components, one with the id root")
         return found, charts
+    if "dataModel" in surface and not isinstance(surface["dataModel"], dict):
+        found.append(at + ".dataModel: an object, e.g. {\"places\": [...]}")
+    if data.binds(components):
+        components, unread = data.expand(components, surface.get("dataModel"))
+        # What couldn't be read is said once, where it was written, not again as the gaps it leaves.
+        if unread:
+            found.extend(unread)
+            return found, charts
     if len(components) > MOST_COMPONENTS:
         found.append(at + ".components: " + str(len(components)) + " pieces, more than " + str(MOST_COMPONENTS)
                      + "; a reply this big is too much at once, show less")
-    _bindings(components, at + ".components", found)
 
     by_id = {}
     for i, component in enumerate(components):
@@ -240,19 +248,6 @@ def check(messages, catalog):
             found.append(path + " (" + cid + ").url: the photo's https address on the web, where you found it")
     _tree(by_id, found)
     return found, charts
-
-
-def _bindings(value, path, found):
-    """A data binding or function call anywhere: values are literal here."""
-    if isinstance(value, dict):
-        for key, inner in value.items():
-            if key in ("@path", "@call", "@index"):
-                found.append(path + "." + key + ": values are literal here; write the value itself")
-            elif key != "spec":
-                _bindings(inner, path + "." + jstr(key), found)
-    elif isinstance(value, list):
-        for i, inner in enumerate(value):
-            _bindings(inner, path + "[" + str(i) + "]", found)
 
 
 def _tree(by_id, found):

@@ -35,7 +35,7 @@ metadata:
 
 - One `createSurface`, its components in it; no `updateComponents`, `updateDataModel` or `deleteSurface`.
 - A flat list: each component has an `id` and names its `component`; a parent lists its children by id (`child`, `children`). One has the id `root`.
-- Values are literal: no `@path`, `@call`, `@index`, templates or data model. Write the value itself.
+- Values are literal. When several items share a shape, give the surface a `dataModel` and write the shape once (Many alike, below). Nothing writes the data: there are no inputs.
 - A Button sends its `action.event.userMessage` as the person's next message, exactly as if they typed it.
 
 ## The pieces
@@ -61,7 +61,7 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
 ## Layouts
 
-Seven shapes cover most replies. Each is a whole, valid surface in `layouts/`; copy the one that fits and change its words. In the skeletons, `>` reads "has as children".
+Eight shapes cover most replies. Each is a whole, valid surface in `layouts/`; copy the one that fits and change its words. In the skeletons, `>` reads "has as children".
 
 **Answer and actions** ([answer-and-actions](layouts/answer-and-actions.json)): an answer in a line or two, then what to do next.
 
@@ -90,6 +90,25 @@ Seven shapes cover most replies. Each is a whole, valid surface in `layouts/`; c
     root Column > photo Image, note Text (caption), book Button (primary)
 
 **Answer with sources** ([answer-with-sources](layouts/answer-with-sources.json)): the answer, then where it comes from; no buttons when there is nothing to do.
+
+**Many alike** ([many-alike](layouts/many-alike.json)): rows of the same shape, written once over the surface's data, the amounts formatted for you.
+
+    {"createSurface": {"surfaceId": "lisbon-split", "catalogId": "...",
+      "dataModel": {"total": 1065, "people": 3, "costs": [{"what": "Apartment, 5 nights", "euros": 945}, ...]},
+      "components": [
+        {"id": "costs", "component": "Column", "children": {"path": "/costs", "componentId": "cost"}},
+        {"id": "cost", "component": "Row", "justify": "spaceBetween", "children": ["cost-what", "cost-euros"]},
+        {"id": "cost-what", "component": "Text", "text": {"@path": "what"}},
+        {"id": "cost-euros", "component": "Text",
+         "text": {"@call": "formatCurrency", "args": {"value": {"@path": "euros"}, "decimals": 0}}},
+        {"id": "each", "component": "Text", "text": {"@call": "formatString", "args": {"value":
+          "${formatCurrency(value: ${/total}, decimals: 0)} between ${/people} ${pluralize(value: ${/people}, one: 'person', other: 'people')}"}}},
+        ...]}}
+
+- `{"@path": "/costs/0/what"}` reads the data (a JSON Pointer); inside a template a path without `/` is the item's own (`what`).
+- `children: {"path": "/costs", "componentId": "cost"}` draws `cost` (and what it holds) once per item.
+- Functions: `formatString` (fills in `${/path}`, `${what}`, `${function(arg: value)}`), `formatCurrency` (€945), `formatNumber`, `formatDate` (`EEEE d MMMM`, `h:mm a`), `pluralize`, `join`. A Button's `userMessage` may be one too.
+- The surface is checked as it will be drawn: the limits count the copies, and a path that isn't in the data is refused.
 
     root Column > answer Text, sources Sources
 
@@ -154,7 +173,9 @@ Bad, and why (each in the tool's [examples/bad](https://github.com/fifteen02/tra
 - [missing-child](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/missing-child.json): a child id that isn't a component.
 - [orphan](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/orphan.json): a piece no one has as a child is never drawn.
 - [cycle](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/cycle.json): a piece inside itself.
-- [data-binding](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/data-binding.json): `{"@path": "/user/name"}` where a value goes.
+- [binding-not-in-data](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/binding-not-in-data.json): a `@path` the dataModel doesn't have.
+- [unknown-function](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/unknown-function.json): a `@call` that isn't one of the functions.
+- [template-not-a-list](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/template-not-a-list.json): a template over something that isn't a list.
 - [text-variant-heading](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/text-variant-heading.json): `"variant": "h1"`; use bold.
 - [button-without-message](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/button-without-message.json): a Button with no `userMessage`.
 - [too-many-buttons](https://github.com/fifteen02/traceflow-library/blob/main/client-tools/render_a2ui/examples/bad/too-many-buttons.json): five buttons, a menu not a reply.
@@ -177,4 +198,4 @@ Without `execute`, skip this: render_a2ui checks it anyway.
 
 ## Where this comes from
 
-The tool, its catalog and its examples live in [client-tools/render_a2ui](https://github.com/fifteen02/traceflow-library/tree/main/client-tools/render_a2ui) of the traceflow library. `catalog.json` here is a copy of the tool's, kept so the validator works where only this skill is installed; `scripts/validate.py` is a copy, in Python, of `A2uiSurfaces.java` and `A2uiCatalog.java` in the traceflow repo (`backend/traceflow-parent/traceflow-effects/traceflow-tools/src/main/java/com/fifteen02/traceflow/tool/generative/`), and `scripts/vega_rules.py` of `VegaLiteRules.java`. The chart examples are render_vega's, in [client-tools/render_vega/examples](https://github.com/fifteen02/traceflow-library/tree/main/client-tools/render_vega/examples), which `scripts/validate_chart.py` runs in the library's check. In the library, `python3 scripts/check_examples.py` runs the tool's examples and this skill's layouts, checks the pieces list above against `catalog.json` (`scripts/pieces.py` makes it), and says when `catalog.json` differs from the tool's; with `--source <traceflow checkout>` it also says when the tool's catalog or examples differ from traceflow's.
+The tool, its catalog and its examples live in [client-tools/render_a2ui](https://github.com/fifteen02/traceflow-library/tree/main/client-tools/render_a2ui) of the traceflow library. `catalog.json` here is a copy of the tool's, kept so the validator works where only this skill is installed; `scripts/validate.py` is a copy, in Python, of `A2uiSurfaces.java` and `A2uiCatalog.java` (and `scripts/data.py` of `A2uiData.java`) in the traceflow repo (`backend/traceflow-parent/traceflow-effects/traceflow-tools/src/main/java/com/fifteen02/traceflow/tool/generative/`), and `scripts/vega_rules.py` of `VegaLiteRules.java`. The chart examples are render_vega's, in [client-tools/render_vega/examples](https://github.com/fifteen02/traceflow-library/tree/main/client-tools/render_vega/examples), which `scripts/validate_chart.py` runs in the library's check. In the library, `python3 scripts/check_examples.py` runs the tool's examples and this skill's layouts, checks the pieces list above against `catalog.json` (`scripts/pieces.py` makes it), and says when `catalog.json` differs from the tool's; with `--source <traceflow checkout>` it also says when the tool's catalog or examples differ from traceflow's.

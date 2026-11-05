@@ -1,0 +1,35 @@
+{
+  "why": "A template repeats over a list in the dataModel.",
+  "expect": "isn't a list in the dataModel",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "items": {
+            "name": "one"
+          }
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": {
+              "path": "/items",
+              "componentId": "item"
+            }
+          },
+          {
+            "id": "item",
+            "component": "Text",
+            "text": {
+              "@path": "name"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

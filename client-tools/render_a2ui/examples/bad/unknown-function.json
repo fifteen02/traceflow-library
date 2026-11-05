@@ -1,0 +1,26 @@
+{
+  "why": "Only the catalog's functions run.",
+  "expect": "isn't a function here",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {},
+        "components": [
+          {
+            "id": "root",
+            "component": "Text",
+            "text": {
+              "@call": "shout",
+              "args": {
+                "value": "hi"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

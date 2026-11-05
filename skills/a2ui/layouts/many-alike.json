@@ -1,0 +1,230 @@
+{
+  "asked": "What did the Lisbon weekend cost each of us?",
+  "said": "Here's the weekend split three ways.",
+  "why": "The same shape for every item, written once: a template draws a row per cost from the dataModel, and the amounts are formatted, not typed out. \"drawn\" is the surface the app is sent.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "lisbon-split",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "trip": "Lisbon, 13–15 November",
+          "people": 3,
+          "total": 1065,
+          "costs": [
+            {
+              "what": "Apartment, 5 nights",
+              "euros": 945
+            },
+            {
+              "what": "Breakfasts",
+              "euros": 120
+            }
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "heading",
+              "costs",
+              "each",
+              "actions"
+            ]
+          },
+          {
+            "id": "heading",
+            "component": "Text",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "**${/trip}**"
+              }
+            }
+          },
+          {
+            "id": "costs",
+            "component": "Column",
+            "children": {
+              "path": "/costs",
+              "componentId": "cost"
+            }
+          },
+          {
+            "id": "cost",
+            "component": "Row",
+            "justify": "spaceBetween",
+            "children": [
+              "cost-what",
+              "cost-euros"
+            ]
+          },
+          {
+            "id": "cost-what",
+            "component": "Text",
+            "text": {
+              "@path": "what"
+            }
+          },
+          {
+            "id": "cost-euros",
+            "component": "Text",
+            "text": {
+              "@call": "formatCurrency",
+              "args": {
+                "value": {
+                  "@path": "euros"
+                },
+                "decimals": 0
+              }
+            }
+          },
+          {
+            "id": "each",
+            "component": "Text",
+            "variant": "caption",
+            "text": {
+              "@call": "formatString",
+              "args": {
+                "value": "${formatCurrency(value: ${/total}, decimals: 0)} between ${/people} ${pluralize(value: ${/people}, one: 'person', other: 'people')}"
+              }
+            }
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "settle"
+            ]
+          },
+          {
+            "id": "settle",
+            "component": "Button",
+            "variant": "primary",
+            "child": "settle-label",
+            "action": {
+              "event": {
+                "name": "settle",
+                "userMessage": {
+                  "@call": "formatString",
+                  "args": {
+                    "value": "Ask the others for their share of ${formatCurrency(value: ${/total}, decimals: 0)}"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": "settle-label",
+            "component": "Text",
+            "text": "Ask for their shares"
+          }
+        ]
+      }
+    }
+  ],
+  "drawn": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "lisbon-split",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "heading",
+              "costs",
+              "each",
+              "actions"
+            ]
+          },
+          {
+            "id": "heading",
+            "component": "Text",
+            "text": "**Lisbon, 13–15 November**"
+          },
+          {
+            "id": "cost#0",
+            "component": "Row",
+            "justify": "spaceBetween",
+            "children": [
+              "cost-what#0",
+              "cost-euros#0"
+            ]
+          },
+          {
+            "id": "cost-what#0",
+            "component": "Text",
+            "text": "Apartment, 5 nights"
+          },
+          {
+            "id": "cost-euros#0",
+            "component": "Text",
+            "text": "€945"
+          },
+          {
+            "id": "cost#1",
+            "component": "Row",
+            "justify": "spaceBetween",
+            "children": [
+              "cost-what#1",
+              "cost-euros#1"
+            ]
+          },
+          {
+            "id": "cost-what#1",
+            "component": "Text",
+            "text": "Breakfasts"
+          },
+          {
+            "id": "cost-euros#1",
+            "component": "Text",
+            "text": "€120"
+          },
+          {
+            "id": "costs",
+            "component": "Column",
+            "children": [
+              "cost#0",
+              "cost#1"
+            ]
+          },
+          {
+            "id": "each",
+            "component": "Text",
+            "variant": "caption",
+            "text": "€1,065 between 3 people"
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "settle"
+            ]
+          },
+          {
+            "id": "settle",
+            "component": "Button",
+            "variant": "primary",
+            "child": "settle-label",
+            "action": {
+              "event": {
+                "name": "settle",
+                "userMessage": "Ask the others for their share of €1,065"
+              }
+            }
+          },
+          {
+            "id": "settle-label",
+            "component": "Text",
+            "text": "Ask for their shares"
+          }
+        ]
+      }
+    }
+  ]
+}

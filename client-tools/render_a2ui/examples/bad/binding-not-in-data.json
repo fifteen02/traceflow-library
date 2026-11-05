@@ -1,12 +1,17 @@
 {
-  "why": "Values are literal: there is no data model to bind to.",
-  "expect": "values are literal here",
+  "why": "A binding reads the surface's dataModel; a path that isn't there draws nothing.",
+  "expect": "isn't in the dataModel",
   "messages": [
     {
       "version": "1.0",
       "createSurface": {
         "surfaceId": "s",
         "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "user": {
+            "first": "Ana"
+          }
+        },
         "components": [
           {
             "id": "root",
