@@ -48,7 +48,7 @@ What the chat app can draw: each piece, what it is for, and its properties (requ
 - `Column`: Children one under another: most surfaces' root. **children** (ids, 1–12); justify (start | center | end | spaceBetween | spaceAround | spaceEvenly | stretch); align (start | center | end | stretch); weight (a number, its share of a Row).
 - `Card`: A panel around one child (a Column for several). **child** (an id); weight (a number, its share of a Row).
 - `Divider`: A line between parts. axis (horizontal | vertical).
-- `Image`: A real photo from the web of what the reply is about (from a place's own site, a product's page), at its https address: the app fetches it and credits its site. Never a made-up picture standing in for a real place or thing. **url** (string ≤2000); **alt** (string ≤200); caption (string ≤200); weight (a number, its share of a Row).
+- `Image`: A real photo from the web of what the reply is about, at its https address, or the address of the page it is on (a recipe's, a product's: the page's own photo is shown): the app fetches it and credits its site. Never a made-up picture standing in for a real place or thing. **url** (string ≤2000); **alt** (string ≤200); caption (string ≤200); weight (a number, its share of a Row).
 - `Button`: Sends action.event.userMessage as the person's next message when pressed. Its child is a Text: its label. primary for the one thing you recommend, default for the rest. **child** (an id); variant (default | primary | borderless); **action** ({event: {**name**, **userMessage** ≤300}}); weight (a number, its share of a Row).
 - `VegaChart`: A Vega-Lite chart, drawn live, its data inline. **spec** (object); height (number 120–600).
 - `Places`: Places as cards, best first: one place, or several to pick from. title (string); **places** (list of {**name**, photo, rating, reviews, price, kind, distance, openNow, hours, address, mapsUrl, phone}, 1–8); from ({**latitude**, **longitude**}).
@@ -65,7 +65,7 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
 ### Scenarios
 
-**Recipe** ([recipe](layouts/recipe.json)): a dish to cook. The dish's photo from the recipe's page when there is one (an `Image` first), serves and time, what you need, the steps numbered one to a line, one next step.
+**Recipe** ([recipe](layouts/recipe.json)): a dish to cook. The dish's photo first: an `Image` whose `url` is the recipe page you read (the app shows that page's own photo), serves and time, what you need, the steps numbered one to a line, one next step.
 
     root Column > summary Text (caption), needs Table, steps Column (one step Text per /steps), actions Row > shop Button (primary)
     data: {serves, minutes, ingredients: [{item, amount}], steps: [{n, text}]}

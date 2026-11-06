@@ -62,7 +62,7 @@
     },
     "Image": {
       "type": "object",
-      "description": "A real photo from the web of what the reply is about (from a place's own site, a product's page), at its https address: the app fetches it and credits its site. Never a made-up picture standing in for a real place or thing.",
+      "description": "A real photo from the web of what the reply is about, at its https address, or the address of the page it is on (a recipe's, a product's: the page's own photo is shown): the app fetches it and credits its site. Never a made-up picture standing in for a real place or thing.",
       "properties": {
         "component": { "const": "Image" },
         "url": { "type": "string", "maxLength": 2000 },
