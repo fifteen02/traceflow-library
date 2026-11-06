@@ -107,7 +107,7 @@
     },
     "Schedule": {
       "type": "object",
-      "description": "A day of the calendar as a timeline.",
+      "description": "A day or a week of the calendar, in order: each event's start and end as the calendar gives them (2026-11-07T09:00:00+01:00, so the app shows its date and how long it lasts; 09:00 for a day's times alone), a week in one Schedule. place only as the event says it, left out when it has none: never a placeholder such as To be confirmed.",
       "properties": {
         "component": { "const": "Schedule" },
         "day": { "type": "string" },
