@@ -1,0 +1,18 @@
+{
+  "layout": "checklist",
+  "when": "Things to have or do: a packing list, a move, to-dos for an event. Sections of a few items each, two columns, one note.",
+  "title": "Pack light, bring layers",
+  "lede": "Two nights in Gozo: ferry weather, coastal walks and slow lunches.",
+  "for": "Alex",
+  "date": "2026-11-06",
+  "footer": "Gozo weekend packing list",
+  "blocks": [
+    {"type": "checklist", "columns": 2, "sections": [
+      {"title": "Clothes", "items": ["Two tops and a nicer one", "Trousers or jeans", "Light jumper", "Waterproof jacket", "Swimsuit"]},
+      {"title": "Outdoors", "items": ["Walking shoes", "Sandals", "Sun cream", "Water bottle"]},
+      {"title": "Wash bag", "items": ["Toothbrush and paste", "Your medicines", "Plasters"]},
+      {"title": "Tech and travel", "items": ["Charger and power bank", "ID card", "Ferry times, saved offline"]}
+    ]},
+    {"type": "note", "label": "Don't forget", "text": "a vegetarian snack for the crossing; the café queue on Friday evenings is long."}
+  ]
+}

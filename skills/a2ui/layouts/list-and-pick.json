@@ -26,13 +26,13 @@
                 "name": "Café Ana",
                 "rating": 4.7,
                 "distance": "0.2 km",
-                "openNow": true
+                "openNow": true, "hours": "till 18:00"
               },
               {
                 "name": "Grão",
                 "rating": 4.5,
                 "distance": "0.5 km",
-                "openNow": true
+                "openNow": true, "hours": "till 19:00"
               }
             ]
           },

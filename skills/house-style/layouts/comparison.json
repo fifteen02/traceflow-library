@@ -1,0 +1,18 @@
+{
+  "layout": "comparison",
+  "when": "Two to four options weighed on one measure: which is cheaper, which fits. Each option's figure and a few facts side by side, the best one tagged, the verdict in a sentence, where the numbers came from.",
+  "title": "Car or taxis for a week in Gozo",
+  "lede": "The same seven days, two ways to get around.",
+  "for": "Alex",
+  "date": "2026-11-06",
+  "footer": "Gozo transport compared",
+  "blocks": [
+    {"type": "compare", "options": [
+      {"name": "Hire car", "best": true, "tag": "Better value", "figure": "€126–175", "unit": "for the week, fuel included",
+       "rows": [["Per day", "€18–25"], ["Parking", "Mostly free"], ["Freedom", "Go anywhere"]]},
+      {"name": "Taxis", "figure": "€19", "unit": "each trip, about",
+       "rows": [["Break-even", "9 trips"], ["Waiting", "10–20 minutes"], ["Freedom", "Book each time"]]}
+    ], "verdict": "If you'll be out most days, ==the car wins after about nine trips==."},
+    {"type": "source", "text": "Prices from rental and taxi sites on 6 November 2026; they rise in summer."}
+  ]
+}

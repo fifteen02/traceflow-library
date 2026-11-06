@@ -1,0 +1,59 @@
+{
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "latest-pdf",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "files",
+              "actions"
+            ]
+          },
+          {
+            "id": "files",
+            "component": "Files",
+            "files": [
+              {
+                "name": "Contract note, purchase",
+                "kind": "pdf",
+                "where": "My Drive",
+                "changed": "2026-10-22T10:20:57+02:00",
+                "size": "184 KB",
+                "url": "https://drive.google.com/file/d/1AbCdEfGhIjKlMnOp/view"
+              }
+            ]
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "summarise"
+            ]
+          },
+          {
+            "id": "summarise",
+            "component": "Button",
+            "child": "summarise-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "summarise",
+                "userMessage": "What does the contract note say?"
+              }
+            }
+          },
+          {
+            "id": "summarise-label",
+            "component": "Text",
+            "text": "What it says"
+          }
+        ]
+      }
+    }
+  ]
+}

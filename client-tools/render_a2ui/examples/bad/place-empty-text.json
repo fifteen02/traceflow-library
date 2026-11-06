@@ -1,0 +1,26 @@
+{
+  "why": "An empty price or address is nothing to show: leave the field out.",
+  "expect": "price: empty",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Places",
+            "places": [
+              {
+                "name": "Rubino",
+                "price": "",
+                "kind": "Maltese"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "why": "Open or closed said without the hours it was read from is a guess: shown, every unchecked place reads as closed.",
+  "expect": "openNow: say open or closed only with the hours",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Places",
+            "places": [
+              {
+                "name": "Rubino",
+                "openNow": false,
+                "kind": "Maltese"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

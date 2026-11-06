@@ -1,0 +1,26 @@
+{
+  "why": "A rating of 0 is a model's \"I don't know\": shown, it reads as a place rated nothing. Leave it out.",
+  "expect": "rating: 0 says nothing",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Places",
+            "places": [
+              {
+                "name": "Rubino",
+                "rating": 0,
+                "kind": "Maltese"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

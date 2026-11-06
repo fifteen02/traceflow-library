@@ -96,7 +96,7 @@
     },
     "Places": {
       "type": "object",
-      "description": "Places as cards, best first: one place, or several to pick from.",
+      "description": "Places as cards, best first: one place, or several to pick from. Give only what you know of each: leave a rating, price, hours or open-now out rather than writing 0, an empty text or false. The chat adds each place's rating, reviews, price, open-now and today's hours from Google after you send the card: never say you haven't checked them, and asked about them later, read them with a place-details tool rather than guess.",
       "properties": {
         "component": { "const": "Places" },
         "title": { "type": "string" },
@@ -128,6 +128,28 @@
       },
       "required": ["component", "verdict", "options"]
     },
+    "Weather": {
+      "type": "object",
+      "description": "The weather for one place and day, at a glance: the sky, the temperature with its high and low, the chance of rain and the wind, the day hour by hour, the next few days under it, and whose forecast it is. Asked a yes or no (will it rain?), put the answer in a few words first; asked about the hours (when will it rain? how warm this evening?), fill hours, one an hour or every few, in order. Only figures from a forecast you read: leave out what it doesn't say.",
+      "properties": {
+        "component": { "const": "Weather" },
+        "place": { "type": "string", "maxLength": 60 },
+        "day": { "type": "string", "maxLength": 40 },
+        "answer": { "type": "string", "maxLength": 60 },
+        "condition": { "type": "string", "enum": ["clear", "partly-cloudy", "cloudy", "fog", "drizzle", "rain", "showers", "storm", "snow", "wind"] },
+        "summary": { "type": "string", "maxLength": 60 },
+        "temperature": { "type": "number" },
+        "high": { "type": "number" },
+        "low": { "type": "number" },
+        "unit": { "type": "string", "enum": ["C", "F"] },
+        "rain": { "type": "number", "minimum": 0, "maximum": 100 },
+        "wind": { "type": "string", "maxLength": 60 },
+        "hours": { "type": "array", "maxItems": 24, "items": { "$ref": "#/$defs/Hour" } },
+        "days": { "type": "array", "maxItems": 5, "items": { "$ref": "#/$defs/Day" } },
+        "source": { "type": "string", "maxLength": 120 }
+      },
+      "required": ["component", "place", "day", "condition", "temperature"]
+    },
     "Table": {
       "type": "object",
       "description": "Rows of the same shape under their columns.",
@@ -148,6 +170,16 @@
         "sources": { "type": "array", "minItems": 1, "maxItems": 10, "items": { "$ref": "#/$defs/Citation" } }
       },
       "required": ["component", "sources"]
+    },
+    "Files": {
+      "type": "object",
+      "description": "Files the answer is about (a document found in Drive, a sheet shared with them): each with its name, its kind, where it lives and when it changed, opened by its link. Use it instead of writing a file's name and link out.",
+      "properties": {
+        "component": { "const": "Files" },
+        "title": { "type": "string" },
+        "files": { "type": "array", "minItems": 1, "maxItems": 10, "items": { "$ref": "#/$defs/File" } }
+      },
+      "required": ["component", "files"]
     }
   },
   "functions": {
@@ -216,6 +248,28 @@
       "required": ["name", "figure"],
       "additionalProperties": false
     },
+    "Day": {
+      "type": "object",
+      "properties": {
+        "day": { "type": "string", "maxLength": 12 },
+        "condition": { "type": "string", "enum": ["clear", "partly-cloudy", "cloudy", "fog", "drizzle", "rain", "showers", "storm", "snow", "wind"] },
+        "high": { "type": "number" },
+        "low": { "type": "number" }
+      },
+      "required": ["day", "condition", "high"],
+      "additionalProperties": false
+    },
+    "Hour": {
+      "type": "object",
+      "properties": {
+        "time": { "type": "string", "maxLength": 8 },
+        "condition": { "type": "string", "enum": ["clear", "partly-cloudy", "cloudy", "fog", "drizzle", "rain", "showers", "storm", "snow", "wind"] },
+        "temperature": { "type": "number" },
+        "rain": { "type": "number", "minimum": 0, "maximum": 100 }
+      },
+      "required": ["time", "condition", "temperature"],
+      "additionalProperties": false
+    },
     "ScheduleItem": {
       "type": "object",
       "properties": {
@@ -231,6 +285,19 @@
       "type": "object",
       "properties": { "key": { "type": "string" }, "label": { "type": "string" } },
       "required": ["key", "label"],
+      "additionalProperties": false
+    },
+    "File": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "The file's name as people read it: its title, without the extension or a run of ids a system added." },
+        "kind": { "enum": ["pdf", "doc", "sheet", "slides", "image", "video", "audio", "folder", "archive", "other"] },
+        "where": { "type": "string", "description": "Where it lives: a folder, a drive, a site." },
+        "changed": { "type": "string", "description": "When it last changed, as an ISO date or date-time." },
+        "size": { "type": "string", "description": "How big it is, as people say it: 2.4 MB." },
+        "url": { "type": "string", "description": "Its address, to open it." }
+      },
+      "required": ["name", "kind"],
       "additionalProperties": false
     },
     "Citation": {

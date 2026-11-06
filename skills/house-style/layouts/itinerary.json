@@ -1,0 +1,23 @@
+{
+  "layout": "itinerary",
+  "when": "Where to be and when: a trip, a day plan, an event's running order. A section per day, a row per stop with its time and one line of detail; highlight the one thing not to miss.",
+  "title": "Two days on Gozo",
+  "lede": "Hiking in the mornings, seafood by the water, back on the 18:15 ferry.",
+  "for": "Alex",
+  "date": "2026-11-06",
+  "footer": "Gozo itinerary",
+  "blocks": [
+    {"type": "schedule", "days": [
+      {"title": "Saturday 7 November", "note": "Coast and cliffs", "items": [
+        {"time": "08:30", "title": "Ferry from Ċirkewwa", "detail": "25 minutes; buy tickets at the kiosk"},
+        {"time": "10:00", "title": "Walk the Ta' Ċenċ cliffs", "detail": "6 km, easy; bring water"},
+        {"time": "13:30", "title": "Lunch at Mġarr ix-Xini", "detail": "Fish of the day; book ahead"}
+      ]},
+      {"title": "Sunday 8 November", "note": "Bays and the citadel", "items": [
+        {"time": "09:00", "title": "Ramla Bay to Calypso Cave", "detail": "4 km, one steep climb"},
+        {"time": "12:30", "title": "Lunch in Xlendi", "detail": "Terrace with a sea view"},
+        {"time": "17:30", "title": "Ferry back at 18:15", "detail": "Be at Mġarr by 17:45", "highlight": true}
+      ]}
+    ]}
+  ]
+}

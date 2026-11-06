@@ -1,0 +1,18 @@
+{
+  "layout": "report",
+  "when": "A summary of findings or numbers: a month in review, a document's key points, a check. Up to four figures, the short of it in words, where things went as bars, one thing worth doing.",
+  "title": "Your October in numbers",
+  "lede": "What you spent, where it went, and one thing worth changing.",
+  "for": "Alex",
+  "date": "2026-11-06",
+  "footer": "October summary",
+  "blocks": [
+    {"type": "figures", "items": [{"value": "€2,140", "label": "Spent"}, {"value": "−8%", "label": "On September"}, {"value": "€310", "label": "Eating out"}]},
+    {"type": "text", "text": "**The short of it.** Spending came down, mostly from fewer taxis after the bus pass. Eating out held steady."},
+    {"type": "bars", "title": "Where it went", "unit": "€", "items": [
+      {"label": "Home", "value": 920, "best": true}, {"label": "Food", "value": 480}, {"label": "Eating out", "value": 310},
+      {"label": "Transport", "value": 180}, {"label": "Other", "value": 250}
+    ]},
+    {"type": "note", "label": "Worth changing:", "text": "two streaming plans overlap; dropping one saves €9 a month."}
+  ]
+}

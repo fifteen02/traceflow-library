@@ -1,0 +1,52 @@
+{
+  "layout": "weather",
+  "asked": "What's the weather like in Sliema on Saturday?",
+  "said": "A good day for the promenade.",
+  "why": "The weather for one place and day: one Weather card with the sky, the temperature and its high and low, rain and wind, the day every few hours, the next days under it and whose forecast it is.",
+  "when": "The weather for a place and day, or will it rain, be hot, be windy, or when in the day: one Weather card; a yes or no goes in its answer, and the hours the forecast gives go in its hours.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "sliema-saturday",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "weather"
+            ]
+          },
+          {
+            "id": "weather",
+            "component": "Weather",
+            "place": "Sliema",
+            "day": "Saturday 7 November",
+            "condition": "partly-cloudy",
+            "summary": "Sunny intervals",
+            "temperature": 19,
+            "high": 21,
+            "low": 15,
+            "unit": "C",
+            "rain": 10,
+            "wind": "14 km/h NW",
+            "hours": [
+              { "time": "09:00", "condition": "partly-cloudy", "temperature": 16, "rain": 0 },
+              { "time": "12:00", "condition": "clear", "temperature": 20, "rain": 0 },
+              { "time": "15:00", "condition": "partly-cloudy", "temperature": 21, "rain": 5 },
+              { "time": "18:00", "condition": "showers", "temperature": 18, "rain": 40 },
+              { "time": "21:00", "condition": "cloudy", "temperature": 16, "rain": 20 }
+            ],
+            "days": [
+              { "day": "Sun", "condition": "clear", "high": 22, "low": 16 },
+              { "day": "Mon", "condition": "rain", "high": 18, "low": 14 },
+              { "day": "Tue", "condition": "cloudy", "high": 19, "low": 15 }
+            ],
+            "source": "Met Office, checked 21:20"
+          }
+        ]
+      }
+    }
+  ]
+}

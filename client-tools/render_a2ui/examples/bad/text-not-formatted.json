@@ -1,0 +1,34 @@
+{
+  "why": "${…} is only filled in by formatString: a plain string is drawn as written, so each step would read \"${n}. ${text}\".",
+  "expect": "is only filled in by formatString",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "s",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "dataModel": {
+          "steps": [
+            {"n": 1, "text": "Soften the onion."},
+            {"n": 2, "text": "Add the tomatoes."}
+          ]
+        },
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": {
+              "path": "/steps",
+              "componentId": "step"
+            }
+          },
+          {
+            "id": "step",
+            "component": "Text",
+            "text": "${n}. ${text}"
+          }
+        ]
+      }
+    }
+  ]
+}

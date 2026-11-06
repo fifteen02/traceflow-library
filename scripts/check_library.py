@@ -32,8 +32,11 @@ NAMESPACE = "traceflow"
 KEYS = {"id", "name", "version", "description", "parameters", "reply", "rendersOnly", "channels", "icon"}
 REQUIRED = KEYS - {"reply", "icon"}
 CHANNELS = {"all", "app"}
-NOTES = {"asked", "said", "why", "expect"}
-"""Keys an example may carry beside the call's arguments: what was asked, what was said with it, why, what it gets."""
+NOTES = {"asked", "said", "why", "expect", "layout", "when", "drawn"}
+"""
+Keys an example may carry beside the call's arguments: what was asked, what was said with it, why, what it gets; for a
+layout's example, the layout it shows, when to use it, and the card as drawn once its data is read in.
+"""
 ID = re.compile(r"^([a-z0-9][a-z0-9-]*)/([a-z0-9_]+)@([1-9][0-9]*)$")
 VALIDATORS = {"render_a2ui": SKILLS / "a2ui" / "scripts" / "validate.py",
               "render_vega": SKILLS / "a2ui" / "scripts" / "validate_chart.py"}

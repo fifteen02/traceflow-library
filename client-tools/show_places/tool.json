@@ -2,7 +2,7 @@
   "id": "traceflow/show_places@1",
   "name": "show_places",
   "version": 1,
-  "description": "Show places (restaurants, cafés, shops, sights) as cards the person can compare and pick from: each its photo, name, rating and reviews, price, kind, distance, whether it is open and its hours, with a link to its map and its phone when given. Use it whenever you offer the person a few places to choose between, in the order you recommend them. Only shows them; there is no reply: the person picks one by saying so, as a message.",
+  "description": "Show places (restaurants, cafés, shops, sights) as cards the person can compare and pick from: each its photo, name, rating and reviews, price, kind, distance, whether it is open and its hours, with a link to its map and its phone when given. Use it whenever you offer the person a few places to choose between, in the order you recommend them. Give what you know of each: the chat adds its rating, reviews, price, open-now and today's hours from Google after you send it, so never write 0 or empty for them nor say they are unchecked; asked about them later, read them with a place-details tool. Only shows them; there is no reply: the person picks one by saying so, as a message.",
   "parameters": {
     "properties": {
       "from": {

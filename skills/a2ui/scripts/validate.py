@@ -244,10 +244,35 @@ def check(messages, catalog):
         if kind == "VegaChart" and isinstance(component.get("spec"), dict):
             found.extend(path + " (" + cid + ")." + problem for problem in vega_rules.problems(component["spec"]))
             charts[cid] = component["spec"]
+        if kind == "Places":
+            found.extend(place_guesses(component.get("places"), path + " (" + cid + ")"))
         if kind == "Image" and isinstance(component.get("url"), str) and not component["url"].startswith("https://"):
             found.append(path + " (" + cid + ").url: the photo's https address on the web, where you found it")
     _tree(by_id, found)
     return found, charts
+
+
+def place_guesses(places, at):
+    """A model's "I don't know" written as a fact in a Places piece: a rating or reviews of 0, an empty text, open or
+    closed said without the hours it was read from. Each would show as true, so each is sent back to be left out."""
+    out = []
+    if not isinstance(places, list):
+        return out
+    for i, place in enumerate(places):
+        if not isinstance(place, dict):
+            continue
+        here = at + ".places[" + str(i) + "]"
+        for count in ("rating", "reviews"):
+            value = place.get(count)
+            if is_number(value) and value <= 0:
+                out.append(here + "." + count + ": " + str(value) + " says nothing; leave it out when you don't know it")
+        for field, value in place.items():
+            if isinstance(value, str) and not value.strip():
+                out.append(here + "." + field + ": empty; leave out what you don't know")
+        hours = place.get("hours")
+        if "openNow" in place and not (isinstance(hours, str) and hours.strip()):
+            out.append(here + ".openNow: say open or closed only with the hours you read it from; else leave it out")
+    return out
 
 
 def _tree(by_id, found):

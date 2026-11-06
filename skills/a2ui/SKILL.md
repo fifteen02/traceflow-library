@@ -51,11 +51,13 @@ What the chat app can draw: each piece, what it is for, and its properties (requ
 - `Image`: A real photo from the web of what the reply is about, at its https address, or the address of the page it is on (a recipe's, a product's: the page's own photo is shown): the app fetches it and credits its site. Never a made-up picture standing in for a real place or thing. **url** (string ≤2000); **alt** (string ≤200); caption (string ≤200); weight (a number, its share of a Row).
 - `Button`: Sends action.event.userMessage as the person's next message when pressed. Its child is a Text: its label. primary for the one thing you recommend, default for the rest. **child** (an id); variant (default | primary | borderless); **action** ({event: {**name**, **userMessage** ≤300}}); weight (a number, its share of a Row).
 - `VegaChart`: A Vega-Lite chart, drawn live, its data inline. **spec** (object); height (number 120–600).
-- `Places`: Places as cards, best first: one place, or several to pick from. title (string); **places** (list of {**name**, photo, rating, reviews, price, kind, distance, openNow, hours, address, mapsUrl, phone}, 1–8); from ({**latitude**, **longitude**}).
+- `Places`: Places as cards, best first: one place, or several to pick from. Give only what you know of each: leave a rating, price, hours or open-now out rather than writing 0, an empty text or false. The chat adds each place's rating, reviews, price, open-now and today's hours from Google after you send the card: never say you haven't checked them, and asked about them later, read them with a place-details tool rather than guess. title (string); **places** (list of {**name**, photo, rating, reviews, price, kind, distance, openNow, hours, address, mapsUrl, phone}, 1–8); from ({**latitude**, **longitude**}).
 - `Schedule`: A day of the calendar as a timeline. **day** (string); summary (string); **items** (list of {**start**, end, **title**, place}, ≤30).
 - `Compare`: Two to four options weighed on one measure (which is cheaper, faster, better): the verdict in a line, each option's figure in the same unit and how it adds up, the best one marked, where the figures came from. title (string ≤120); **verdict** (string ≤300); **options** (list of {**name**, **figure**, unit, how, best}, 2–4); basis (string ≤300).
+- `Weather`: The weather for one place and day, at a glance: the sky, the temperature with its high and low, the chance of rain and the wind, the day hour by hour, the next few days under it, and whose forecast it is. Asked a yes or no (will it rain?), put the answer in a few words first; asked about the hours (when will it rain? how warm this evening?), fill hours, one an hour or every few, in order. Only figures from a forecast you read: leave out what it doesn't say. **place** (string ≤60); **day** (string ≤40); answer (string ≤60); **condition** (clear | partly-cloudy | cloudy | fog | drizzle | rain | showers | storm | snow | wind); summary (string ≤60); **temperature** (number); high (number); low (number); unit (C | F); rain (number 0–100); wind (string ≤60); hours (list of {**time**, **condition**, **temperature**, rain}, ≤24); days (list of {**day**, **condition**, **high**, low}, ≤5); source (string ≤120).
 - `Table`: Rows of the same shape under their columns. title (string); **columns** (list of {**key**, **label**}, 1–8); **rows** (list of objects, ≤50).
 - `Sources`: Where an answer comes from, in order. title (string); **sources** (list of {**title**, url, site, snippet}, 1–10).
+- `Files`: Files the answer is about (a document found in Drive, a sheet shared with them): each with its name, its kind, where it lives and when it changed, opened by its link. Use it instead of writing a file's name and link out. title (string); **files** (list of {**name**, **kind**, where, changed, size, url}, 1–10).
 <!-- /pieces -->
 
 Every component may also carry `accessibility` and `metadata`. A Table's rows are objects keyed by its columns' `key`s, values as text ("€96"). A VegaChart's spec follows the chart rules: rows inline, at most 5000, 8 colours, a pie of 6 slices, one y axis (Charts, below, says which chart to pick).
@@ -112,6 +114,10 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 **Route** ([route](layouts/route.json)): stops in the order walked or driven, each opening in maps, how long it takes, one step.
 
     root Column > stops Places, length Text (caption), actions Row > start Button (primary)
+
+**Weather** ([weather](layouts/weather.json)): the weather for a place and day ("what's it like on Saturday?", "will it rain tomorrow?", "when will it rain?", "the hourly forecast"). One `Weather`: the sky as its `condition`, the temperature with its high and low, rain and wind, the day hour by hour in `hours` (each `time`, sky, temperature and chance of rain; every hour or every few, up to 24, as the forecast gives them), up to five next days, and whose forecast it is as its `source`. Asked about the hours, the hours are the answer: never a list or a table of them. Asked a yes or no, put the answer in a few words in `answer` ("Probably not"). Only figures from a forecast you read; never a guess.
+
+    root Column > weather Weather (place, day, condition, summary, temperature, high, low, unit, rain, wind; hours: {time, condition, temperature, rain}; days: {day, condition, high, low}; source)
 
 **Cost compare** ([cost-compare](layouts/cost-compare.json)): which of two or three ways is cheaper, faster or better ("rent a car or take taxis?", "is it worth the annual plan?"). One `Compare`: the verdict first, in a sentence (where one overtakes the other); each option's figure in the same unit and how it adds up, the best marked `best`; where the prices came from as its `basis`. Never cards of Text built by hand.
 
@@ -200,6 +206,10 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
 **Answer with sources** ([answer-with-sources](layouts/answer-with-sources.json)): the answer, then where it comes from; no buttons when there is nothing to do.
 
+**Files found** ([files-found](layouts/files-found.json)): a file or a few found for the person (their Drive, a mail's attachment) as a `Files` piece, never its raw name and link in words: the name read clean (no extension, no run of ids), its kind, where it lives, when it changed; one button when there is a next step.
+
+    root Column > files Files, actions Row > summarise Button (primary)
+
 **Many alike** ([many-alike](layouts/many-alike.json)): rows of the same shape, written once over the surface's data, the amounts formatted for you.
 
     {"createSurface": {"surfaceId": "lisbon-split", "catalogId": "...",
@@ -258,6 +268,7 @@ Bad: rows from an address ([data-from-url](https://github.com/fifteen02/traceflo
 
 - **Say the point in your words first**, in the reply's text; the surface carries what words can't. Never only a surface.
 - **A surface only when it helps the person act or compare.** A plain answer stays text.
+- **A place's facts are the chat's, not yours.** Give each place's name, address and what you know of it; the chat adds its rating, reviews, price, open-now and today's hours from Google after you send the card. So never write 0 or an empty text for them, never say you haven't checked its hours or prices, and when asked about them later (which is cheapest, when it closes), read them with a place-details tool rather than guess.
 - **A real place, person or thing is shown as itself, never made up.** Its photo is an `Image` at the https address where you found it (the place's own site, a product's page; the app fetches it and credits the site), or `Places` cards, whose photos the app fetches from Google. Never `make_picture` for something real, and never present a made-up picture as it; with no real photo, say so and give the link.
 - **One primary button at most**, for the one thing you recommend; the rest `default`.
 - **Button labels short** (a few words, "Move the bank to 14:00"); the `userMessage` is what the person would say, whole and on its own ("Move the call with the bank to 14:00 on Friday"), since it arrives as their next message.

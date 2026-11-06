@@ -1,0 +1,68 @@
+@page { size: A4; margin: 18mm 17mm 14mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: var(--font); color: var(--body); font-size: 10.5pt; line-height: 1.5; font-variant-numeric: tabular-nums; }
+main { display: flex; flex-direction: column; min-height: calc(297mm - 32mm); }
+strong, b { font-weight: 600; color: var(--ink); }
+mark { background: linear-gradient(transparent 52%, var(--accent) 52%); color: var(--ink); font-weight: 600; padding: 0 1px; }
+
+header { display: flex; justify-content: space-between; align-items: center; }
+header .mark svg { height: 13pt; width: auto; display: block; }
+header .mark .name { font-size: 13pt; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); }
+header .meta { font-size: 8pt; color: var(--tertiary); }
+
+h1 { font-size: 30pt; line-height: 1.06; font-weight: 400; letter-spacing: -0.03em; color: var(--ink); margin: 34pt 0 8pt; text-wrap: balance; }
+.lede { font-size: 11pt; line-height: 1.5; color: var(--secondary); margin: 0 0 22pt; max-width: 34em; }
+h2 { font-size: 15pt; font-weight: 400; letter-spacing: -0.02em; color: var(--ink); margin: 20pt 0 6pt; break-after: avoid; }
+h3 { display: flex; justify-content: space-between; align-items: baseline; font-size: 10pt; font-weight: 600; color: var(--ink);
+  margin: 0; padding-bottom: 5pt; border-bottom: 1pt solid var(--ink); break-after: avoid; }
+h3 span { font-weight: 400; color: var(--faint); }
+.text { margin: 0 0 9pt; max-width: 40em; }
+.note { margin: 18pt 0 0; max-width: 40em; color: var(--body); }
+.source { margin: 12pt 0 0; font-size: 8.5pt; color: var(--tertiary); max-width: 44em; }
+
+.cols { display: grid; gap: 18pt 22pt; }
+.cols-2 { grid-template-columns: 1fr 1fr; }
+.list { break-inside: avoid; }
+.list ul { list-style: none; margin: 0; padding: 0; }
+.list li { display: flex; gap: 8pt; align-items: center; padding: 5pt 0; border-bottom: 0.5pt solid var(--line); }
+.box { width: 8pt; height: 8pt; border: 1pt solid var(--mute); border-radius: 2.5pt; flex: none; }
+
+.day { margin-top: 16pt; break-inside: avoid; }
+.slot { display: grid; grid-template-columns: 44pt 1fr; gap: 0 10pt; padding: 7pt 0; border-bottom: 0.5pt solid var(--line); }
+.slot .time { color: var(--tertiary); }
+.slot b { display: block; }
+.slot i { font-style: normal; color: var(--tertiary); font-size: 9.5pt; }
+
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); border-top: 1pt solid var(--ink);
+  border-bottom: 0.5pt solid var(--border); margin: 0 0 16pt; }
+.figures div { padding: 9pt 10pt 9pt 0; font-size: 8.5pt; color: var(--tertiary); }
+.figures b { display: block; font-size: 22pt; font-weight: 400; letter-spacing: -0.02em; color: var(--ink); line-height: 1.15; }
+
+.bars { margin: 14pt 0 0; break-inside: avoid; }
+.bar { display: grid; grid-template-columns: 26% 1fr 14%; gap: 10pt; align-items: center; padding: 4.5pt 0; }
+.track { height: 7pt; background: var(--line); border-radius: 4pt; overflow: hidden; }
+.track i { display: block; height: 100%; background: var(--secondary); border-radius: 4pt; }
+.track i.best { background: var(--ink); }
+.bar .value { text-align: right; color: var(--ink); }
+
+.compare { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border-top: 1pt solid var(--ink); break-inside: avoid; }
+.option { padding: 10pt 12pt 10pt 0; }
+.option + .option { border-left: 0.5pt solid var(--border); padding-left: 12pt; }
+.option .name { display: flex; justify-content: space-between; align-items: center; gap: 6pt; font-weight: 600; color: var(--ink); }
+.tag { font-size: 7.5pt; font-weight: 600; background: var(--accent); color: var(--ink); padding: 1.5pt 6pt; border-radius: 99pt; }
+.option .figure { font-size: 22pt; letter-spacing: -0.02em; color: var(--ink); margin: 6pt 0 1pt; line-height: 1.1; }
+.option .unit { color: var(--tertiary); font-size: 9pt; margin-bottom: 8pt; }
+.row { display: flex; justify-content: space-between; gap: 8pt; padding: 4pt 0; border-bottom: 0.5pt solid var(--line); font-size: 9.5pt; }
+.row span:last-child { color: var(--ink); text-align: right; }
+.verdict { font-size: 13pt; line-height: 1.4; color: var(--ink); margin: 14pt 0 0; max-width: 34em; }
+
+.table { margin: 14pt 0 0; }
+.table h3 { border-bottom: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+th { text-align: left; font-weight: 600; color: var(--ink); background: var(--line); padding: 6pt 7pt; border-bottom: 1pt solid var(--ink); }
+td { padding: 6pt 7pt; border-bottom: 0.5pt solid var(--line); vertical-align: top; }
+.num { text-align: right; }
+tr { break-inside: avoid; }
+
+footer { margin-top: auto; padding-top: 14pt; display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--faint); }

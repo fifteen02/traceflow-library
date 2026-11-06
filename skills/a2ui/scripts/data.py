@@ -25,12 +25,25 @@ _SYMBOLS = {"EUR": "€", "GBP": "£", "USD": "US$"}
 
 
 def binds(value):
-    """Whether value binds, calls or templates anywhere, so it needs expanding before it can be drawn."""
+    """Whether value binds, calls or templates anywhere, so it needs expanding before it can be drawn; a string that says
+    ${…} counts, so expanding can say it is only filled in by formatString."""
+    if isinstance(value, str):
+        return _fills_in(value)
     if isinstance(value, dict):
         if "@path" in value or "@call" in value or isinstance(value.get("children"), dict):
             return True
         return any(binds(inner) for key, inner in value.items() if key != "spec")
     return isinstance(value, list) and any(binds(item) for item in value)
+
+
+def _fills_in(text):
+    """Whether text says ${…} unescaped, which only formatString fills in."""
+    at = text.find("${")
+    while at >= 0:
+        if at == 0 or text[at - 1] != "\\":
+            return True
+        at = text.find("${", at + 2)
+    return False
 
 
 def expand(components, data_model):
@@ -165,6 +178,9 @@ class _Expanding:
             return resolved
         if isinstance(value, list):
             return [self._resolve(item, scope, at + "[" + str(i) + "]") for i, item in enumerate(value)]
+        if isinstance(value, str) and _fills_in(value):
+            self.problems.append(at + ": \"" + value + "\" is drawn as written; ${…} is only filled in by formatString: "
+                                 + "{\"@call\": \"formatString\", \"args\": {\"value\": \"" + value + "\"}} (\\${ for a literal ${)")
         return value
 
     def _call(self, call, scope, at):
@@ -175,7 +191,9 @@ class _Expanding:
         args = {}
         if isinstance(call.get("args"), dict):
             for key, value in call["args"].items():
-                args[key] = self._resolve(value, scope, at + ".args." + key)
+                # formatString's own template is its to fill in, not a string drawn as written
+                own = name == "formatString" and key == "value" and isinstance(value, str)
+                args[key] = value if own else self._resolve(value, scope, at + ".args." + key)
         return self._run(name, args, scope, at)
 
     def _run(self, name, args, scope, at):

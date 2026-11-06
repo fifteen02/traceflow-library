@@ -1,0 +1,24 @@
+{
+  "layout": "budget",
+  "when": "Numbers someone will change and watch add up: a trip budget, a split, a tracker. Inputs in the accent's pale twin, totals as formulas, the total row the answer.",
+  "title": "Sicily, five days for two",
+  "subtitle": "In euro · change the yellow cells and the totals follow",
+  "currency": "€",
+  "sheets": [
+    {"name": "Budget", "columns": [
+      {"label": "Item", "key": "item"},
+      {"label": "Per day", "key": "per_day", "kind": "money"},
+      {"label": "Days", "key": "days", "kind": "number", "width": 9},
+      {"label": "Total", "key": "total", "kind": "money"}
+    ], "rows": [
+      {"cells": {"item": "Flights, return", "total": 310}, "inputs": ["total"]},
+      {"cells": {"item": "Stay in Ortigia", "per_day": 120, "days": 4, "total": "=B6*C6"}, "inputs": ["per_day", "days"]},
+      {"cells": {"item": "Food, vegetarian", "per_day": 70, "days": 5, "total": "=B7*C7"}, "inputs": ["per_day", "days"]},
+      {"cells": {"item": "Car hire", "per_day": 38, "days": 5, "total": "=B8*C8"}, "inputs": ["per_day", "days"]},
+      {"cells": {"item": "Sights and tours", "per_day": 25, "days": 5, "total": "=B9*C9"}, "inputs": ["per_day", "days"]},
+      {"cells": {"item": "Buffer, 10%", "total": "=SUM(D5:D9)*0.1"}},
+      {"cells": {"item": "Total for two", "total": "=SUM(D5:D10)"}, "total": true},
+      {"cells": {"item": "Each", "total": "=D11/2"}}
+    ]}
+  ]
+}
