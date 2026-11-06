@@ -107,7 +107,7 @@
     },
     "Schedule": {
       "type": "object",
-      "description": "A day or a week of the calendar, in order: each event's start and end as the calendar gives them (2026-11-07T09:00:00+01:00, so the app shows its date and how long it lasts; 09:00 for a day's times alone), a week in one Schedule. place only as the event says it, left out when it has none: never a placeholder such as To be confirmed.",
+      "description": "A day or a week of the calendar, in order: each event's start and end as the calendar gives them (2026-11-07T09:00:00+01:00, so the app shows its date and how long it lasts; 09:00 for a day's times alone), a week in one Schedule. place only as the event says it, left out when it has none: never a placeholder such as To be confirmed. people: who else is invited, by the names the calendar gives (its with), the person never among them; invited: how many others in all, when more are invited than named.",
       "properties": {
         "component": { "const": "Schedule" },
         "day": { "type": "string" },
@@ -276,7 +276,9 @@
         "start": { "type": "string" },
         "end": { "type": "string" },
         "title": { "type": "string" },
-        "place": { "type": "string" }
+        "place": { "type": "string" },
+        "people": { "type": "array", "maxItems": 10, "items": { "type": "string", "maxLength": 60 } },
+        "invited": { "type": "integer", "minimum": 0 }
       },
       "required": ["start", "title"],
       "additionalProperties": false
