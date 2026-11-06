@@ -1,0 +1,72 @@
+{
+  "layout": "cost-compare",
+  "asked": "Is it cheaper to rent a car or take taxis for a week in Gozo?",
+  "said": "A car wins if you're out most days.",
+  "why": "Two ways to pay for the same thing: the verdict first, then each option's figure in the same unit with how it adds up, the cheaper one marked best, and where the prices came from.",
+  "when": "Which of two to four ways is cheaper (or faster, or better): one Compare, the verdict in its first line.",
+  "messages": [
+    {
+      "version": "1.0",
+      "createSurface": {
+        "surfaceId": "car-or-taxi",
+        "catalogId": "github.com/fifteen02/traceflow:chat/v1",
+        "components": [
+          {
+            "id": "root",
+            "component": "Column",
+            "children": [
+              "compare",
+              "actions"
+            ]
+          },
+          {
+            "id": "compare",
+            "component": "Compare",
+            "title": "Car or taxis in Gozo",
+            "verdict": "A hire car is cheaper if you'll be out most days: taxis pass it at about **eight rides** in the week.",
+            "options": [
+              {
+                "name": "Hire car",
+                "figure": "€126–175",
+                "unit": "a week",
+                "how": "€18–25 a day in low season, plus the ferry over (€15.70 return)",
+                "best": true
+              },
+              {
+                "name": "Taxis",
+                "figure": "€19",
+                "unit": "a 10 km ride",
+                "how": "€3.50 to start, then about €1.50 a km; eight rides come to about €150"
+              }
+            ],
+            "basis": "November prices from one 2026 guide: check a current quote before you book."
+          },
+          {
+            "id": "actions",
+            "component": "Row",
+            "children": [
+              "quote"
+            ]
+          },
+          {
+            "id": "quote",
+            "component": "Button",
+            "child": "quote-label",
+            "variant": "primary",
+            "action": {
+              "event": {
+                "name": "reply",
+                "userMessage": "Find me a hire car in Gozo for next week"
+              }
+            }
+          },
+          {
+            "id": "quote-label",
+            "component": "Text",
+            "text": "Find a hire car"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -53,6 +53,7 @@ What the chat app can draw: each piece, what it is for, and its properties (requ
 - `VegaChart`: A Vega-Lite chart, drawn live, its data inline. **spec** (object); height (number 120–600).
 - `Places`: Places as cards, best first: one place, or several to pick from. title (string); **places** (list of {**name**, photo, rating, reviews, price, kind, distance, openNow, hours, address, mapsUrl, phone}, 1–8); from ({**latitude**, **longitude**}).
 - `Schedule`: A day of the calendar as a timeline. **day** (string); summary (string); **items** (list of {**start**, end, **title**, place}, ≤30).
+- `Compare`: Two to four options weighed on one measure (which is cheaper, faster, better): the verdict in a line, each option's figure in the same unit and how it adds up, the best one marked, where the figures came from. title (string ≤120); **verdict** (string ≤300); **options** (list of {**name**, **figure**, unit, how, best}, 2–4); basis (string ≤300).
 - `Table`: Rows of the same shape under their columns. title (string); **columns** (list of {**key**, **label**}, 1–8); **rows** (list of objects, ≤50).
 - `Sources`: Where an answer comes from, in order. title (string); **sources** (list of {**title**, url, site, snippet}, 1–10).
 <!-- /pieces -->
@@ -112,10 +113,9 @@ Every component may also carry `accessibility` and `metadata`. A Table's rows ar
 
     root Column > stops Places, length Text (caption), actions Row > start Button (primary)
 
-**Cost compare** ([cost-compare](layouts/cost-compare.json)): which of two or three ways is cheaper, faster or better ("rent a car or take taxis?", "is it worth the annual plan?"). The verdict first, in a sentence; then a card each with its total in the same unit and how it adds up; where one overtakes the other; where the prices came from.
+**Cost compare** ([cost-compare](layouts/cost-compare.json)): which of two or three ways is cheaper, faster or better ("rent a car or take taxis?", "is it worth the annual plan?"). One `Compare`: the verdict first, in a sentence (where one overtakes the other); each option's figure in the same unit and how it adds up, the best marked `best`; where the prices came from as its `basis`. Never cards of Text built by hand.
 
-    root Column > verdict Text, options Row > a Card (weight 1), b Card (weight 1), basis Text (caption)
-    a Card > a-body Column > a-what Text ("**Hire car**"), a-total Text ("**€126–175** a week"), a-how Text (caption)
+    root Column > compare Compare (verdict; options: {name, figure, unit, how, best}; basis), actions Row > quote Button (primary)
 
 **Products** ([products](layouts/products.json)): things to buy, from their makers' own pages. Each product's photo from its maker's page (an `Image` in its card), brand, name, what it is, the detail that matters, the pages as sources. No price or photo the maker's page doesn't have.
 

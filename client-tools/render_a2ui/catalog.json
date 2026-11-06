@@ -116,6 +116,18 @@
       },
       "required": ["component", "day", "items"]
     },
+    "Compare": {
+      "type": "object",
+      "description": "Two to four options weighed on one measure (which is cheaper, faster, better): the verdict in a line, each option's figure in the same unit and how it adds up, the best one marked, where the figures came from.",
+      "properties": {
+        "component": { "const": "Compare" },
+        "title": { "type": "string", "maxLength": 120 },
+        "verdict": { "type": "string", "maxLength": 300 },
+        "options": { "type": "array", "minItems": 2, "maxItems": 4, "items": { "$ref": "#/$defs/Option" } },
+        "basis": { "type": "string", "maxLength": 300 }
+      },
+      "required": ["component", "verdict", "options"]
+    },
     "Table": {
       "type": "object",
       "description": "Rows of the same shape under their columns.",
@@ -190,6 +202,18 @@
       "type": "object",
       "properties": { "latitude": { "type": "number" }, "longitude": { "type": "number" } },
       "required": ["latitude", "longitude"],
+      "additionalProperties": false
+    },
+    "Option": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 60 },
+        "figure": { "type": "string", "maxLength": 40 },
+        "unit": { "type": "string", "maxLength": 40 },
+        "how": { "type": "string", "maxLength": 200 },
+        "best": { "type": "boolean" }
+      },
+      "required": ["name", "figure"],
       "additionalProperties": false
     },
     "ScheduleItem": {
